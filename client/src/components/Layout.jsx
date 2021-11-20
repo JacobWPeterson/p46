@@ -13,7 +13,10 @@ const Layout = () => (
           <StyledNavLink to="/">Home</StyledNavLink>
         </StyledNavItem>
         <StyledNavItem>
-          <StyledNavLink to="/learn">Learn</StyledNavLink>
+          <StyledNavLink to="/workspace">Workspace</StyledNavLink>
+        </StyledNavItem>
+        <StyledNavItem>
+          <StyledNavLink to="/guide">Guide</StyledNavLink>
         </StyledNavItem>
         <StyledNavItem>
           <StyledNavLink to="/about">About</StyledNavLink>

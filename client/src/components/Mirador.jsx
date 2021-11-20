@@ -1,16 +1,66 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import mirador from "mirador";
+import { miradorImageToolsPlugin } from 'mirador-image-tools';
 
-class Mirador extends Component {
-  componentDidMount() {
-    const { config, plugins } = this.props;
-    mirador.viewer(config, plugins);
-  }
 
-  render() {
-    const { config } = this.props;
-    return <div id={config.id} />;
-  }
+const Mirador = ({ manifest, index }) => {
+  const config = {
+    id: 'demo',
+    window: {
+      allowClose: false, // Configure if windows can be closed or not
+      allowFullscreen: false, // Configure to show a "fullscreen" button in the WindowTopBar
+      allowMaximize: false, // Configure if windows can be maximized or not
+      allowTopMenuButton: false, // Configure if window view and thumbnail display menu are visible or not
+      allowWindowSideBar: true, // Configure if side bar menu is visible or not
+      authNewWindowCenter: 'parent', // Configure how to center a new window created by the authentication flow. Options: parent, screen
+      defaultSidebarPanelHeight: 201,  // Configure default sidebar height in pixels
+      defaultSidebarPanelWidth: 400, // Configure default sidebar width in pixels
+      defaultView: 'single',  // Configure which viewing mode (e.g. single, book, gallery) for windows to be opened in
+      forceDrawAnnotations: false,
+      hideWindowTitle: false, // Configure if the window title is shown in the window title bar or not
+      highlightAllAnnotations: false, // Configure whether to display annotations on the canvas by default
+      imageToolsEnabled: true,
+      imageToolsOpen: false,
+      showLocalePicker: false, // Configure locale picker for multi-lingual metadata
+      sideBarOpen: false, // Configure if the sidebar (and its content panel) is open by default
+      sideBarPanel: 'info', // Configure which sidebar is selected by default. Options: info, attribution, canvas, annotations, search
+    },
+    windows: [{
+      manifestId: manifest,
+      canvasIndex: index,
+      view: 'single',
+    }],
+    workspace: {
+      type: 'mosaic',
+    },
+    workspaceControlPanel: {
+        enabled: false, // Remove extra workspace settings
+    },
+    views: [
+      { key: 'single', behaviors: ['individuals'] },
+    ],
+    theme: {
+      palette: {
+        primary: {
+          main: '#c9ac5f',
+        },
+        secondary: {
+          main: '#3e5276',
+        },
+        shades: { // Shades that can be used to offset color areas of the Workspace / Window
+          dark: '#eeeeee',
+          main: '#ffffff',
+          light: '#f5f5f5',
+        },
+      },
+    },
+  };
+  useEffect(() => {
+    // const { config, plugins } = this.props;
+    mirador.viewer(config, miradorImageToolsPlugin);
+  }, []);
+
+  return <div id={config.id} />;
 }
 
 export default Mirador;
