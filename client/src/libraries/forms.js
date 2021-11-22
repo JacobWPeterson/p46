@@ -9,7 +9,7 @@ const forms = {
         text: 'αρχητουευαγγελιουιυχυυυτουθυ',
         key: 1,
         length: 28,
-        newConcepts: ['ekthesis'],
+        newConcepts: ['Ekthesis'],
       },
       {
         text: 'ωσγεγραπταιεντοισπροφηταισ',

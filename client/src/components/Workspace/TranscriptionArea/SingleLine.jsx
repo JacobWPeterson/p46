@@ -44,7 +44,7 @@ const SingleLine = ({ line }) => {
           <Popover.Body>
             {definitions[concepts[0]].short}
             &nbsp;
-            <StyledLink href={`/guide#${concepts[0]}`} target="_blank">See examples</StyledLink>
+            <StyledLink href={`/guide#${concepts[0]}`} target="_blank">Learn more</StyledLink>
           </Popover.Body>
         </Popover>
       )}
