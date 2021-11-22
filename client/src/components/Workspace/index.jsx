@@ -3,7 +3,7 @@ import Mirador from './Mirador/index.jsx';
 import TranscriptionArea from './TranscriptionArea/index.jsx';
 
 import { MiradorWrapper, PageWrapper, TranscriptionPanel } from '../../styles.js';
-import { forms } from '../../libraries/forms.js';
+import forms from '../../libraries/forms.js';
 
 const Workspace = () => {
   const manuscript = '01';

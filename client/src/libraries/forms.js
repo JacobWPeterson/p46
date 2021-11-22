@@ -1,6 +1,7 @@
-export const forms = {
+const forms = {
   '01': {
-    manifestId: 'https://cudl.lib.cam.ac.uk/iiif/MS-ADD-06594',
+    // manifestId: 'https://cudl.lib.cam.ac.uk/iiif/MS-ADD-06594',
+    manifestId: '',
     canvasIndex: 160,
     heading: true,
     lines: [
@@ -44,7 +45,9 @@ export const forms = {
         text: 'ωσγεγραπταιεντοισπροφηταισ',
         key: 8,
         length: 26,
-      }
+      },
     ],
-  }
-}
+  },
+};
+
+export default forms;

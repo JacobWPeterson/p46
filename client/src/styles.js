@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Nav from 'react-bootstrap/Nav';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { Popover } from 'react-bootstrap';
 
 export const AppWrapper = styled.div`
@@ -81,7 +81,7 @@ export const StyledLabel = styled.label`
 
 export const StyledLink = styled.a`
   color: #c9ac5f;
-  margin-bottom: ${props => props.marginBottom ? props.marginBottom : 0}px;
+  margin-bottom: ${(props) => (props.marginBottom ? props.marginBottom : 0)}px;
 `;
 
 export const StyledNav = styled(Nav)`
@@ -124,7 +124,7 @@ export const StyledNavLink = styled(Link)`
 
 export const StyledSubmitIcon = styled.div`
   color: #fff;
-  background: ${props => props.submitMessage === "√" ? '#4a9455' : '#e43621'};
+  background: ${(props) => (props.submitMessage === '√' ? '#4a9455' : '#e43621')};
   border-radius: 50%;
   height: 20px;
   width: 20px;
