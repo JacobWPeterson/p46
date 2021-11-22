@@ -8,7 +8,7 @@ import forms from '../../libraries/forms.js';
 const Workspace = () => {
   const manuscript = '01';
   return (
-    <PageWrapper>
+    <PageWrapper height="85vh">
       <MiradorWrapper>
         <Mirador manifest={forms[manuscript].manifestId} index={forms[manuscript].canvasIndex} />
       </MiradorWrapper>

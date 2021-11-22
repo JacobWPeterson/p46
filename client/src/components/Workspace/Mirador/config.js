@@ -1,18 +1,18 @@
-export const config = {
+const config = {
   id: 'transcribe',
   window: {
     allowClose: false, // Configure if windows can be closed or not
     allowFullscreen: false, // Configure to show a "fullscreen" button in the WindowTopBar
     allowMaximize: false, // Configure if windows can be maximized or not
-    allowTopMenuButton: false, // Configure if window view and thumbnail display menu are visible or not
+    allowTopMenuButton: false, // Configure if window view and thumbnail display menu are visible
     allowWindowSideBar: true, // Configure if side bar menu is visible or not
     authNewWindowCenter: 'parent', // Configure how to center a new window created by the authentication flow. Options: parent, screen
-    defaultSidebarPanelHeight: 201,  // Configure default sidebar height in pixels
+    defaultSidebarPanelHeight: 201, // Configure default sidebar height in pixels
     defaultSidebarPanelWidth: 400, // Configure default sidebar width in pixels
-    defaultView: 'single',  // Configure which viewing mode (e.g. single, book, gallery) for windows to be opened in
+    defaultView: 'single', // Configure which viewing mode (e.g. single, book, gallery) for windows to be opened in
     forceDrawAnnotations: false,
     hideWindowTitle: false, // Configure if the window title is shown in the window title bar or not
-    highlightAllAnnotations: false, // Configure whether to display annotations on the canvas by default
+    highlightAllAnnotations: false, // Configure whether to display annotations on the canvas
     imageToolsEnabled: true,
     imageToolsOpen: false,
     showLocalePicker: false, // Configure locale picker for multi-lingual metadata
@@ -25,7 +25,7 @@ export const config = {
     showZoomControls: true,
   },
   workspaceControlPanel: {
-      enabled: false, // Remove extra workspace settings
+    enabled: false, // Remove extra workspace settings
   },
   views: [
     { key: 'single', behaviors: ['individuals'] },
@@ -46,3 +46,5 @@ export const config = {
     },
   },
 };
+
+export default config;

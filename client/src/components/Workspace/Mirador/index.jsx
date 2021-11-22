@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
-import mirador from "mirador";
-import { config } from './config.js';
+import React, { useEffect } from 'react';
+import mirador from 'mirador';
 import { miradorImageToolsPlugin } from 'mirador-image-tools';
-
+import config from './config.js';
 
 const Mirador = ({ manifest, index }) => {
   useEffect(() => {
@@ -15,6 +14,6 @@ const Mirador = ({ manifest, index }) => {
   }, [manifest]);
 
   return <div id={config.id} />;
-}
+};
 
 export default Mirador;

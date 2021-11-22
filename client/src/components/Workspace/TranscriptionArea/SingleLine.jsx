@@ -10,7 +10,7 @@ import {
   StyledSubmitButton,
   StyledSubmitIcon,
 } from '../../../styles.js';
-import definitions from '../../../libraries/definitions.js';
+import glosses from '../../../libraries/glosses.js';
 
 const SingleLine = ({ line }) => {
   const [lineContent, setLineContent] = useState('');
@@ -42,9 +42,9 @@ const SingleLine = ({ line }) => {
         <Popover id="popover-concepts">
           <PopoverHeader as="h3">{concepts[0]}</PopoverHeader>
           <Popover.Body>
-            {definitions[concepts[0]].short}
+            {glosses[concepts[0]].short}
             &nbsp;
-            <StyledLink href={`/guide#${concepts[0]}`} target="_blank">Learn more</StyledLink>
+            <StyledLink href={`/help#${concepts[0]}`} target="_blank">Learn more</StyledLink>
           </Popover.Body>
         </Popover>
       )}

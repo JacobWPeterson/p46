@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link, Outlet } from "react-router-dom";
-import { AppWrapper, StyledH1, StyledNav, StyledNavItem, StyledNavItemsContainer, StyledNavLink } from '../styles.js';
+import { Outlet } from 'react-router-dom';
+import {
+  AppWrapper, StyledH1, StyledNav, StyledNavItem, StyledNavItemsContainer, StyledNavLink,
+} from '../styles.js';
 
 const Layout = () => (
   <AppWrapper>
@@ -16,7 +18,7 @@ const Layout = () => (
           <StyledNavLink to="/workspace">Workspace</StyledNavLink>
         </StyledNavItem>
         <StyledNavItem>
-          <StyledNavLink to="/guide">Guide</StyledNavLink>
+          <StyledNavLink to="/help">Help</StyledNavLink>
         </StyledNavItem>
         <StyledNavItem>
           <StyledNavLink to="/about">About</StyledNavLink>

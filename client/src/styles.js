@@ -7,24 +7,16 @@ export const AppWrapper = styled.div`
   font-family: 'Noto Sans', sans-serif;
 `;
 
-export const Definition = styled.p`
-  margin: 0 0 0 10px;
+export const HelpHeading = styled.h1`
+  color: #c9ac5f;
 `;
 
-export const Word = styled.h3`
-  font-weight: 700;
+export const HelpSection = styled.div`
+  margin: ${(props) => (props.marginTop ? '5vh' : 0)} 5vw 5vh;
 `;
 
-export const StyledNCButton = styled.div`
-  color: #3e5276;
-  background: #c9ac5f;
-  border-radius: 50%;
-  height: 25px;
-  width: 25px;
-  margin-left: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const HelpText = styled.p`
+  margin: 0 0 12px 15px;
 `;
 
 export const MiradorWrapper = styled.div`
@@ -34,9 +26,10 @@ export const MiradorWrapper = styled.div`
 `;
 
 export const PageWrapper = styled.div`
-  height: 85vh;
+  height: ${(props) => (props.height ? props.height : '100%')};
   width: 100vw;
   display: flex;
+  flex-direction: ${(props) => (props.flexDirection ? props.flexDirection : 'row')};
 `;
 
 export const PopoverHeader = styled(Popover.Header)`
@@ -122,6 +115,18 @@ export const StyledNavLink = styled(Link)`
   }
 `;
 
+export const StyledNCButton = styled.div`
+  color: #3e5276;
+  background: #c9ac5f;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const StyledSubmitIcon = styled.div`
   color: #fff;
   background: ${(props) => (props.submitMessage === '√' ? '#4a9455' : '#e43621')};
@@ -164,4 +169,10 @@ export const TranscriptionPanel = styled.div`
   flex: 2;
   display: flex;
   border: 2xp solid #3D3D3D;
+`;
+
+export const Word = styled.h4`
+  color: #3e5276;
+  font-weight: 700;
+  margin-bottom: 4px;
 `;
