@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import SingleLine from './SingleLine.jsx';
-import { TranscriptionContainer, TranscriptionHeader, TranscriptionSubtitle } from '../../../styles.js';
+import { TranscriptionContainer, TranscriptionHeader, StyledLink } from '../../../styles.js';
 
 const TranscriptionArea = ({ heading, lines }) => (
   <TranscriptionContainer>
     <TranscriptionHeader>
       Transcription Workspace
     </TranscriptionHeader>
-    <TranscriptionSubtitle href='/guide'>
+    <StyledLink href='/guide' marginBottom={10} target='_blank'>
       See transcription guide and rules
-    </TranscriptionSubtitle>
+    </StyledLink>
     {lines.map((line) => (
       <SingleLine key={line.key} line={line} />
     ))}

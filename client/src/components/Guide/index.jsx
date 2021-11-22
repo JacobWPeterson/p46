@@ -1,6 +1,7 @@
 import React from 'react';
 import DictionaryEntry from './DictionaryEntry.jsx';
-import { definitions } from './definitions.js';
+import { definitions } from '../../libraries/definitions.js';
+;
 
 const Guide = () => (
   <div>

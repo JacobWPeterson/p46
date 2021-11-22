@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from "react-router-dom";
+import { Popover } from 'react-bootstrap';
 
 export const AppWrapper = styled.div`
   font-family: 'Noto Sans', sans-serif;
@@ -14,6 +15,18 @@ export const Word = styled.h3`
   font-weight: 700;
 `;
 
+export const StyledNCButton = styled.div`
+  color: #3e5276;
+  background: #c9ac5f;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const MiradorWrapper = styled.div`
   flex: 3;
   height: 100%;
@@ -24,6 +37,17 @@ export const PageWrapper = styled.div`
   height: 85vh;
   width: 100vw;
   display: flex;
+`;
+
+export const PopoverHeader = styled(Popover.Header)`
+  color: #3e5276;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  border-top-left-radius: calc(0.3rem - 1px);
+  border-top-right-radius: calc(0.3rem - 1px);
 `;
 
 export const StyledForm = styled.form`
@@ -53,6 +77,11 @@ export const StyledInput = styled.input`
 
 export const StyledLabel = styled.label`
   color: #3e5276;
+`;
+
+export const StyledLink = styled.a`
+  color: #c9ac5f;
+  margin-bottom: ${props => props.marginBottom ? props.marginBottom : 0}px;
 `;
 
 export const StyledNav = styled(Nav)`
@@ -129,11 +158,6 @@ export const TranscriptionContainer = styled.div`
 export const TranscriptionHeader = styled.h2`
   color: #3e5276;
   margin-bottom: 5px;
-`;
-
-export const TranscriptionSubtitle = styled.a`
-  color: #c9ac5f;
-  margin-bottom: 10px;
 `;
 
 export const TranscriptionPanel = styled.div`
