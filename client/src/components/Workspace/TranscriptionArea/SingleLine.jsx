@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import { OverlayTrigger, Popover } from 'react-bootstrap';
+import evaluateSubmission from './validators.js';
+import glosses from '../../../libraries/glosses.js';
 import {
   PopoverHeader,
+  StyledBadge,
   StyledForm,
   StyledInput,
   StyledLabel,
   StyledLink,
   StyledNCButton,
   StyledSubmitButton,
-  StyledSubmitIcon,
 } from '../../../styles.js';
-import glosses from '../../../libraries/glosses.js';
 
 const SingleLine = ({ line }) => {
   const [lineContent, setLineContent] = useState('');
-  const [submitMessage, setSubmitMessage] = useState(null);
+  const [submissionStatus, setSubmissionStatus] = useState(null);
 
   const handleChange = (event) => {
     event.persist();
@@ -22,12 +23,7 @@ const SingleLine = ({ line }) => {
   };
 
   const handleSubmit = (event) => {
-    if (lineContent === line.text) {
-      setSubmitMessage('√');
-      event.preventDefault();
-      return;
-    }
-    setSubmitMessage('X');
+    setSubmissionStatus(evaluateSubmission(lineContent, line.text, line.length));
     event.preventDefault();
   };
 
@@ -37,7 +33,7 @@ const SingleLine = ({ line }) => {
       placement="top-end"
       rootClose
       transition
-      trigger="click"
+      trigger={['hover', 'click']}
       overlay={(
         <Popover id="popover-concepts">
           <PopoverHeader as="h3">{`New Concept: ${concepts[0]}`}</PopoverHeader>
@@ -53,6 +49,33 @@ const SingleLine = ({ line }) => {
     </OverlayTrigger>
   );
 
+  const renderIncorrectAnswerMessaging = () => (
+    !submissionStatus[0] ? (
+      <OverlayTrigger
+        key="error-tooltip"
+        placement="top-end"
+        rootClose
+        transition
+        trigger={['hover', 'click']}
+        overlay={(
+          <Popover id="popover-error">
+            <Popover.Body>
+              {submissionStatus[1]}
+            </Popover.Body>
+          </Popover>
+      )}
+      >
+        <StyledBadge pill bg="danger">
+          X
+        </StyledBadge>
+      </OverlayTrigger>
+    ) : (
+      <StyledBadge pill bg="success">
+        Correct!
+      </StyledBadge>
+    )
+  );
+
   return (
     <StyledForm onSubmit={handleSubmit}>
       <label htmlFor={line.key}>
@@ -63,9 +86,7 @@ const SingleLine = ({ line }) => {
       </label>
       <StyledSubmitButton type="submit">Check</StyledSubmitButton>
       {line.newConcepts && newConcept(line.newConcepts)}
-      {submitMessage && (
-        <StyledSubmitIcon submitMessage={submitMessage}>{submitMessage}</StyledSubmitIcon>
-      )}
+      {submissionStatus && renderIncorrectAnswerMessaging()}
     </StyledForm>
   );
 };

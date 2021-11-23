@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
-import { Popover } from 'react-bootstrap';
+import { Badge, Popover } from 'react-bootstrap';
 
 export const AppWrapper = styled.div`
   font-family: 'Noto Sans', sans-serif;
@@ -41,6 +41,10 @@ export const PopoverHeader = styled(Popover.Header)`
   border-bottom: 1px solid rgba(0,0,0,.2);
   border-top-left-radius: calc(0.3rem - 1px);
   border-top-right-radius: calc(0.3rem - 1px);
+`;
+
+export const StyledBadge = styled(Badge)`
+  margin-left: 10px;
 `;
 
 export const StyledForm = styled.form`
@@ -121,18 +125,6 @@ export const StyledNCButton = styled.div`
   border-radius: 50%;
   height: 25px;
   width: 25px;
-  margin-left: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const StyledSubmitIcon = styled.div`
-  color: #fff;
-  background: ${(props) => (props.submitMessage === '√' ? '#4a9455' : '#e43621')};
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
   margin-left: 10px;
   display: flex;
   align-items: center;
