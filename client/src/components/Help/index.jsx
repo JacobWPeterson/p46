@@ -7,13 +7,13 @@ import {
 
 const Help = () => (
   <PageWrapper flexDirection="column">
-    <HelpSection marginTop>
+    <HelpSection id="guide" marginTop>
       <HelpHeading>Guide</HelpHeading>
       <HelpText>
         Here will be a how-to
       </HelpText>
     </HelpSection>
-    <HelpSection>
+    <HelpSection id="glossary">
       <HelpHeading>Glossary</HelpHeading>
       {Object.keys(glosses).map((word) => (
         <GlossaryEntry word={word} gloss={glosses[word]} />
