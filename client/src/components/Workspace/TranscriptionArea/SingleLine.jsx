@@ -40,7 +40,7 @@ const SingleLine = ({ line }) => {
       trigger="click"
       overlay={(
         <Popover id="popover-concepts">
-          <PopoverHeader as="h3">{concepts[0]}</PopoverHeader>
+          <PopoverHeader as="h3">{`New Concept: ${concepts[0]}`}</PopoverHeader>
           <Popover.Body>
             {glosses[concepts[0]].short}
             &nbsp;

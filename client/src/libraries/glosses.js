@@ -27,7 +27,6 @@ const glosses = {
   },
   Ekthesis: {
     short: 'A large, decorative letter at the beginning of a line.',
-    long: 'A large, decorative letter at the beginning of a line. Potential to provide longer explanations of a concept here, followed by image examples.',
   },
   Foliation: {
     short: 'The numbering of folios within MSS.',
@@ -44,7 +43,7 @@ const glosses = {
     long: 'Two or three letters which are joined together, but where the form of each letter is preserved. They were uncommon in uncial MSS, but very common in minuscule MSS. Since they make reading harder, although writing faster, it is unfortunate that many were taken over an preserved in early Greek printer\'s fonts.',
   },
   'Literary Hands': {
-    short: 'see book hands.',
+    short: 'See book hands.',
   },
   Majuscule: {
     short: 'An alternative term for Uncial script.',
