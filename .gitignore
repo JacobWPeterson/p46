@@ -1,2 +1,5 @@
 node_modules
 .env
+bundle.js
+node_modules*
+vendors-node_modules*
