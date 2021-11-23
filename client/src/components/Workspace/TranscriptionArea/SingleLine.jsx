@@ -33,7 +33,7 @@ const SingleLine = ({ line }) => {
       placement="top-end"
       rootClose
       transition
-      trigger={['hover', 'click']}
+      trigger="click"
       overlay={(
         <Popover id="popover-concepts">
           <PopoverHeader as="h3">{`New Concept: ${concepts[0]}`}</PopoverHeader>

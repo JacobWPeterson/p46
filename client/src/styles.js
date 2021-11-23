@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
-import { Badge, Popover } from 'react-bootstrap';
+import { Badge, NavDropdown, Popover } from 'react-bootstrap';
 
 export const AppWrapper = styled.div`
   font-family: 'Noto Sans', sans-serif;
@@ -55,12 +55,15 @@ export const StyledForm = styled.form`
 `;
 
 export const StyledH1 = styled.h1`
-  color: #c9ac5f;
-  font-size: 40px;
-  font-weight: 700;
-  font-style: italic;
-  letter-spacing: .2rem;
-  margin: 0;
+  > a {
+    color: #c9ac5f;
+    font-size: 40px;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: .2rem;
+    margin: 0;
+    text-decoration: none;
+  }
 `;
 
 export const StyledInput = styled.input`
@@ -78,7 +81,17 @@ export const StyledLabel = styled.label`
 
 export const StyledLink = styled.a`
   color: #c9ac5f;
+  width: 250px;
   margin-bottom: ${(props) => (props.marginBottom ? props.marginBottom : 0)}px;
+
+  &:hover, &:focus {
+    outline: none;
+    cursor: pointer;
+    color: #3e5276;
+  }
+  &:hover {
+    transition: 500ms ease;
+  }
 `;
 
 export const StyledNav = styled(Nav)`
@@ -89,6 +102,39 @@ export const StyledNav = styled(Nav)`
   background: #3e5276;
   color: #fff;
   padding: 0 50px;
+`;
+
+export const StyledNavDropdown = styled(NavDropdown)`
+  &&& > a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      outline: none;
+      cursor: pointer;
+      color: #c9ac5f;
+    }
+    &:hover {
+      transition: 500ms ease;
+    }
+  }
+`;
+
+export const StyledNavDropdownItem = styled(NavDropdown.Item)`
+  color: #3e5276;
+  font-size: 18px;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    outline: none;
+    cursor: pointer;
+    color: #c9ac5f;
+    text-decoration: underline;
+  }
+  &:hover {
+    transition: 500ms ease;
+  }
 `;
 
 export const StyledNavItemsContainer = styled.div`
