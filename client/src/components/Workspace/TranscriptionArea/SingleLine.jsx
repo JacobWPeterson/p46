@@ -9,7 +9,7 @@ import {
   StyledInput,
   StyledLabel,
   StyledLink,
-  StyledNCButton,
+  StyledCustomPillBadge,
   StyledSubmitButton,
 } from '../../../styles.js';
 
@@ -45,7 +45,7 @@ const SingleLine = ({ line }) => {
         </Popover>
       )}
     >
-      <StyledNCButton variant="secondary">NC</StyledNCButton>
+      <StyledCustomPillBadge background="#c9ac5f">NC</StyledCustomPillBadge>
     </OverlayTrigger>
   );
 
