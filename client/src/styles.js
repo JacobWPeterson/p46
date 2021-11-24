@@ -28,7 +28,8 @@ export const MiradorWrapper = styled.div`
 
 export const PageWrapper = styled.div`
   height: ${(props) => (props.height ? props.height : '100%')};
-  width: 100vw;
+  width: 98vw;
+  margin: auto;
   display: flex;
   flex-direction: ${(props) => (props.flexDirection ? props.flexDirection : 'row')};
 `;
@@ -194,7 +195,7 @@ export const TranscriptionContainer = styled.div`
   width: 100%;
   flex-direction: column;
   overflow-y: scroll;
-  padding: 2vh 2vw;
+  padding: 2vh 0 2vh 2vw;
 `;
 
 export const TranscriptionHeader = styled.h2`
