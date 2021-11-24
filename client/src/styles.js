@@ -165,16 +165,22 @@ export const StyledNavLink = styled(Nav.Link)`
   }
 `;
 
-export const StyledNCButton = styled.div`
+export const StyledCustomPillBadge = styled.div`
   color: #3e5276;
-  background: #c9ac5f;
-  border-radius: 50%;
-  height: 25px;
-  width: 25px;
+  background: ${(props) => (props.background ? props.background : '#3e5276')};
+  display: inline-block;
   margin-left: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0.35em 0.65em;
+  font-size: .75em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 50rem !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 `;
 
 export const StyledSubmitButton = styled.button`
