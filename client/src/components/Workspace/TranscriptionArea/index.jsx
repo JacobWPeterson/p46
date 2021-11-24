@@ -12,7 +12,7 @@ const TranscriptionArea = ({ lines }) => (
       Transcription Workspace
     </TranscriptionHeader>
     <StyledLink href="/help" marginBottom={10} target="_blank">
-      See transcription guide and rules
+      See transcription guide
     </StyledLink>
     {lines.map((line) => (
       <SingleLine key={line.key} line={line} />

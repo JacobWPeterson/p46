@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import Nav from 'react-bootstrap/Nav';
-import { Link } from 'react-router-dom';
-import { Badge, NavDropdown, Popover } from 'react-bootstrap';
+import {
+  Badge, Container, Navbar, NavDropdown, Popover,
+} from 'react-bootstrap';
 
 export const AppWrapper = styled.div`
   font-family: 'Noto Sans', sans-serif;
@@ -47,23 +48,19 @@ export const StyledBadge = styled(Badge)`
   margin-left: 10px;
 `;
 
+export const StyledContainer = styled(Container)`
+  &&& {
+    width: 100%;
+    background: #3e5276;
+    padding: 5px 50px;
+  }
+`;
+
 export const StyledForm = styled.form`
   padding: 10px 0;
   width: 100%;
   display: flex;
   align-items: center;
-`;
-
-export const StyledH1 = styled.h1`
-  > a {
-    color: #c9ac5f;
-    font-size: 40px;
-    font-weight: 700;
-    font-style: italic;
-    letter-spacing: .2rem;
-    margin: 0;
-    text-decoration: none;
-  }
 `;
 
 export const StyledInput = styled.input`
@@ -94,26 +91,35 @@ export const StyledLink = styled.a`
   }
 `;
 
-export const StyledNav = styled(Nav)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 10vh;
-  background: #3e5276;
-  color: #fff;
-  padding: 0 50px;
+export const StyledNavbarBrand = styled(Navbar.Brand)`
+  &&& {
+    color: #c9ac5f;
+    font-size: 28px;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: .2rem;
+    text-decoration: none;
+  }
+`;
+
+export const StyledNavbarToggle = styled(Navbar.Toggle)`
+  &&& {
+    border-color: #c9ac5f;
+  }
 `;
 
 export const StyledNavDropdown = styled(NavDropdown)`
   &&& > a {
     color: #fff;
-    font-size: 18px;
     text-decoration: none;
 
     &:hover, &:focus {
       outline: none;
       cursor: pointer;
       color: #c9ac5f;
+    }
+    &:focus {
+      text-decoration: underline;
     }
     &:hover {
       transition: 500ms ease;
@@ -123,13 +129,14 @@ export const StyledNavDropdown = styled(NavDropdown)`
 
 export const StyledNavDropdownItem = styled(NavDropdown.Item)`
   color: #3e5276;
-  font-size: 18px;
   text-decoration: none;
 
   &:hover, &:focus {
     outline: none;
     cursor: pointer;
-    color: #c9ac5f;
+    color: #c9ac5f
+  }
+  &:focus {
     text-decoration: underline;
   }
   &:hover {
@@ -137,31 +144,23 @@ export const StyledNavDropdownItem = styled(NavDropdown.Item)`
   }
 `;
 
-export const StyledNavItemsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 400px;
-  height: 100%;
-`;
+export const StyledNavLink = styled(Nav.Link)`
+  &&& {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
 
-export const StyledNavItem = styled(Nav.Item)`
-  padding: 0 20px;
-`;
-
-export const StyledNavLink = styled(Link)`
-  color: #fff;
-  font-size: 18px;
-  text-decoration: none;
-
-  &:hover, &:focus {
-    outline: none;
-    cursor: pointer;
-    color: #c9ac5f;
-    text-decoration: underline;
-  }
-  &:hover {
-    transition: 500ms ease;
+    &:hover, &:focus {
+      outline: none;
+      cursor: pointer;
+      color: #c9ac5f;
+    }
+    &:focus {
+      text-decoration: underline;
+    }
+    &:hover {
+      transition: 500ms ease;
+    }
   }
 `;
 

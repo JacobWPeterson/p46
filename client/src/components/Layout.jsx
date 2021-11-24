@@ -1,42 +1,38 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { NavDropdown } from 'react-bootstrap';
+import {
+  Nav, Navbar, NavDropdown,
+} from 'react-bootstrap';
 import {
   AppWrapper,
-  StyledH1,
-  StyledNav,
+  StyledContainer,
+  StyledNavbarBrand,
+  StyledNavbarToggle,
   StyledNavDropdown,
   StyledNavDropdownItem,
-  StyledNavItem,
-  StyledNavItemsContainer,
   StyledNavLink,
 } from '../styles.js';
 
 const Layout = () => (
   <AppWrapper>
-    <StyledNav activeKey="1">
-      <StyledH1>
-        <a href="/">
-          Transcribe
-        </a>
-      </StyledH1>
-      <StyledNavItemsContainer>
-        <StyledNavItem>
-          <StyledNavLink eventKey="1" to="/">Home</StyledNavLink>
-        </StyledNavItem>
-        <StyledNavItem>
-          <StyledNavLink eventKey="2" to="/workspace">Workspace</StyledNavLink>
-        </StyledNavItem>
-        <StyledNavDropdown title="Help" data-test="nav-dropdown">
-          <StyledNavDropdownItem eventKey="3.1" href="/help">Guide</StyledNavDropdownItem>
-          <NavDropdown.Divider />
-          <StyledNavDropdownItem eventKey="3.2" href="/help#glossary">Glossary</StyledNavDropdownItem>
-        </StyledNavDropdown>
-        <StyledNavItem>
-          <StyledNavLink eventKey="4" to="/about">About</StyledNavLink>
-        </StyledNavItem>
-      </StyledNavItemsContainer>
-    </StyledNav>
+    <Navbar collapseOnSelect expand="lg" style={{ padding: '16px 0' }}>
+      <StyledContainer>
+        <StyledNavbarBrand href="/">Heirographa</StyledNavbarBrand>
+        <StyledNavbarToggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+          <Nav className="justify-content-end">
+            <StyledNavLink href="/">Home</StyledNavLink>
+            <StyledNavLink href="/workspace">Workspace</StyledNavLink>
+            <StyledNavDropdown title="Help" id="collapsible-nav-dropdown">
+              <StyledNavDropdownItem href="/help">Guide</StyledNavDropdownItem>
+              <NavDropdown.Divider />
+              <StyledNavDropdownItem href="/help#glossary">Glossary</StyledNavDropdownItem>
+            </StyledNavDropdown>
+            <StyledNavLink href="/about">About</StyledNavLink>
+          </Nav>
+        </Navbar.Collapse>
+      </StyledContainer>
+    </Navbar>
     <Outlet />
   </AppWrapper>
 );
