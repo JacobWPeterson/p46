@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { OverlayTrigger, Popover } from 'react-bootstrap';
+import pluralize from 'pluralize';
 import evaluateSubmission from './validators.js';
 import glosses from '../../../libraries/glosses.js';
 import {
@@ -16,15 +17,41 @@ import {
 const SingleLine = ({ line }) => {
   const [lineContent, setLineContent] = useState('');
   const [submissionStatus, setSubmissionStatus] = useState(null);
+  const [showHint, setShowHint] = useState(false);
+  const guesses = useRef(0);
+
+  useEffect(() => {
+    if (lineContent.length > 0 && submissionStatus[0]) {
+      guesses.current = 0;
+      setShowHint(false);
+      return;
+    }
+    /* On the offchance they got all the letters and were seeing the hint,
+    * but then deleted a letter, this turns off the hint icon. This also
+    * has the effect of re-rendering the hint tooltip when it elibile again.
+    */
+    if (lineContent.length !== line.length) {
+      setShowHint(false);
+      return;
+    }
+    /*
+    * To get here, guess must be incorrect but correct length.
+    * To get a hint they must have correctly identified the number of letters.
+    */
+    guesses.current += 1;
+    if (!showHint && guesses.current >= 3) {
+      setShowHint(true);
+    }
+  }, [submissionStatus]);
 
   const handleChange = (event) => {
     event.persist();
     setLineContent(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    setSubmissionStatus(evaluateSubmission(lineContent, line.text, line.length));
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    setSubmissionStatus(evaluateSubmission(lineContent, line.text, line.length));
   };
 
   const newConcept = (concepts) => (
@@ -56,7 +83,7 @@ const SingleLine = ({ line }) => {
         placement="top-end"
         rootClose
         transition
-        trigger={['hover', 'click']}
+        trigger="hover"
         overlay={(
           <Popover id="popover-error">
             <Popover.Body>
@@ -76,6 +103,35 @@ const SingleLine = ({ line }) => {
     )
   );
 
+  const getHint = (guess, answer) => {
+    const mismatches = [];
+    for (let i = 0; i < guess.length; i += 1) {
+      if (guess[i] !== answer[i]) {
+        mismatches.push(`${guess[i]}(${i + 1})`);
+      }
+    }
+    return `Incorrect ${pluralize('letter', mismatches.length)}: ${[...mismatches].join(', ')}.`;
+  };
+
+  const hint = () => (
+    <OverlayTrigger
+      key={`hint${line.key}`}
+      placement="top-end"
+      rootClose
+      transition
+      trigger="hover"
+      overlay={(
+        <Popover id="popover-hint">
+          <Popover.Body>
+            {getHint(lineContent, line.text)}
+          </Popover.Body>
+        </Popover>
+    )}
+    >
+      <StyledCustomPillBadge background="#3e5276">?</StyledCustomPillBadge>
+    </OverlayTrigger>
+  );
+
   return (
     <StyledForm onSubmit={handleSubmit}>
       <label htmlFor={line.key}>
@@ -87,6 +143,7 @@ const SingleLine = ({ line }) => {
       <StyledSubmitButton type="submit">Check</StyledSubmitButton>
       {line.newConcepts && newConcept(line.newConcepts)}
       {submissionStatus && renderIncorrectAnswerMessaging()}
+      {showHint && hint()}
     </StyledForm>
   );
 };
