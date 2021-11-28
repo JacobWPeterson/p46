@@ -67,7 +67,7 @@ const SingleLine = ({ line }) => {
           <Popover.Body>
             {glosses[concepts[0]].short}
             &nbsp;
-            <StyledLink href={`/help#${concepts[0]}`} target="_blank">Learn more</StyledLink>
+            <StyledLink href={`/glossary#${concepts[0]}`} target="_blank">Learn more</StyledLink>
           </Popover.Body>
         </Popover>
       )}

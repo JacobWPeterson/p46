@@ -5,7 +5,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout.jsx';
 import Home from './components/Home.jsx';
 import Workspace from './components/Workspace/index.jsx';
-import Help from './components/Help/index.jsx';
+import Glossary from './components/Help/Glossary.jsx';
+import Guide from './components/Help/Guide.jsx';
 import About from './components/About.jsx';
 
 const root = document.getElementById('app');
@@ -15,7 +16,8 @@ ReactDOM.render(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="workspace" element={<Workspace />} />
-        <Route path="help" element={<Help />} />
+        <Route path="Glossary" element={<Glossary />} />
+        <Route path="Guide" element={<Guide />} />
         <Route path="about" element={<About />} />
         <Route path="*" element={<Home />} />
       </Route>

@@ -24,9 +24,9 @@ const Layout = () => (
             <StyledNavLink href="/">Home</StyledNavLink>
             <StyledNavLink href="/workspace">Workspace</StyledNavLink>
             <StyledNavDropdown title="Help" id="collapsible-nav-dropdown">
-              <StyledNavDropdownItem href="/help">Guide</StyledNavDropdownItem>
+              <StyledNavDropdownItem href="/guide">Guide</StyledNavDropdownItem>
               <NavDropdown.Divider />
-              <StyledNavDropdownItem href="/help#glossary">Glossary</StyledNavDropdownItem>
+              <StyledNavDropdownItem href="/glossary">Glossary</StyledNavDropdownItem>
             </StyledNavDropdown>
             <StyledNavLink href="/about">About</StyledNavLink>
           </Nav>
