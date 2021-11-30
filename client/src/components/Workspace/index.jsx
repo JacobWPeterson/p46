@@ -8,7 +8,7 @@ import {
 import manifests from '../../libraries/manifests.js';
 
 const Workspace = () => {
-  const manuscript = '01';
+  const manuscript = '03';
   const [showWrongPageAlert, setShowWrongPageAlert] = useState(false);
 
   return (

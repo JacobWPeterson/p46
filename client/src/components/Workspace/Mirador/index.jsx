@@ -26,7 +26,7 @@ const Mirador = ({
   }, [manifest]);
 
   useEffect(() => {
-    if (pageNumber !== (index + 1)) {
+    if (pageNumber && pageNumber !== (index + 1)) {
       showAlert(true);
     }
     if (alertIsShowing && pageNumber === (index + 1)) {
