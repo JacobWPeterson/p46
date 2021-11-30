@@ -1,9 +1,9 @@
-const forms = {
+const manifests = {
   '01': {
     // manifestId: 'https://cudl.lib.cam.ac.uk/iiif/MS-ADD-06594',
     manifestId: '',
     canvasIndex: 160,
-    heading: true,
+    heading: 'ευαγγελιοv κατα μαρκον',
     lines: [
       {
         text: 'αρχητουευαγγελιουιυχυυυτουθυ',
@@ -50,4 +50,4 @@ const forms = {
   },
 };
 
-export default forms;
+export default manifests;

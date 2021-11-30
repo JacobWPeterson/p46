@@ -6,7 +6,7 @@ import { TranscriptionContainer, TranscriptionHeader, StyledLink } from '../../.
 image has a decorative header, which we can create a special form for?
 Or just use what's already written, but change the downstream "NC" emblem to one for headers?
 */
-const TranscriptionArea = ({ lines }) => (
+const TranscriptionArea = ({ heading, lines }) => (
   <TranscriptionContainer>
     <TranscriptionHeader>
       Transcription Workspace
@@ -14,6 +14,7 @@ const TranscriptionArea = ({ lines }) => (
     <StyledLink href="/guide" marginBottom={10} target="_blank">
       See transcription guide
     </StyledLink>
+    {heading && <SingleLine heading={heading} line={heading} />}
     {lines.map((line) => (
       <SingleLine key={line.key} line={line} />
     ))}

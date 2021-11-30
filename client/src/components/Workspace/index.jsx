@@ -5,7 +5,7 @@ import TranscriptionArea from './TranscriptionArea/index.jsx';
 import {
   MiradorWrapper, PageWrapper, StyledAlert, TranscriptionPanel,
 } from '../../styles.js';
-import forms from '../../libraries/forms.js';
+import manifests from '../../libraries/manifests.js';
 
 const Workspace = () => {
   const manuscript = '01';
@@ -16,20 +16,23 @@ const Workspace = () => {
       {showWrongPageAlert && (
         <StyledAlert variant="warning" onClose={() => setShowWrongPageAlert(false)}>
           Feel free to explore, but you have left the target image (
-          {forms[manuscript].canvasIndex + 1}
+          {manifests[manuscript].canvasIndex + 1}
           ).
         </StyledAlert>
       )}
       <MiradorWrapper>
         <Mirador
           alertIsShowing={showWrongPageAlert}
-          manifest={forms[manuscript].manifestId}
-          index={forms[manuscript].canvasIndex}
+          manifest={manifests[manuscript].manifestId}
+          index={manifests[manuscript].canvasIndex}
           showAlert={setShowWrongPageAlert}
         />
       </MiradorWrapper>
       <TranscriptionPanel>
-        <TranscriptionArea heading lines={forms[manuscript].lines} />
+        <TranscriptionArea
+          heading={manifests[manuscript].heading}
+          lines={manifests[manuscript].lines}
+        />
       </TranscriptionPanel>
     </PageWrapper>
   );

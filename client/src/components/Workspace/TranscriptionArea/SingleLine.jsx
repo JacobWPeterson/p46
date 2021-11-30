@@ -14,7 +14,7 @@ import {
   StyledSubmitButton,
 } from '../../../styles.js';
 
-const SingleLine = ({ line }) => {
+const SingleLine = ({ heading, line }) => {
   const [lineContent, setLineContent] = useState('');
   const [submissionStatus, setSubmissionStatus] = useState(null);
   const [showHint, setShowHint] = useState(false);
@@ -134,11 +134,11 @@ const SingleLine = ({ line }) => {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <label htmlFor={line.key}>
+      <label htmlFor={heading ? 'heading' : line.key}>
         <StyledLabel>
-          {`Line ${line.key}`}
+          {heading ? 'Heading' : `Line ${line.key}`}
         </StyledLabel>
-        <StyledInput id={line.key} type="text" value={lineContent} onChange={handleChange} />
+        <StyledInput id={heading ? 'heading' : line.key} type="text" value={lineContent} onChange={handleChange} />
       </label>
       <StyledSubmitButton type="submit">Check</StyledSubmitButton>
       {line.newConcepts && newConcept(line.newConcepts)}
