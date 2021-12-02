@@ -62,7 +62,7 @@ export const StyledBadge = styled(Badge)`
 
 export const StyledContainer = styled(Container)`
   &&& {
-    width: 100%;
+    max-width: 100%;
     background: #3e5276;
     padding: 5px 50px;
   }
@@ -119,6 +119,11 @@ export const StyledLink = styled.a`
   &:hover {
     transition: 500ms ease;
   }
+`;
+
+export const StyledNavbar = styled(Navbar)`
+  border-top: 5px solid #c9ac5f;
+  padding-top: 0;
 `;
 
 export const StyledNavbarBrand = styled(Navbar.Brand)`

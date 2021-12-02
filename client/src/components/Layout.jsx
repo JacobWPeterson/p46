@@ -6,6 +6,7 @@ import {
 import {
   AppWrapper,
   StyledContainer,
+  StyledNavbar,
   StyledNavbarBrand,
   StyledNavbarToggle,
   StyledNavDropdown,
@@ -15,8 +16,8 @@ import {
 
 const Layout = () => (
   <AppWrapper>
-    <Navbar collapseOnSelect expand="lg" style={{ padding: '16px 0' }}>
-      <StyledContainer>
+    <StyledNavbar collapseOnSelect expand="lg">
+      <StyledContainer class="container-fluid" nav-fill w-100>
         <StyledNavbarBrand href="/">Heirographa</StyledNavbarBrand>
         <StyledNavbarToggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
@@ -32,7 +33,7 @@ const Layout = () => (
           </Nav>
         </Navbar.Collapse>
       </StyledContainer>
-    </Navbar>
+    </StyledNavbar>
     <Outlet />
   </AppWrapper>
 );
