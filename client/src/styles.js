@@ -21,14 +21,29 @@ export const HelpText = styled.p`
 `;
 
 export const HomeTextContainer = styled.div`
-  width: 500px;
+  min-width: 500px;
+  font-size: 24px;
   padding: 20px 30px;
   margin; auto;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const HomeMiddleWrapper = styled.div`
+  height: 20vh;
+  color: #fff;
+  font-size: 28px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+  background-color: #c9ac5f;
+  justify-content: space-evenly;
+  align-items: center;
 `;
 
 export const HomeUpperWrapper = styled.div`
   display: flex;
+  margin: 5vh 0;
   justify-content: center;
   align-items: center;
 `;
@@ -64,13 +79,26 @@ export const StyledAlert = styled(Alert)`
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   background: #c9ac5f;
   padding: 12px 16px;
 `;
 
 export const StyledBadge = styled(Badge)`
   margin-left: 10px;
+`;
+
+export const StyledButton = styled.button`
+  color: #fff;
+  background: ${(props) => (props.background ? props.background : '#3e5276')};
+  font-size: ${(props) => (props.fontSize ? `${props.fontSize}px` : 'inherit')};
+  height: ${(props) => (props.height ? props.height : 25)}px;
+  border: none;
+  border-radius: 5px;
+    &:focus {
+      background: ${(props) => (props.background ? props.background : '#3e5276')}85;
+      border: none;
+      outline: none;
+    }
 `;
 
 export const StyledContainer = styled(Container)`
@@ -107,7 +135,7 @@ export const StyledForm = styled.form`
 `;
 
 export const StyledImage = styled.img`
-  max-width: ${(props) => (props.width ? props.width : 400)}px;
+  max-width: ${(props) => (props.maxWidth ? props.maxWidth : 400)}px;
   height: auto;
   border: 5px solid ${(props) => props.borderColor};
   border-radius: 5px;
@@ -124,6 +152,12 @@ export const StyledInput = styled.input`
 
 export const StyledLabel = styled.label`
   color: #3e5276;
+`;
+
+export const StyledLine = styled.div`
+  display: flex;
+  align-items: center;
+  padding-left: ${(props) => (props.paddingLeft ? props.paddingLeft : 0)}px;
 `;
 
 export const StyledLink = styled.a`
@@ -221,22 +255,9 @@ export const StyledNavLink = styled(Nav.Link)`
 
 export const StyledSpan = styled.span`
   color: ${(props) => (props.color ? props.color : '#3c444d')};
-  font-size: 40px;
+  font-size: 48px;
   padding-right: ${(props) => (props.paddingRight ? props.paddingRight : 0)}px;
   padding-left: ${(props) => (props.paddingLeft ? props.paddingLeft : 0)}px;
-`;
-
-export const StyledSubmitButton = styled.button`
-  color: #fff;
-  background: #3e5276;
-  height: 25px;
-  border: none;
-  border-radius: 5px;
-    &:focus {
-      background: #3e527685;
-      border: none;
-      outline: none;
-    }
 `;
 
 export const TranscriptionContainer = styled.div`

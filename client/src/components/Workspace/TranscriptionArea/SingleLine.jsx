@@ -6,12 +6,12 @@ import glosses from '../../../libraries/glosses.js';
 import {
   PopoverHeader,
   StyledBadge,
+  StyledButton,
   StyledForm,
   StyledInput,
   StyledLabel,
   StyledLink,
   StyledCustomPillBadge,
-  StyledSubmitButton,
 } from '../../../styles.js';
 
 const SingleLine = ({ heading, line }) => {
@@ -140,7 +140,7 @@ const SingleLine = ({ heading, line }) => {
         </StyledLabel>
         <StyledInput id={heading ? 'heading' : line.key} type="text" value={lineContent} onChange={handleChange} />
       </label>
-      <StyledSubmitButton type="submit">Check</StyledSubmitButton>
+      <StyledButton type="submit">Check</StyledButton>
       {line.newConcepts && newConcept(line.newConcepts)}
       {submissionStatus && renderIncorrectAnswerMessaging()}
       {showHint && hint()}
