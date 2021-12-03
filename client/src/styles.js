@@ -20,6 +20,19 @@ export const HelpText = styled.p`
   margin: 0 0 12px 15px;
 `;
 
+export const HomeTextContainer = styled.div`
+  width: 500px;
+  padding: 20px 30px;
+  margin; auto;
+  text-align: center;
+`;
+
+export const HomeUpperWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const MiradorWrapper = styled.div`
   flex: 3;
   height: 100%;
@@ -91,6 +104,13 @@ export const StyledForm = styled.form`
   width: 100%;
   display: flex;
   align-items: center;
+`;
+
+export const StyledImage = styled.img`
+  max-width: ${(props) => (props.width ? props.width : 400)}px;
+  height: auto;
+  border: 5px solid ${(props) => props.borderColor};
+  border-radius: 5px;
 `;
 
 export const StyledInput = styled.input`
@@ -197,6 +217,13 @@ export const StyledNavLink = styled(Nav.Link)`
       transition: 500ms ease;
     }
   }
+`;
+
+export const StyledSpan = styled.span`
+  color: ${(props) => (props.color ? props.color : '#3c444d')};
+  font-size: 40px;
+  padding-right: ${(props) => (props.paddingRight ? props.paddingRight : 0)}px;
+  padding-left: ${(props) => (props.paddingLeft ? props.paddingLeft : 0)}px;
 `;
 
 export const StyledSubmitButton = styled.button`
