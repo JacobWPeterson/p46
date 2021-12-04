@@ -67,7 +67,7 @@ const Home = () => {
           <HomeLowerSection background="#3e5276" color="#fff">
             <StyledH2 color="#c9ac5f">For Instructors (forthcoming)</StyledH2>
             <UnorderedList>
-              <ListItem color="#fff"><span>a prebuilt set of lessons</span></ListItem>
+              <ListItem color="#fff"><span>a prebuilt set of lessons (available now)</span></ListItem>
               <ListItem color="#fff"><span>ability to create your own set of lessons using any International Image Interoperability Framework (IIIF) accessible manuscripts and upload answer sets without needing any technical know-how</span></ListItem>
               <ListItem color="#fff"><span>invite students to your custom built sets</span></ListItem>
               <ListItem color="#fff"><span>receive reports of completed student work</span></ListItem>

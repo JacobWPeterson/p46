@@ -38,7 +38,7 @@ export const HomeTextContainer = styled.div`
 export const HomeFeatureWrapper = styled.div`
   display: flex;
   color: #3e5276;
-  margin: 5vh 0;
+  margin: 7vh 0 5vh;
   justify-content: space-evenly;
 `;
 
