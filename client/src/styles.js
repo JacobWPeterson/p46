@@ -6,6 +6,12 @@ import {
 
 export const AppWrapper = styled.div`
   font-family: 'Noto Sans', sans-serif;
+  position: relative;
+  min-height: 100vh;
+`;
+
+export const Copyright = styled.div`
+  padding: 8px 16px;
 `;
 
 export const HelpSection = styled.div`
@@ -148,6 +154,17 @@ export const StyledCustomPillBadge = styled.div`
   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 `;
 
+export const StyledFooter = styled.footer`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 5px solid #c9ac5f;
+`;
+
 export const StyledForm = styled.form`
   padding: 10px 0;
   width: 100%;
@@ -208,7 +225,7 @@ export const StyledLink = styled.a`
 `;
 
 export const StyledNavbar = styled(Navbar)`
-  border-top: ${(props) => (props.borderTop ? props.borderTop : 'none')};
+  border-top: ${(props) => (props.bordertop ? props.bordertop : 'none')};
   padding-top: 0;
 `;
 

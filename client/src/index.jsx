@@ -16,8 +16,8 @@ ReactDOM.render(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="workspace" element={<Workspace />} />
-        <Route path="Glossary" element={<Glossary />} />
-        <Route path="Guide" element={<Guide />} />
+        <Route path="glossary" element={<Glossary />} />
+        <Route path="guide" element={<Guide />} />
         <Route path="about" element={<About />} />
         <Route path="*" element={<Home />} />
       </Route>
