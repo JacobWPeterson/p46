@@ -8,8 +8,14 @@ export const AppWrapper = styled.div`
   font-family: 'Noto Sans', sans-serif;
 `;
 
-export const StyledHeading = styled.h1`
+export const StyledH1 = styled.h1`
   color: #c9ac5f;
+`;
+
+export const StyledH2 = styled.h2`
+  font-weight: 700;
+  text-align: center;
+  color: ${(props) => (props.color ? props.color : 'inherit')};
 `;
 
 export const HelpSection = styled.div`
@@ -29,13 +35,34 @@ export const HomeTextContainer = styled.div`
   justify-content: center;
 `;
 
+export const HomeFeatureWrapper = styled.div`
+  display: flex;
+  color: #3e5276;
+  margin: 5vh 0;
+  justify-content: space-evenly;
+`;
+
+export const HomeLowerSection = styled.div`
+  width: 42%;
+  background: ${(props) => (props.background)};
+  padding: 25px;
+  border-radius: 20px;
+`;
+
+export const HomeLowerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: #3e5276;
+  margin: 5vh 0;
+`;
+
 export const HomeMiddleWrapper = styled.div`
   height: 20vh;
   color: #fff;
   font-size: 28px;
   display: flex;
   flex-direction: column;
-  margin-top: 2vh;
+  margin: 2vh 0;
   background-color: #c9ac5f;
   justify-content: space-evenly;
   align-items: center;
@@ -135,6 +162,7 @@ export const StyledForm = styled.form`
 `;
 
 export const StyledImage = styled.img`
+  width: 100%;
   max-width: ${(props) => (props.maxWidth ? props.maxWidth : 400)}px;
   height: auto;
   border: 5px solid ${(props) => props.borderColor};
@@ -253,6 +281,14 @@ export const StyledNavLink = styled(Nav.Link)`
   }
 `;
 
+export const StyledP = styled.p`
+  width: 50vw;
+  margin: auto;
+  font-size: 24px;
+  font-style: italic;
+  text-align: center;
+`;
+
 export const StyledSpan = styled.span`
   color: ${(props) => (props.color ? props.color : '#3c444d')};
   font-size: 48px;
@@ -277,6 +313,20 @@ export const TranscriptionPanel = styled.div`
   flex: 2;
   display: flex;
   border: 2xp solid #3D3D3D;
+`;
+
+export const UnorderedList = styled.ul`
+  list-style-type: square;
+`;
+
+export const ListItem = styled.li`
+  color: #c9ac5f;
+  margin-left: 20px;
+  padding: 10px 0 10px 10px;
+  font-size: 20px;
+  > span {
+      color: ${(props) => (props.color ? props.color : '#3e5276')};
+  }
 `;
 
 export const Word = styled.h4`

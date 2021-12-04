@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  StyledHeading, HelpSection, HelpText, PageWrapper,
+  StyledH1, HelpSection, HelpText, PageWrapper,
 } from '../../styles.js';
 
 const Guide = () => (
   <PageWrapper flexDirection="column">
     <HelpSection id="guide" marginTop>
-      <StyledHeading>Guide</StyledHeading>
+      <StyledH1>Guide</StyledH1>
       <HelpText>
         Here will be a how-to
       </HelpText>
