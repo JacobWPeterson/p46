@@ -111,7 +111,7 @@ export const StyledBadge = styled(Badge)`
 `;
 
 export const StyledButton = styled.button`
-  color: #fff;
+  color: ${(props) => (props.color ? props.color : '#fff')};
   background: ${(props) => (props.background ? props.background : '#3e5276')};
   font-size: ${(props) => (props.fontSize ? `${props.fontSize}px` : 'inherit')};
   line-height: 1em;
@@ -125,6 +125,11 @@ export const StyledButton = styled.button`
     background: ${(props) => (props.background ? props.background : '#3e5276')}85;
     border: none;
     outline: none;
+  }
+
+  &:disabled {
+    background: #c9ac5f95;
+    color: #3e5276;
   }
 `;
 
