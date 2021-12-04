@@ -118,14 +118,18 @@ export const StyledButton = styled.button`
   color: #fff;
   background: ${(props) => (props.background ? props.background : '#3e5276')};
   font-size: ${(props) => (props.fontSize ? `${props.fontSize}px` : 'inherit')};
+  line-height: 1em;
+  padding: ${(props) => (props.padding ? props.padding : '2px 5px')};
   height: ${(props) => (props.height ? props.height : 25)}px;
   border: none;
   border-radius: 5px;
-    &:focus {
-      background: ${(props) => (props.background ? props.background : '#3e5276')}85;
-      border: none;
-      outline: none;
-    }
+  text-align: center;
+
+  &:focus {
+    background: ${(props) => (props.background ? props.background : '#3e5276')}85;
+    border: none;
+    outline: none;
+  }
 `;
 
 export const StyledContainer = styled(Container)`

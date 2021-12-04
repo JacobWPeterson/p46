@@ -40,16 +40,16 @@ const Home = () => {
       </HomeUpperWrapper>
       <HomeMiddleWrapper>
         Go from printed texts to manuscripts of any period in a few lessons
-        <StyledButton onClick={handleGetStarted} height={50} fontSize={24} type="button">Get Started</StyledButton>
+        <StyledButton onClick={handleGetStarted} height={50} fontSize={24} padding="5px 12px" type="button">Get Started</StyledButton>
       </HomeMiddleWrapper>
       <HomeLowerWrapper>
         <StyledP>
           {/* eslint-disable-next-line max-len */}
-          Heirographa currently offers several different features for students to ease the transition from reading printed Greek texts to manuscripts of any period. Although in development, there are numerous planned features for instructors, such as creating custom lessons and tracking student progress.
+          Heirographa currently offers several different features for learners to ease the transition from reading printed Greek texts to manuscripts of any period. Although in development, there are numerous planned features for instructors, such as creating custom lessons and tracking student progress.
         </StyledP>
         <HomeFeatureWrapper>
           <HomeLowerSection background="#d3d3d3">
-            <StyledH2 color="#c9ac5f">For Students</StyledH2>
+            <StyledH2 color="#c9ac5f">For Learners</StyledH2>
             <UnorderedList>
               <ListItem><span>increasingly difficult-to-read manuscripts</span></ListItem>
               <ListItem><span>answers checked line-by-line</span></ListItem>
