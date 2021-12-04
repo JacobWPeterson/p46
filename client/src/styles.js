@@ -8,16 +8,6 @@ export const AppWrapper = styled.div`
   font-family: 'Noto Sans', sans-serif;
 `;
 
-export const StyledH1 = styled.h1`
-  color: #c9ac5f;
-`;
-
-export const StyledH2 = styled.h2`
-  font-weight: 700;
-  text-align: center;
-  color: ${(props) => (props.color ? props.color : 'inherit')};
-`;
-
 export const HelpSection = styled.div`
   margin: ${(props) => (props.marginTop ? '5vh' : 0)} 5vw 5vh;
 `;
@@ -165,6 +155,16 @@ export const StyledForm = styled.form`
   align-items: center;
 `;
 
+export const StyledH1 = styled.h1`
+  color: #c9ac5f;
+`;
+
+export const StyledH2 = styled.h2`
+  font-weight: 700;
+  text-align: center;
+  color: ${(props) => (props.color ? props.color : 'inherit')};
+`;
+
 export const StyledImage = styled.img`
   width: 100%;
   max-width: ${(props) => (props.maxWidth ? props.maxWidth : 400)}px;
@@ -208,7 +208,7 @@ export const StyledLink = styled.a`
 `;
 
 export const StyledNavbar = styled(Navbar)`
-  border-top: 5px solid #c9ac5f;
+  border-top: ${(props) => (props.borderTop ? props.borderTop : 'none')};
   padding-top: 0;
 `;
 
@@ -267,7 +267,7 @@ export const StyledNavDropdownItem = styled(NavDropdown.Item)`
 
 export const StyledNavLink = styled(Nav.Link)`
   &&& {
-    color: #fff;
+    color: ${(props) => (props.color ? props.color : '#fff')};
     text-decoration: none;
     padding: 8px 16px;
 

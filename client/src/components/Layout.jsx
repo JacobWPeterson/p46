@@ -16,7 +16,7 @@ import {
 
 const Layout = () => (
   <AppWrapper>
-    <StyledNavbar collapseOnSelect expand="lg">
+    <StyledNavbar borderTop="5px solid #c9ac5f" collapseOnSelect expand="lg">
       <StyledContainer class="container-fluid" nav-fill w-100>
         <StyledNavbarBrand href="/">Heirographa</StyledNavbarBrand>
         <StyledNavbarToggle aria-controls="responsive-navbar-nav" />
@@ -35,6 +35,12 @@ const Layout = () => (
       </StyledContainer>
     </StyledNavbar>
     <Outlet />
+    <StyledNavbar fixed="bottom">
+      <StyledNavLink color="#3e5276" href="/">Home</StyledNavLink>
+      <StyledNavLink color="#3e5276" href="/about">About</StyledNavLink>
+      <StyledNavLink color="#3e5276" href="/contact">Contact</StyledNavLink>
+      Created by Jacob W. Peterson
+    </StyledNavbar>
   </AppWrapper>
 );
 
