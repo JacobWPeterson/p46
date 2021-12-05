@@ -43,7 +43,7 @@ const Home = () => {
         <StyledButton onClick={handleGetStarted} height={50} fontSize={24} padding="5px 12px" type="button">Get Started</StyledButton>
       </HomeMiddleWrapper>
       <HomeLowerWrapper>
-        <StyledP textAlign="center" width="50vw">
+        <StyledP fontStyle="italic" textAlign="center" width="50vw">
           {/* eslint-disable-next-line max-len */}
           Heirographa currently offers several different features for learners to ease the transition from reading printed Greek texts to manuscripts of any period. Although in development, there are numerous planned features for instructors, such as creating custom lessons and tracking student progress.
         </StyledP>

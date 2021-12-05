@@ -20,7 +20,7 @@ export const AboutPageMiddle = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  margin: 5vh auto;
+  margin: auto;
 `;
 
 export const AboutPageUpper = styled.div`
@@ -57,29 +57,11 @@ export const HelpText = styled.p`
   margin: 0 0 12px 15px;
 `;
 
-export const HomeTextContainer = styled.div`
-  min-width: 450px;
-  font-size: 28px;
-  padding: 20px;
-  margin; auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const HomeFeatureWrapper = styled.div`
   display: flex;
   color: #3e5276;
   margin: 7vh 0 5vh;
   justify-content: space-evenly;
-`;
-
-export const SectionHalf = styled.div`
-  width: 42%;
-  background: ${(props) => (props.background)};
-  padding: 25px;
-  border-radius: 20px;
 `;
 
 export const HomeLowerWrapper = styled.div`
@@ -99,6 +81,17 @@ export const HomeMiddleWrapper = styled.div`
   background-color: #c9ac5f;
   justify-content: space-evenly;
   align-items: center;
+`;
+
+export const HomeTextContainer = styled.div`
+  min-width: 450px;
+  font-size: 28px;
+  padding: 20px;
+  margin; auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const HomeUpperWrapper = styled.div`
@@ -122,6 +115,34 @@ export const PageWrapper = styled.div`
   flex-direction: ${(props) => (props.flexDirection ? props.flexDirection : 'row')};
 `;
 
+export const Partner = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 200px;
+  align-items: center;
+  margin: 20px;
+`;
+
+export const Partners = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  min-width: 50vw;
+  padding: 20px 0 0 0;
+`;
+
+export const PartnerText = styled.p`
+  color: ${(props) => (props.color ? props.color : '#606060')};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '24px')};
+  font-family: ${(props) => (props.fontFamily ? props.fontFamily : 'inherit')};
+  font-style: ${(props) => (props.fontStyle ? props.fontStyle : 'normal')};
+  letter-spacing: ${(props) => (props.letterSpacing ? props.letterSpacing : 'normal')};
+  margin: 0;
+  padding: ${(props) => (props.padding ? props.padding : '20px 0')};
+  text-align: center;
+`;
+
 export const PopoverHeader = styled(Popover.Header)`
   color: #3e5276;
   padding: 0.5rem 1rem;
@@ -131,6 +152,13 @@ export const PopoverHeader = styled(Popover.Header)`
   border-bottom: 1px solid rgba(0,0,0,.2);
   border-top-left-radius: calc(0.3rem - 1px);
   border-top-right-radius: calc(0.3rem - 1px);
+`;
+
+export const SectionHalf = styled.div`
+  width: 42%;
+  background: ${(props) => (props.background)};
+  padding: 25px;
+  border-radius: 20px;
 `;
 
 export const StyledAlert = styled(Alert)`
@@ -352,7 +380,7 @@ export const StyledP = styled.p`
   margin: auto;
   color: #606060;
   font-size: ${(props) => (props.fontSize ? props.fontSize : '24')}px;
-  font-style: italic;
+  font-style: ${(props) => (props.fontStyle ? props.fontStyle : 'normal')};
   text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
 `;
 
