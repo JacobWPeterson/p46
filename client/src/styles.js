@@ -59,9 +59,11 @@ export const HelpText = styled.p`
 
 export const HomeTextContainer = styled.div`
   min-width: 450px;
-  font-size: 24px;
-  padding: 20px 30px;
+  font-size: 28px;
+  padding: 20px;
   margin; auto;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
@@ -246,8 +248,10 @@ export const StyledLabel = styled.label`
 
 export const StyledLine = styled.div`
   display: flex;
-  align-items: center;
+  color: ${(props) => (props.color ? props.color : '#606060')};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : 'inherit')};
   padding-left: ${(props) => (props.paddingLeft ? props.paddingLeft : 0)}px;
+  align-self: ${(props) => (props.alignSelf ? props.alignSelf : 'auto')}
 `;
 
 export const StyledLink = styled.a`
@@ -346,6 +350,7 @@ export const StyledNavLink = styled(Nav.Link)`
 export const StyledP = styled.p`
   width: ${(props) => (props.width ? props.width : '100%')};
   margin: auto;
+  color: #606060;
   font-size: ${(props) => (props.fontSize ? props.fontSize : '24')}px;
   font-style: italic;
   text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};

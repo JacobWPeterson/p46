@@ -12,7 +12,6 @@ import {
   StyledImage,
   StyledLine,
   StyledP,
-  StyledSpan,
   UnorderedList,
   ListItem,
 } from '../styles.js';
@@ -27,13 +26,14 @@ const Home = () => {
       <HomeUpperWrapper>
         <StyledImage borderColor="#c9ac5f" maxWidth={500} src="./images/Aristophanes-Critical-Edition.png" alt="Greek printed edition text" />
         <HomeTextContainer>
-          <StyledLine>
-            <StyledSpan paddingRight={20} color="#3e5276">Learn</StyledSpan>
-            to read
+          <StyledLine alignSelf="flex-start" color="#3e5276" fontSize="40px">
+            Guided lessons
           </StyledLine>
-          <StyledLine paddingLeft={40}>
-            from
-            <StyledSpan paddingLeft={20} color="#c9ac5f">manuscripts</StyledSpan>
+          <StyledLine alignSelf="flex-start" paddingLeft={25}>
+            on learning to read from
+          </StyledLine>
+          <StyledLine alignSelf="flex-end" color="#c9ac5f" fontSize="40px">
+            Greek manuscripts
           </StyledLine>
         </HomeTextContainer>
         <StyledImage borderColor="#3e5276" maxWidth={450} src="./images/Aristophanes-Barocci-127.jpg" alt="Greek manuscript text" />
