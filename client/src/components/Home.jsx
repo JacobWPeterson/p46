@@ -2,7 +2,7 @@ import React from 'react';
 import {
   HomeTextContainer,
   HomeFeatureWrapper,
-  HomeLowerSection,
+  SectionHalf,
   HomeLowerWrapper,
   HomeMiddleWrapper,
   HomeUpperWrapper,
@@ -28,11 +28,11 @@ const Home = () => {
         <StyledImage borderColor="#c9ac5f" maxWidth={500} src="./images/Aristophanes-Critical-Edition.png" alt="Greek printed edition text" />
         <HomeTextContainer>
           <StyledLine>
-            <StyledSpan paddingRight={20} color="#3e5276">Heirographa</StyledSpan>
-            helps
+            <StyledSpan paddingRight={20} color="#3e5276">Learn</StyledSpan>
+            to read
           </StyledLine>
           <StyledLine paddingLeft={40}>
-            you read
+            from
             <StyledSpan paddingLeft={20} color="#c9ac5f">manuscripts</StyledSpan>
           </StyledLine>
         </HomeTextContainer>
@@ -43,12 +43,12 @@ const Home = () => {
         <StyledButton onClick={handleGetStarted} height={50} fontSize={24} padding="5px 12px" type="button">Get Started</StyledButton>
       </HomeMiddleWrapper>
       <HomeLowerWrapper>
-        <StyledP>
+        <StyledP textAlign="center" width="50vw">
           {/* eslint-disable-next-line max-len */}
           Heirographa currently offers several different features for learners to ease the transition from reading printed Greek texts to manuscripts of any period. Although in development, there are numerous planned features for instructors, such as creating custom lessons and tracking student progress.
         </StyledP>
         <HomeFeatureWrapper>
-          <HomeLowerSection background="#d3d3d3">
+          <SectionHalf background="#d3d3d3">
             <StyledH2 color="#c9ac5f">For Learners</StyledH2>
             <UnorderedList>
               <ListItem><span>increasingly difficult-to-read manuscripts</span></ListItem>
@@ -63,8 +63,8 @@ const Home = () => {
               <ListItem><span>suggestions for further study</span></ListItem>
               <ListItem><span>links to other relevant online resources</span></ListItem>
             </UnorderedList>
-          </HomeLowerSection>
-          <HomeLowerSection background="#3e5276" color="#fff">
+          </SectionHalf>
+          <SectionHalf background="#3e5276" color="#fff">
             <StyledH2 color="#c9ac5f">For Instructors (forthcoming)</StyledH2>
             <UnorderedList>
               <ListItem color="#fff"><span>a prebuilt set of lessons (available now)</span></ListItem>
@@ -72,7 +72,7 @@ const Home = () => {
               <ListItem color="#fff"><span>invite students to your custom built sets</span></ListItem>
               <ListItem color="#fff"><span>receive reports of completed student work</span></ListItem>
             </UnorderedList>
-          </HomeLowerSection>
+          </SectionHalf>
         </HomeFeatureWrapper>
       </HomeLowerWrapper>
     </PageWrapper>

@@ -4,10 +4,44 @@ import {
   Alert, Badge, Container, Navbar, NavDropdown, Popover,
 } from 'react-bootstrap';
 
+export const AboutPageLower = styled.div`
+  width: 90vw;
+  display: flex;
+  background: #d3d3d3;
+  height: 400px;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 5vh auto;
+`;
+
+export const AboutPageMiddle = styled.div`
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 5vh auto;
+`;
+
+export const AboutPageUpper = styled.div`
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 5vh auto;
+`;
+
+export const AboutPageLowerSection = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const AppWrapper = styled.div`
   font-family: 'Noto Sans', sans-serif;
   position: relative;
   min-height: 100vh;
+  padding-bottom: 50px;
 `;
 
 export const Copyright = styled.div`
@@ -24,7 +58,7 @@ export const HelpText = styled.p`
 `;
 
 export const HomeTextContainer = styled.div`
-  min-width: 500px;
+  min-width: 450px;
   font-size: 24px;
   padding: 20px 30px;
   margin; auto;
@@ -39,7 +73,7 @@ export const HomeFeatureWrapper = styled.div`
   justify-content: space-evenly;
 `;
 
-export const HomeLowerSection = styled.div`
+export const SectionHalf = styled.div`
   width: 42%;
   background: ${(props) => (props.background)};
   padding: 25px;
@@ -179,7 +213,8 @@ export const StyledForm = styled.form`
 `;
 
 export const StyledH1 = styled.h1`
-  color: #c9ac5f;
+  color: ${(props) => (props.color ? props.color : '#c9ac5f')};
+  text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')}
 `;
 
 export const StyledH2 = styled.h2`
@@ -309,11 +344,11 @@ export const StyledNavLink = styled(Nav.Link)`
 `;
 
 export const StyledP = styled.p`
-  width: 50vw;
+  width: ${(props) => (props.width ? props.width : '100%')};
   margin: auto;
-  font-size: 24px;
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '24')}px;
   font-style: italic;
-  text-align: center;
+  text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
 `;
 
 export const StyledSpan = styled.span`
