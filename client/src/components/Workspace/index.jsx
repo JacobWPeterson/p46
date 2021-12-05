@@ -8,7 +8,7 @@ import {
 import manifests from '../../libraries/manifests.js';
 
 const Workspace = () => {
-  const manuscript = '03';
+  const manuscript = '01';
   const [showWrongPageAlert, setShowWrongPageAlert] = useState(false);
 
   return (
@@ -30,7 +30,7 @@ const Workspace = () => {
       </MiradorWrapper>
       <TranscriptionPanel>
         <TranscriptionArea
-          heading={manifests[manuscript].heading}
+          title={manifests[manuscript].title}
           lines={manifests[manuscript].lines}
         />
       </TranscriptionPanel>

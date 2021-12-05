@@ -272,6 +272,7 @@ export const StyledInput = styled.input`
 
 export const StyledLabel = styled.label`
   color: #3e5276;
+  width: 55px;
 `;
 
 export const StyledLine = styled.div`

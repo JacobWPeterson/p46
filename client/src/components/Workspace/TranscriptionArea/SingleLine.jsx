@@ -14,7 +14,7 @@ import {
   StyledCustomPillBadge,
 } from '../../../styles.js';
 
-const SingleLine = ({ heading, line }) => {
+const SingleLine = ({ title, line }) => {
   const [lineContent, setLineContent] = useState('');
   const [submissionStatus, setSubmissionStatus] = useState(null);
   const [showHint, setShowHint] = useState(false);
@@ -134,11 +134,11 @@ const SingleLine = ({ heading, line }) => {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <label htmlFor={heading ? 'heading' : line.key}>
+      <label htmlFor={title ? 'title' : line.key}>
         <StyledLabel>
-          {heading ? 'Heading' : `Line ${line.key}`}
+          {title ? 'Title' : `Line ${line.key}`}
         </StyledLabel>
-        <StyledInput id={heading ? 'heading' : line.key} type="text" value={lineContent} onChange={handleChange} />
+        <StyledInput id={title ? 'title' : line.key} type="text" value={lineContent} onChange={handleChange} />
       </label>
       <StyledButton type="submit">Check</StyledButton>
       {line.newConcepts && newConcept(line.newConcepts)}
