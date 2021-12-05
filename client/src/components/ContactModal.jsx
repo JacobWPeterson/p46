@@ -40,10 +40,13 @@ const ContactModal = ({ show, onHide }) => {
   return (
     <Modal
       show={show}
+      backdrop="static"
+      keyboard={false}
       onHide={onHide}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      style={{ color: '#3e5276' }}
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
@@ -91,7 +94,7 @@ const ContactModal = ({ show, onHide }) => {
             <Form.Label>Comments</Form.Label>
             <Form.Control
               as="textarea"
-              rows={3}
+              rows={5}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
