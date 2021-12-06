@@ -132,11 +132,34 @@ const SingleLine = ({ title, line }) => {
     </OverlayTrigger>
   );
 
+  const titleHelp = () => (
+    <OverlayTrigger
+      key={`hint${line.key}`}
+      placement="top"
+      rootClose
+      transition
+      trigger="hover"
+      overlay={(
+        <Popover id="popover-hint">
+          <Popover.Body>
+            {/* eslint-disable-next-line max-len */}
+            Titles can be plain or feature elaborate patterns. Titles often feature ligatures and abbreviations and can be much more difficult to read, so they do not count toward your progress. Type them as a single line.
+          </Popover.Body>
+        </Popover>
+    )}
+    >
+      <StyledCustomPillBadge background="#3e5276" margin="0 0 0 3px" padding="2px 5px">?</StyledCustomPillBadge>
+    </OverlayTrigger>
+  );
+
   return (
     <StyledForm onSubmit={handleSubmit}>
       <label htmlFor={title ? 'title' : line.key}>
         <StyledLabel>
-          {title ? 'Title' : `Line ${line.key}`}
+          <div style={{ display: 'flex', 'align-items': 'center' }}>
+            {title ? 'Title' : `Line ${line.key}`}
+            <span style={{ height: '20', 'margin-bottom': '3px' }}>{title && titleHelp()}</span>
+          </div>
         </StyledLabel>
         <StyledInput id={title ? 'title' : line.key} type="text" value={lineContent} onChange={handleChange} />
       </label>
