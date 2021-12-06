@@ -10,6 +10,7 @@ const manifests = {
         key: 1,
         length: 28,
         newConcepts: ['Ekthesis'],
+        caption: 'The red αρ with superscript χ is shorthand for αρχη and marks the start of a section. Exclude it from your transcription.',
       },
       {
         text: 'ωσγεγραπταιεντοισπροφηταισ',
