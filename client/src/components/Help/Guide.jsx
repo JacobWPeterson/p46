@@ -5,8 +5,8 @@ import {
 
 const Guide = () => (
   <PageWrapper flexDirection="column">
-    <HelpSection id="guide" marginTop>
-      <StyledH1>Guide</StyledH1>
+    <HelpSection id="guide">
+      <StyledH1 textAlign="center">Guide</StyledH1>
       <HelpText>
         Here will be a how-to
       </HelpText>

@@ -8,7 +8,7 @@ import {
 const Glossary = () => (
   <PageWrapper flexDirection="column">
     <HelpSection id="glossary">
-      <StyledH1>Glossary</StyledH1>
+      <StyledH1 textAlign="center">Glossary</StyledH1>
       {Object.keys(glosses).map((word) => (
         <GlossaryEntry word={word} gloss={glosses[word]} />
       ))}

@@ -50,11 +50,14 @@ export const Copyright = styled.div`
 `;
 
 export const HelpSection = styled.div`
-  margin: ${(props) => (props.marginTop ? '5vh' : 0)} 5vw 5vh;
+  margin: 5vh auto;
+  width: 70%;
 `;
 
 export const HelpText = styled.p`
+  color: #606060;
   margin: 0 0 12px 15px;
+  letter-spacing: .03rem;
 `;
 
 export const HomeFeatureWrapper = styled.div`
