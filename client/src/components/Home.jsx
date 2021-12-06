@@ -30,7 +30,7 @@ const Home = () => {
             Guided lessons
           </StyledLine>
           <StyledLine alignSelf="flex-start" paddingLeft={25}>
-            on learning to read from
+            for learning to read from
           </StyledLine>
           <StyledLine alignSelf="flex-end" color="#c9ac5f" fontSize="40px">
             Greek manuscripts

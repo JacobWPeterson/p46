@@ -390,6 +390,7 @@ export const StyledP = styled.p`
   font-size: ${(props) => (props.fontSize ? props.fontSize : '24')}px;
   font-style: ${(props) => (props.fontStyle ? props.fontStyle : 'normal')};
   text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
+  letter-spacing: .03em;
 `;
 
 export const StyledSmall = styled.small`
