@@ -210,8 +210,8 @@ export const StyledCustomPillBadge = styled.div`
   color: #3e5276;
   background: ${(props) => (props.background ? props.background : '#3e5276')};
   display: inline-block;
-  margin-left: 10px;
-  padding: 0.35em 0.65em;
+  margin: ${(props) => (props.margin ? props.margin : '0 0 0 10px')};
+  padding: ${(props) => (props.padding ? props.padding : '0.35em 0.65em')};
   font-size: .75em;
   font-weight: 700;
   line-height: 1;
