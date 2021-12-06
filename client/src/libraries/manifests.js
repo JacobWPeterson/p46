@@ -35,6 +35,7 @@ const manifests = {
         text: 'σθενσουφωνηβοωντοσεντηερημω',
         key: 6,
         length: 27,
+        caption: 'You\'ll notice a superscript ω at the end of the line. This is part of the final word.',
       },
       {
         text: 'ετοιμασατετηνοδονκυευθειασποι',

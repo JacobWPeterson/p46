@@ -4,6 +4,7 @@ import pluralize from 'pluralize';
 import evaluateSubmission from './validators.js';
 import glosses from '../../../libraries/glosses.js';
 import {
+  StyledInputWrapper,
   PopoverHeader,
   StyledBadge,
   StyledButton,
@@ -12,6 +13,7 @@ import {
   StyledLabel,
   StyledLink,
   StyledCustomPillBadge,
+  StyledSmall,
 } from '../../../styles.js';
 
 const SingleLine = ({ title, line }) => {
@@ -154,16 +156,15 @@ const SingleLine = ({ title, line }) => {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <label htmlFor={title ? 'title' : line.key}>
-        <StyledLabel>
-          <div style={{ display: 'flex', 'align-items': 'center' }}>
-            {title ? 'Title' : `Line ${line.key}`}
-            <span style={{ height: '20', 'margin-bottom': '3px' }}>{title && titleHelp()}</span>
-          </div>
-        </StyledLabel>
+      <StyledLabel htmlFor={title ? 'title' : line.key} style={{ display: 'flex', 'align-items': 'center', 'margin-top': '3px' }}>
+        {title ? 'Title' : `Line ${line.key}`}
+        {title && titleHelp()}
+      </StyledLabel>
+      <StyledInputWrapper>
         <StyledInput id={title ? 'title' : line.key} type="text" value={lineContent} onChange={handleChange} />
-      </label>
-      <StyledButton type="submit">Check</StyledButton>
+        {line.caption && <StyledSmall>{line.caption}</StyledSmall>}
+      </StyledInputWrapper>
+      <StyledButton marginTop="2px" type="submit">Check</StyledButton>
       {line.newConcepts && newConcept(line.newConcepts)}
       {submissionStatus && renderIncorrectAnswerMessaging()}
       {showHint && hint()}

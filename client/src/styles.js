@@ -172,19 +172,20 @@ export const StyledAlert = styled(Alert)`
 `;
 
 export const StyledBadge = styled(Badge)`
-  margin-left: 10px;
+  margin: 5px 0 0 10px;
 `;
 
 export const StyledButton = styled.button`
   color: ${(props) => (props.color ? props.color : '#fff')};
   background: ${(props) => (props.background ? props.background : '#3e5276')};
   font-size: ${(props) => (props.fontSize ? `${props.fontSize}px` : 'inherit')};
+  text-align: center;
   line-height: 1em;
   padding: ${(props) => (props.padding ? props.padding : '2px 5px')};
+  margin-top: ${(props) => (props.marginTop ? props.marginTop : '0')};
   height: ${(props) => (props.height ? props.height : 25)}px;
   border: none;
   border-radius: 5px;
-  text-align: center;
 
   &:focus {
     background: ${(props) => (props.background ? props.background : '#3e5276')}85;
@@ -210,7 +211,7 @@ export const StyledCustomPillBadge = styled.div`
   color: #3e5276;
   background: ${(props) => (props.background ? props.background : '#3e5276')};
   display: inline-block;
-  margin: ${(props) => (props.margin ? props.margin : '0 0 0 10px')};
+  margin: ${(props) => (props.margin ? props.margin : '5px 0 0 10px')};
   padding: ${(props) => (props.padding ? props.padding : '0.35em 0.65em')};
   font-size: .75em;
   font-weight: 700;
@@ -239,7 +240,7 @@ export const StyledForm = styled.form`
   padding: 10px 0;
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 export const StyledH1 = styled.h1`
@@ -262,12 +263,18 @@ export const StyledImage = styled.img`
 `;
 
 export const StyledInput = styled.input`
-  min-width: 250px;
   height: 30px;
   font-size: 16px;
+  padding: 2px 5px;
+`;
+
+export const StyledInputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 250px;
   width: 20vw;
   margin: 0 10px;
-  padding: 2px 5px;
 `;
 
 export const StyledLabel = styled.label`
@@ -383,6 +390,12 @@ export const StyledP = styled.p`
   font-size: ${(props) => (props.fontSize ? props.fontSize : '24')}px;
   font-style: ${(props) => (props.fontStyle ? props.fontStyle : 'normal')};
   text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
+`;
+
+export const StyledSmall = styled.small`
+  color: #6c757d;
+  margin-top: 0.25rem;
+  font-size: .8em;
 `;
 
 export const StyledSpan = styled.span`
