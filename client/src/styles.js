@@ -49,6 +49,28 @@ export const Copyright = styled.div`
   color: #3e5276;
 `;
 
+export const E404Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: ${(props) => props.left}%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  z-index: ${(props) => props.z};
+`;
+
+export const E404Wrapper = styled.div`
+  width: 100vw;
+  height: calc(100vh - 125px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const HelpSection = styled.div`
   margin: 5vh auto;
   width: 70%;
@@ -56,7 +78,7 @@ export const HelpSection = styled.div`
 
 export const HelpText = styled.p`
   color: #606060;
-  margin: 0 0 12px 15px;
+  margin: 0 0 12px 25px;
   letter-spacing: .03rem;
 `;
 
@@ -388,7 +410,7 @@ export const StyledNavLink = styled(Nav.Link)`
 
 export const StyledP = styled.p`
   width: ${(props) => (props.width ? props.width : '100%')};
-  margin: auto;
+  margin: 0 auto;
   color: #606060;
   font-size: ${(props) => (props.fontSize ? props.fontSize : '24')}px;
   font-style: ${(props) => (props.fontStyle ? props.fontStyle : 'normal')};

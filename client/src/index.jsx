@@ -8,6 +8,7 @@ import Workspace from './components/Workspace/index.jsx';
 import Glossary from './components/Help/Glossary.jsx';
 import Guide from './components/Help/Guide.jsx';
 import About from './components/About.jsx';
+import E404 from './components/E404.jsx';
 
 const root = document.getElementById('app');
 ReactDOM.render(
@@ -19,7 +20,7 @@ ReactDOM.render(
         <Route path="glossary" element={<Glossary />} />
         <Route path="guide" element={<Guide />} />
         <Route path="about" element={<About />} />
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<E404 />} />
       </Route>
     </Routes>
   </BrowserRouter>,
