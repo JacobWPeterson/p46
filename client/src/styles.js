@@ -132,6 +132,13 @@ export const MiradorWrapper = styled.div`
   position: relative;
 `;
 
+export const NavButtonHolder = styled.div`
+  display: flex;
+  width: 400px;
+  margin: 1vh 10px;
+  justify-content: space-between;
+`;
+
 export const PageWrapper = styled.div`
   height: ${(props) => (props.height ? props.height : '100%')};
   width: 98vw;
