@@ -1,6 +1,12 @@
 import React from 'react';
 import SingleLine from './SingleLine.jsx';
-import { TranscriptionContainer, TranscriptionHeader, StyledLink } from '../../../styles.js';
+import {
+  NavButtonHolder,
+  StyledButton,
+  StyledLink,
+  TranscriptionContainer,
+  TranscriptionHeader,
+} from '../../../styles.js';
 
 /* 'title' prop is available; it is a bool referring to whether or not the
 image has a decorative header, which we can create a special form for?
@@ -20,8 +26,10 @@ const TranscriptionArea = ({
     {lines.map((line) => (
       <SingleLine key={line.key} line={line} />
     ))}
-    {manuscriptId > 1 && <button type="submit" onClick={() => changeManuscript('previous')}>Previous</button>}
-    {manuscriptId < manifestLength && <button type="submit" onClick={() => changeManuscript('next')}>Next</button>}
+    <NavButtonHolder>
+      {manuscriptId > 1 ? <StyledButton background="#d3d3d3" color="#3e5276" height={38} padding="6px 12px" onClick={() => changeManuscript('previous')}>Previous</StyledButton> : <div /> }
+      {manuscriptId < manifestLength ? <StyledButton background="#c9ac5f" height={38} padding="6px 26px" onClick={() => changeManuscript('next')}>Next</StyledButton> : <div /> }
+    </NavButtonHolder>
   </TranscriptionContainer>
 );
 
