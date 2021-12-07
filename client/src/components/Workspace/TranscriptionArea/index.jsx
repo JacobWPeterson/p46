@@ -6,7 +6,9 @@ import { TranscriptionContainer, TranscriptionHeader, StyledLink } from '../../.
 image has a decorative header, which we can create a special form for?
 Or just use what's already written, but change the downstream "NC" emblem to one for headers?
 */
-const TranscriptionArea = ({ title, lines }) => (
+const TranscriptionArea = ({
+  changeManuscript, lines, manifestLength, manuscriptId, title,
+}) => (
   <TranscriptionContainer>
     <TranscriptionHeader>
       Transcription Workspace
@@ -18,6 +20,8 @@ const TranscriptionArea = ({ title, lines }) => (
     {lines.map((line) => (
       <SingleLine key={line.key} line={line} />
     ))}
+    {manuscriptId > 1 && <button type="submit" onClick={() => changeManuscript('previous')}>Previous</button>}
+    {manuscriptId < manifestLength && <button type="submit" onClick={() => changeManuscript('next')}>Next</button>}
   </TranscriptionContainer>
 );
 

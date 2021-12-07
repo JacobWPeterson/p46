@@ -8,8 +8,20 @@ import {
 import manifests from '../../libraries/manifests.js';
 
 const Workspace = () => {
-  const manuscript = '01';
+  const manifestLength = Object.keys(manifests).length;
+  const [manuscript, setManuscript] = useState(1);
   const [showWrongPageAlert, setShowWrongPageAlert] = useState(false);
+
+  const handleManifestChange = (type) => {
+    switch (type) {
+      case 'next':
+        return setManuscript(manuscript + 1);
+      case 'previous':
+        return setManuscript(manuscript - 1);
+      default:
+        throw new Error();
+    }
+  };
 
   return (
     <PageWrapper height="85vh">
@@ -32,6 +44,9 @@ const Workspace = () => {
         <TranscriptionArea
           title={manifests[manuscript].title}
           lines={manifests[manuscript].lines}
+          changeManuscript={handleManifestChange}
+          manifestLength={manifestLength}
+          manuscriptId={manuscript}
         />
       </TranscriptionPanel>
     </PageWrapper>
