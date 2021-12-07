@@ -1,9 +1,12 @@
+//  Other potential MSS:
+// Aristophanes minuscules https://www.digitale-sammlungen.de/en/view/bsb00069327?page=,1
+
 const manifests = {
   '01': {
     manifestId: 'https://cudl.lib.cam.ac.uk/iiif/MS-ADD-06594',
     // manifestId: '',
     canvasIndex: 160,
-    title: 'ευαγγελιοv κατα μαρκον',
+    title: 'ευαγγελιοvκαταμαρκον',
     lines: [
       {
         text: 'αρχητουευαγγελιουιυχυυυτουθυ',
@@ -47,6 +50,89 @@ const manifests = {
         text: 'ειτεταστριβουσαυτουεγενετοιω',
         key: 8,
         length: 28,
+      },
+    ],
+  },
+  '02': {
+    // helpful quasi transcription https://books.google.com/books?id=2c5hAAAAcAAJ&pg=PP118&lpg=PP118&dq=ephrem+syrus+%CE%BA%CE%B1%CF%84%CE%B1%CE%BD%CE%B9%CE%BA%CF%84%CE%B9%CE%BA%CE%BF%CF%82+%CE%BB%CE%BF%CE%B3%CE%BF%CF%82+%CE%B1&source=bl&ots=LeXDEgtDAt&sig=ACfU3U1qoHsw12pFlyLR5Tae8UnNklc6kg&hl=en&sa=X&ved=2ahUKEwif16uHiNH0AhX-Ap0JHUBGA_QQ6AF6BAgYEAM#v=onepage&q=ephrem%20syrus%20%CE%BA%CE%B1%CF%84%CE%B1%CE%BD%CE%B9%CE%BA%CF%84%CE%B9%CE%BA%CE%BF%CF%82%20%CE%BB%CE%BF%CE%B3%CE%BF%CF%82%20%CE%B1&f=false
+    manifestId: 'https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00050975/manifest',
+    canvasIndex: 156,
+    title: {
+      text: 'λογοσαυτωνκατανυκτικοσλογοσα',
+      key: 'title',
+      length: 28,
+    },
+    lines: [
+      {
+        text: 'ενμιαουντωνημερων',
+        key: 1,
+        length: 17,
+      },
+      {
+        text: 'ορθρουμιαναστασεπορευομην',
+        key: 2,
+        length: 25,
+        newConcepts: ['Ligatures'],
+      },
+      {
+        text: '',
+        key: 3,
+        length: 28,
+      },
+      {
+        text: '',
+        key: 4,
+        length: 26,
+      },
+      {
+        text: '',
+        key: 5,
+        length: 28,
+      },
+      {
+        text: '',
+        key: 6,
+        length: 26,
+      },
+      {
+        text: '',
+        key: 7,
+        length: 28,
+      },
+      {
+        text: '',
+        key: 8,
+        length: 26,
+      },
+      {
+        text: '',
+        key: 9,
+        length: 28,
+      },
+      {
+        text: '',
+        key: 10,
+        length: 26,
+      },
+      {
+        text: '',
+        key: 11,
+        length: 28,
+      },
+      {
+        text: '',
+        key: 12,
+        length: 26,
+      },
+      {
+        text: '',
+        key: 13,
+        length: 28,
+      },
+      {
+        text: '',
+        key: 14,
+        length: 26,
       },
     ],
   },
