@@ -85,7 +85,7 @@ const SingleLine = ({ title, line }) => {
         placement="top-end"
         rootClose
         transition
-        trigger="hover"
+        trigger={['hover', 'focus']}
         overlay={(
           <Popover id="popover-error">
             <Popover.Body>
@@ -121,7 +121,7 @@ const SingleLine = ({ title, line }) => {
       placement="top-end"
       rootClose
       transition
-      trigger="hover"
+      trigger={['hover', 'focus']}
       overlay={(
         <Popover id="popover-hint">
           <Popover.Body>
@@ -140,7 +140,7 @@ const SingleLine = ({ title, line }) => {
       placement="top"
       rootClose
       transition
-      trigger="hover"
+      trigger={['hover', 'focus']}
       overlay={(
         <Popover id="popover-hint">
           <Popover.Body>
