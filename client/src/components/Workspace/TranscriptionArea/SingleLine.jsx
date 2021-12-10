@@ -156,7 +156,7 @@ const SingleLine = ({ title, line }) => {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <StyledLabel htmlFor={title ? 'title' : line.key} style={{ display: 'flex', 'align-items': 'center', 'margin-top': '3px' }}>
+      <StyledLabel htmlFor={title ? 'title' : line.key} style={{ display: 'flex', alignItems: 'center', marginTop: '3px' }}>
         {title ? 'Title' : `Line ${line.key}`}
         {title && titleHelp()}
       </StyledLabel>
