@@ -8,26 +8,31 @@ import {
 import manifests from '../../libraries/manifests.js';
 
 const Workspace = () => {
-  const manifestLength = Object.keys(manifests).length;
   const [manuscript, setManuscript] = useState(1);
   const [pageNumber, setPageNumber] = useState(null);
   const [showWrongPageAlert, setShowWrongPageAlert] = useState(false);
+  const { canvasIndex } = manifests[manuscript];
+  const manifestLength = Object.keys(manifests).length;
 
   useEffect(() => {
-    if (pageNumber && pageNumber !== (manifests[manuscript].canvasIndex + 1)) {
+    if (pageNumber && pageNumber !== (canvasIndex + 1)) {
       setShowWrongPageAlert(true);
     }
-    if (showWrongPageAlert && pageNumber === (manifests[manuscript].canvasIndex + 1)) {
+    if (showWrongPageAlert && pageNumber === (canvasIndex + 1)) {
       setShowWrongPageAlert(false);
     }
-  }, [pageNumber]);
+  }, [pageNumber, canvasIndex, manuscript]);
 
   const handleManifestChange = (type) => {
     switch (type) {
       case 'next':
-        return setManuscript(manuscript + 1);
+        setManuscript(manuscript + 1);
+        setPageNumber(manifests[manuscript + 1].canvasIndex + 1);
+        return;
       case 'previous':
-        return setManuscript(manuscript - 1);
+        setManuscript(manuscript - 1);
+        setPageNumber(manifests[manuscript - 1].canvasIndex + 1);
+        return;
       default:
         throw new Error();
     }
@@ -38,7 +43,7 @@ const Workspace = () => {
       {showWrongPageAlert && (
         <StyledAlert variant="warning" onClose={() => setShowWrongPageAlert(false)}>
           Feel free to explore, but you have left the target image (
-          {manifests[manuscript].canvasIndex + 1}
+          {canvasIndex + 1}
           ).
         </StyledAlert>
       )}
@@ -46,7 +51,7 @@ const Workspace = () => {
         <Mirador
           setPageNumber={setPageNumber}
           manifest={manifests[manuscript].manifestId}
-          index={manifests[manuscript].canvasIndex}
+          index={canvasIndex}
         />
       </MiradorWrapper>
       <TranscriptionPanel>
@@ -56,8 +61,6 @@ const Workspace = () => {
           changeManuscript={handleManifestChange}
           manifestLength={manifestLength}
           manuscriptId={manuscript}
-          setPageNumber={setPageNumber}
-          showAlert={setShowWrongPageAlert}
         />
       </TranscriptionPanel>
     </PageWrapper>

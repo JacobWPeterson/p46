@@ -20,7 +20,7 @@ const Mirador = ({
       const state = miradorInstance.store.getState();
       const canvasIndex = state.windows[state.workspace.windowIds].canvasId;
       if (canvasIndex) {
-        setPageNumber(Number(canvasIndex.slice(canvasIndex.lastIndexOf('/') + 1)));
+        setPageNumber(Number(canvasIndex.slice(canvasIndex.lastIndexOf('/') + 1).replace(/[^\d.-]/g, '')));
       }
     });
   }, [manifest]);
