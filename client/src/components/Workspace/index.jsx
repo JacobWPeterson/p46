@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Mirador from './Mirador/index.jsx';
 import TranscriptionArea from './TranscriptionArea/index.jsx';
 
@@ -10,7 +10,17 @@ import manifests from '../../libraries/manifests.js';
 const Workspace = () => {
   const manifestLength = Object.keys(manifests).length;
   const [manuscript, setManuscript] = useState(1);
+  const [pageNumber, setPageNumber] = useState(null);
   const [showWrongPageAlert, setShowWrongPageAlert] = useState(false);
+
+  useEffect(() => {
+    if (pageNumber && pageNumber !== (manifests[manuscript].canvasIndex + 1)) {
+      setShowWrongPageAlert(true);
+    }
+    if (showWrongPageAlert && pageNumber === (manifests[manuscript].canvasIndex + 1)) {
+      setShowWrongPageAlert(false);
+    }
+  }, [pageNumber]);
 
   const handleManifestChange = (type) => {
     switch (type) {
@@ -34,10 +44,9 @@ const Workspace = () => {
       )}
       <MiradorWrapper>
         <Mirador
-          alertIsShowing={showWrongPageAlert}
+          setPageNumber={setPageNumber}
           manifest={manifests[manuscript].manifestId}
           index={manifests[manuscript].canvasIndex}
-          showAlert={setShowWrongPageAlert}
         />
       </MiradorWrapper>
       <TranscriptionPanel>
@@ -47,6 +56,7 @@ const Workspace = () => {
           changeManuscript={handleManifestChange}
           manifestLength={manifestLength}
           manuscriptId={manuscript}
+          setPageNumber={setPageNumber}
           showAlert={setShowWrongPageAlert}
         />
       </TranscriptionPanel>

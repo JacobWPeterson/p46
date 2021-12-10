@@ -9,10 +9,11 @@ import {
 } from '../../../styles.js';
 
 const TranscriptionArea = ({
-  changeManuscript, lines, manifestLength, manuscriptId, showAlert, title,
+  changeManuscript, lines, manifestLength, manuscriptId, setPageNumber, showAlert, title,
 }) => {
   const handleClick = (type) => {
     showAlert(false);
+    setPageNumber(null);
     changeManuscript(type);
   };
   return (
