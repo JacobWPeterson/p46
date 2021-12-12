@@ -23,6 +23,12 @@ const SingleLine = ({ title, line }) => {
   const guesses = useRef(0);
 
   useEffect(() => {
+    setLineContent('');
+    setShowHint(false);
+    setSubmissionStatus(null);
+  }, [line]);
+
+  useEffect(() => {
     if (lineContent.length > 0 && submissionStatus[0]) {
       guesses.current = 0;
       setShowHint(false);

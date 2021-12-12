@@ -9,8 +9,9 @@ import {
 } from '../../../styles.js';
 
 const TranscriptionArea = ({
-  changeManuscript, lines, manifestLength, manuscriptId, title,
+  changeManuscript, manifest, manifestLength, manuscriptId,
 }) => {
+  const { lines, title } = manifest;
   const handleClick = (type) => {
     changeManuscript(type);
   };
@@ -24,7 +25,7 @@ const TranscriptionArea = ({
       </StyledLink>
       {title && <SingleLine title={title} line={title} />}
       {lines.map((line) => (
-        <SingleLine key={line.key} line={line} />
+        <SingleLine key={`${manifest}.${line.key}`} line={line} />
       ))}
       <NavButtonHolder>
         {manuscriptId > 1 ? <StyledButton background="#d3d3d3" color="#3e5276" height={38} padding="6px 12px" onClick={() => handleClick('previous')}>Previous</StyledButton> : <div /> }

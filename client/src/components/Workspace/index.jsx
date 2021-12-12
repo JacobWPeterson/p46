@@ -56,9 +56,8 @@ const Workspace = () => {
       </MiradorWrapper>
       <TranscriptionPanel>
         <TranscriptionArea
-          title={manifests[manuscript].title}
-          lines={manifests[manuscript].lines}
           changeManuscript={handleManifestChange}
+          manifest={manifests[manuscript]}
           manifestLength={manifestLength}
           manuscriptId={manuscript}
         />
