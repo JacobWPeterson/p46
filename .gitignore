@@ -3,3 +3,4 @@ node_modules
 bundle.js
 node_modules*
 vendors-node_modules*
+package-log.json

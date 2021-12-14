@@ -1,16 +1,16 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
+    es7: true,
     node: true,
   },
   extends: [
-    "plugin:react/recommended",
-    "airbnb",
+    'plugin:react/recommended',
+    'airbnb',
   ],
   globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
     ecmaFeatures: {
@@ -19,12 +19,12 @@ module.exports = {
     ecmaVersion: 2018,
   },
   plugins: [
-    "react",
+    'react',
   ],
   rules: {
-    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
-    "import/extensions": 0,
-    "react/prop-types": "off",
-    "react/destructuring-assignment": [0, "always"],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'import/extensions': 0,
+    'react/prop-types': 'off',
+    'react/destructuring-assignment': [0, 'always'],
   },
 };
