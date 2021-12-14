@@ -1,5 +1,6 @@
 node_modules
 .env
+*.pem
 bundle.js
 node_modules*
 vendors-node_modules*
