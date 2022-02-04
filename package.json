@@ -1,24 +1,24 @@
 {
-  "name": "transcribe",
+  "name": "p46",
   "version": "1.0.0",
   "description": "A website to learn to read manuscripts",
   "main": "index.jsx",
   "scripts": {
     "start": "node server/server.js",
-    "react-dev": "webpack --watch",
+    "dev": "webpack --watch",
     "test": "jest --coverage",
     "test-u": "npm run test -- -u"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JacobWPeterson/transcribe"
+    "url": "git+https://github.com/JacobWPeterson/P46"
   },
   "author": "Jacob W. Peterson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JacobWPeterson/transcribe/issues"
+    "url": "https://github.com/JacobWPeterson/P46/issues"
   },
-  "homepage": "https://github.com/JacobWPeterson/transcribe#readme",
+  "homepage": "https://github.com/JacobWPeterson/P46#readme",
   "dependencies": {
     "bootstrap": "^5.1.3",
     "dotenv": "^10.0.0",

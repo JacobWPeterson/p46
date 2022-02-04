@@ -1,5 +1,4 @@
 import React from 'react';
-import SingleLine from './SingleLine.jsx';
 import {
   NavButtonHolder,
   StyledButton,
@@ -23,10 +22,6 @@ const TranscriptionArea = ({
       <StyledLink href="/guide" marginBottom={10} target="_blank">
         See transcription guide
       </StyledLink>
-      {title && <SingleLine title={title} line={title} />}
-      {lines.map((line) => (
-        <SingleLine key={`${manifest}.${line.key}`} line={line} />
-      ))}
       <NavButtonHolder>
         {manuscriptId > 1 ? <StyledButton background="#d3d3d3" color="#3e5276" height={38} padding="6px 12px" onClick={() => handleClick('previous')}>Previous</StyledButton> : <div /> }
         {manuscriptId < manifestLength ? <StyledButton background="#c9ac5f" height={38} padding="6px 26px" onClick={() => handleClick('next')}>Next</StyledButton> : <div /> }
