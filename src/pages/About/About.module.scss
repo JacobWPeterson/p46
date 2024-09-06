@@ -1,0 +1,168 @@
+@use "src/styles/theme";
+
+.Container {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: auto;
+
+  @media (width < 1024px) {
+    width: 90vw;
+  }
+
+  &.Lower {
+    flex-direction: row;
+    background: theme.$grey02;
+    margin: 10px auto;
+    padding: 24px;
+    gap: 18px;
+    border-radius: 12px;
+
+    @media (width < 1024px) {
+      flex-direction: column;
+    }
+
+    @media (width < 600px) {
+      margin: 0 auto;
+    }
+
+    .Image {
+      height: 280px;
+      width: 280px;
+      border-radius: 50%;
+
+      @media (width < 1024px) {
+        height: 200px;
+        width: 200px;
+      }
+    }
+
+    .Section {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+  }
+
+  &.Upper {
+    margin: 30px auto;
+  }
+
+  .Text {
+    font-size: 18px;
+    color: theme.$grey10;
+    text-align: justify;
+
+    @media (width < 1024px) {
+      font-size: 14px;
+    }
+
+    &.Italic {
+      font-style: italic;
+    }
+
+    &.Smaller {
+      font-size: 16px;
+
+      @media (width < 1024px) {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.H1 {
+  font-weight: 600;
+  color: theme.$secondary03;
+  text-align: center;
+}
+
+.H2 {
+  font-weight: 600;
+  color: theme.$primary03;
+  text-align: center;
+}
+
+.Small {
+  color: theme.$grey07;
+  margin-top: 6px;
+  font-size: 0.8em;
+}
+
+.Partners {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 24px 0;
+  gap: 48px;
+
+  @media (width < 1024px) {
+    padding: 12px 0 0;
+    gap: 24px;
+  }
+
+  @media (width < 600px) {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .Partner {
+    display: flex;
+    flex-direction: column;
+    height: 160px;
+    align-items: center;
+    cursor: pointer;
+
+    .PartnerText {
+      color: theme.$primary03;
+      font-size: 18px;
+      text-align: center;
+      margin: 0;
+      padding: 10px 0;
+
+      @media (width < 1024px) {
+        font-size: 14px;
+      }
+
+      &.CBLFont {
+        color: theme.$grey10;
+        font-size: 24px;
+        font-weight: 300;
+        font-family: Theinhardt, sans-serif;
+        width: 170px;
+      }
+
+      &.MiradorFont {
+        color: theme.$grey10;
+        font-size: 48px;
+        font-family: "Yanone Kaffeesatz", sans-serif;
+        letter-spacing: 0.05em;
+        margin-top: 12px;
+      }
+
+      &.IIIFFont {
+        color: #006eb0;
+        font-family: "Playfair Display", sans-serif;
+        width: 170px;
+      }
+    }
+  }
+}
+
+.Link {
+  color: theme.$primary03;
+  margin-bottom: 0;
+
+  &:hover,
+  &:focus {
+    color: theme.$primary05;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transition: 500ms ease;
+  }
+}
