@@ -1,0 +1,69 @@
+@use "src/styles/theme";
+
+.WorkspacePageWrapper {
+  height: 85vh;
+  width: 98vw;
+  margin: auto;
+  display: flex;
+
+  .InvalidDevice {
+    display: none;
+    color: theme.$grey10;
+    text-align: center;
+
+    @media ((width < 720px) and (orientation: portrait)) or ((width < 1024px) and (orientation: landscape)) {
+      display: flex;
+      margin: auto;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      gap: 24px;
+    }
+
+    .Image {
+      width: 70%;
+
+      @media ((width < 720px) and (orientation: portrait)) or ((width < 1024px) and (orientation: landscape)) {
+        height: 150px;
+        width: unset;
+      }
+    }
+  }
+
+  .Rotate {
+    display: none;
+    color: theme.$primary03;
+    text-align: center;
+
+    @media (width <= 1024px) and (width >= 720px) and (orientation: portrait) {
+      display: flex;
+      margin: auto;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .Image {
+      width: 500px;
+      height: 500px;
+    }
+  }
+
+  .MiradorWrapper {
+    flex: 3;
+    height: 100%;
+    position: relative;
+
+    @media ((width <= 1024px) and (orientation: portrait)) or ((width < 1024px) and (orientation: landscape)) {
+      display: none;
+    }
+  }
+
+  .TranscriptionPanel {
+    display: flex;
+    flex: 2;
+
+    @media ((width <= 1024px) and (orientation: portrait)) or ((width < 1024px) and (orientation: landscape)) {
+      display: none;
+    }
+  }
+}

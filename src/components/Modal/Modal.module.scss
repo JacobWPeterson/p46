@@ -1,0 +1,87 @@
+@use "src/styles/theme";
+
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0 0 0 / 20%);
+  backdrop-filter: blur(1%);
+  transition: all 0.3s ease-in-out;
+
+  .Content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: theme.$grey00;
+    color: theme.$grey10;
+    border-radius: 6px;
+
+    .Header {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      font-size: 24px;
+      padding: 16px 20px;
+      box-sizing: border-box;
+      border-bottom: 1px solid theme.$grey03;
+
+      .H2 {
+        color: theme.$primary03;
+        font-size: 28px;
+        font-weight: 600;
+        margin: 0;
+
+        @media (width <= 800px) {
+          font-size: 20px;
+        }
+      }
+
+      .CloseButton {
+        top: 14px;
+        right: 30px;
+        outline: none;
+        border: none;
+        background: transparent;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        opacity: 0.3;
+
+        @media (width <= 800px) {
+          top: 9px;
+        }
+
+        &:hover,
+        &:focus-within {
+          opacity: 1;
+        }
+
+        &::before,
+        &::after {
+          position: absolute;
+          left: 20px;
+          content: " ";
+          height: 21px;
+          width: 2px;
+          background-color: theme.$grey08;
+        }
+
+        &::before {
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}

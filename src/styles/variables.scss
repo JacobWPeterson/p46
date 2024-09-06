@@ -1,0 +1,4 @@
+@use "src/styles/theme";
+
+$defaultBorderStyle: 1px solid theme.$grey03;
+$defaultBorderColor: theme.$grey03;
