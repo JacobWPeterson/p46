@@ -1,8 +1,11 @@
+@use "src/styles/variables";
+
 .PageWrapper {
-  height: 100%;
   width: 100vw;
-  margin: auto;
+  height: calc(100% - variables.$headerHeight - variables.$footerHeight - 16px);
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  margin: 8px 0;
+  box-sizing: border-box;
+  overflow-y: auto;
 }

@@ -24,7 +24,7 @@ export const Guide = (): ReactElement => (
           </tr>
         </tbody>
       </table>
-      <h3 className={styles.H2}>Image viewer</h3>
+      <h2 className={styles.H2}>Image viewer</h2>
       <p className={styles.GuideText}>
         The image viewer loads with the image of the page for that lesson. Basic
         controls for zooming in (+) and out (-) on the image are located at the
