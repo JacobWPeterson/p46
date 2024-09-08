@@ -47,13 +47,14 @@
   }
 
   &.Upper {
-    margin: 30px auto;
+    margin: 10px auto;
   }
 
   .Text {
     font-size: 18px;
     color: theme.$grey10;
     text-align: justify;
+    line-height: 1.5;
 
     @media (width < 1024px) {
       font-size: 14px;
@@ -74,15 +75,19 @@
 }
 
 .H1 {
+  font-size: 40px;
   font-weight: 600;
   color: theme.$secondary03;
   text-align: center;
+  margin: 6px auto;
 }
 
 .H2 {
+  font-size: 32px;
   font-weight: 600;
   color: theme.$primary03;
   text-align: center;
+  margin: 6px auto;
 }
 
 .Small {

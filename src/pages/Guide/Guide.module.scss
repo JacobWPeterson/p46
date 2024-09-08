@@ -1,54 +1,59 @@
 @use "src/styles/theme";
 
+.GuideText {
+  width: 100%;
+  margin: 6px auto;
+  color: theme.$grey07;
+  font-size: 16px;
+  text-align: justify;
+  text-indent: 24px;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+
+  @media (width < 1024px) {
+    font-size: 14px;
+  }
+}
+
+.H1 {
+  font-size: 40px;
+  font-weight: 600;
+  color: theme.$secondary03;
+  text-align: center;
+  margin: 6px auto;
+}
+
+.H2 {
+  font-size: 32px;
+  font-weight: 600;
+  color: theme.$grey10;
+  text-align: left;
+  margin: 6px auto;
+}
+
+.H3 {
+  font-size: 28px;
+  font-weight: 500;
+  color: theme.$grey10;
+  text-align: left;
+  font-style: italic;
+  margin: 6px auto;
+}
+
 .Container {
-  margin: 30px auto;
+  margin: 0 auto 10px;
   width: 70%;
-  color: theme.$grey08;
 
   @media (width < 1280px) {
     width: 80%;
-    margin: 24px auto;
   }
 
   @media (width < 1100px) {
     width: 90%;
-    margin: 18px auto;
   }
 
   @media (width < 800px) {
     margin: 6px auto;
-  }
-
-  .GuideText {
-    width: "100%";
-    margin: 6px auto;
-    font-size: 16px;
-    text-align: justify;
-    text-indent: 24px;
-    letter-spacing: 0.03em;
-
-    @media (width < 1024px) {
-      font-size: 14px;
-    }
-  }
-
-  .H1 {
-    font-weight: 600;
-    color: theme.$secondary03;
-    text-align: center;
-  }
-
-  .H2 {
-    font-weight: 600;
-    color: theme.$grey10;
-    text-align: left;
-  }
-
-  .H3 {
-    font-weight: 500;
-    color: theme.$grey10;
-    text-align: left;
-    font-style: italic;
   }
 }
 
@@ -59,8 +64,12 @@
   margin-bottom: 6px;
 
   .SymbolCell {
-    min-width: 50px;
+    min-width: 100px;
     display: flex;
     justify-content: center;
+
+    @media (width < 800px) {
+      min-width: 50px;
+    }
   }
 }
