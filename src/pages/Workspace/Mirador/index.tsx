@@ -5,22 +5,25 @@ import mirador from "mirador/dist/mirador.min.js";
 import config from "./config";
 
 interface MiradorProps {
+  canvasIndex: number;
   manifest: string;
-  index: number;
 }
 
-export const Mirador = ({ manifest, index }: MiradorProps): ReactElement => {
+export const Mirador = ({
+  canvasIndex,
+  manifest,
+}: MiradorProps): ReactElement => {
   useEffect(() => {
     config.windows[0] = {
       manifestId: manifest,
-      canvasIndex: 0,
+      canvasIndex,
       view: "single",
     };
 
     mirador.viewer(config);
 
     // mirador.viewer(config, miradorImageToolsPlugin); // See above comment about the plugin
-  }, [manifest, index]);
+  }, [canvasIndex, manifest]);
 
   return <div id={config.id} />;
 };

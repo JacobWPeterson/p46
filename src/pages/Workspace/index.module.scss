@@ -1,0 +1,89 @@
+@use "src/styles/theme";
+@use "src/styles/variables";
+
+.WorkspacePageWrapper {
+  width: 98vw;
+  height: calc(100% - variables.$headerHeight - variables.$footerHeight - 8px);
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 8px 0;
+  box-sizing: border-box;
+  overflow-y: hidden;
+
+  .Rotate {
+    display: none;
+    color: theme.$primary03;
+    text-align: center;
+
+    @media (width <= 1024px) and (orientation: portrait) {
+      display: flex;
+      margin: auto;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .Image {
+      width: 500px;
+      height: 500px;
+    }
+  }
+
+  .ContentWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .Header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      gap: 12px;
+
+      .Button {
+        font-family: Montserrat, sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        color: theme.$grey10;
+        outline: none;
+        height: 38px;
+        padding: 0 8px;
+        border-radius: 4px;
+        border: 1px solid theme.$grey03;
+        background: theme.$grey00;
+      }
+
+      .Control {
+        width: 300px;
+      }
+
+      .Menu {
+        z-index: 2;
+      }
+    }
+
+    .DisplayWrapper {
+      display: flex;
+      height: calc(100% - 50px);
+
+      .MiradorWrapper {
+        width: 55%;
+        height: 100%;
+        position: relative;
+
+        @media ((width <= 1024px) and (orientation: portrait)) or ((width < 1024px) and (orientation: landscape)) {
+          display: none;
+        }
+      }
+
+      .PDFViewer {
+        display: flex;
+        width: 45%;
+
+        @media ((width <= 1024px) and (orientation: portrait)) or ((width < 1024px) and (orientation: landscape)) {
+          display: none;
+        }
+      }
+    }
+  }
+}

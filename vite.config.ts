@@ -1,9 +1,23 @@
 /// <reference types="vitest" />
 /// <reference types="vite-plugin-svgr/client" />
 
-import { defineConfig } from "vite";
+import { defineConfig, normalizePath } from "vite";
+import path from "path";
 import react from "@vitejs/plugin-react-swc";
 import svgr from "vite-plugin-svgr";
+import { viteStaticCopy } from "vite-plugin-static-copy";
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
+
+const pdfjsDistPath = path.dirname(require.resolve("pdfjs-dist/package.json"));
+const cMapsDir = normalizePath(path.join(pdfjsDistPath, "cmaps"));
+const standardFontsDir = normalizePath(
+  path.join(
+    path.dirname(require.resolve("pdfjs-dist/package.json")),
+    "standard_fonts"
+  )
+);
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -32,6 +46,18 @@ export default defineConfig(({ mode }) => {
         },
       }),
       react(),
+      viteStaticCopy({
+        targets: [
+          {
+            src: standardFontsDir,
+            dest: "",
+          },
+          {
+            src: cMapsDir,
+            dest: "",
+          },
+        ],
+      }),
     ],
     server: {
       hmr: true,
