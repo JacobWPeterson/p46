@@ -1,0 +1,47 @@
+@use "src/styles/theme";
+@use "src/styles/variables";
+
+.Container {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: #fff;
+
+  .Loading {
+    min-height: 100%;
+    min-width: 100%;
+    background-color: theme.$grey00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-style: italic;
+  }
+}
+
+.Controls {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  margin: 0 auto;
+  bottom: variables.$footerHeight + 24px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+
+  .Button {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    color: theme.$grey10;
+    outline: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    border: 2px solid theme.$grey08;
+    box-sizing: border-box;
+    background: theme.$grey00;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+}
