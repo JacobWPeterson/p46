@@ -51,6 +51,11 @@
         border-radius: 4px;
         border: 1px solid theme.$grey03;
         background: theme.$grey00;
+
+        &.Disabled {
+          color: theme.$grey05;
+          cursor: not-allowed;
+        }
       }
 
       .Control {

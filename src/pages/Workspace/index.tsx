@@ -1,5 +1,6 @@
 import { useState, type ReactElement } from "react";
 import Select from "react-select";
+import classNames from "classnames";
 
 import manifests from "../../static/files/manifests";
 import { E404 } from "../E404/E404";
@@ -43,7 +44,10 @@ export const Workspace = (): ReactElement => {
       <div className={styles.ContentWrapper}>
         <div className={styles.Header}>
           <button
-            className={styles.Button}
+            disabled={manifestIndex === 0}
+            className={classNames(styles.Button, {
+              [styles.Disabled]: manifestIndex === 0,
+            })}
             onClick={() => setManifestIndex((prev) => prev - 1)}
           >
             Prev
@@ -59,7 +63,10 @@ export const Workspace = (): ReactElement => {
             isSearchable
           />
           <button
-            className={styles.Button}
+            disabled={manifests.length <= manifestIndex + 1}
+            className={classNames(styles.Button, {
+              [styles.Disabled]: manifests.length <= manifestIndex + 1,
+            })}
             onClick={() => setManifestIndex((prev) => prev + 1)}
           >
             Next
