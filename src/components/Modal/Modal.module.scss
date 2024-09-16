@@ -43,45 +43,45 @@
           font-size: 20px;
         }
       }
-
-      .CloseButton {
-        top: 14px;
-        right: 30px;
-        outline: none;
-        border: none;
-        background: transparent;
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        opacity: 0.3;
-
-        @media (width <= 800px) {
-          top: 8px;
-        }
-
-        &:hover,
-        &:focus-within {
-          opacity: 1;
-        }
-
-        &::before,
-        &::after {
-          position: absolute;
-          left: 20px;
-          content: " ";
-          height: 21px;
-          width: 2px;
-          background-color: theme.$grey08;
-        }
-
-        &::before {
-          transform: rotate(45deg);
-        }
-
-        &::after {
-          transform: rotate(-45deg);
-        }
-      }
     }
+  }
+}
+
+.CloseButton {
+  top: 14px;
+  right: 30px;
+  outline: none;
+  border: none;
+  background: transparent;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  opacity: 0.3;
+
+  @media (width <= 800px) {
+    top: 8px;
+  }
+
+  &:hover,
+  &:focus-within {
+    opacity: 1;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 20px;
+    content: " ";
+    height: 21px;
+    width: 2px;
+    background-color: theme.$grey08;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
   }
 }
