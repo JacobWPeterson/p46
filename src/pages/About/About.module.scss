@@ -118,6 +118,7 @@
     flex-direction: column;
     height: 160px;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
 
     .PartnerText {
@@ -137,6 +138,14 @@
         font-weight: 300;
         font-family: Theinhardt, sans-serif;
         width: 170px;
+      }
+
+      &.UMLFont {
+        color: theme.$grey10;
+        font-size: 24px;
+        font-weight: 300;
+        font-family: Theinhardt, sans-serif;
+        width: 250px;
       }
 
       &.MiradorFont {

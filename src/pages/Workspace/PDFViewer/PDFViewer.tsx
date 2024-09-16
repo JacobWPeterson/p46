@@ -12,7 +12,7 @@ import styles from "./PDFViewer.module.scss";
 // eslint-disable-next-line compat/compat
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url
+  import.meta.url,
 ).toString();
 
 const resizeObserverOptions = {};
