@@ -71,10 +71,10 @@ export const PDFViewer = ({
           disabled={isMinZoom}
           onClick={zoomOut}
         >
-          -
+          <img src="/icons/zoomOut.svg" alt="zoom out" />
         </button>
         <button className={styles.Button} disabled={isMaxZoom} onClick={zoomIn}>
-          +
+          <img src="/icons/zoomIn.svg" alt="zoom in" />
         </button>
       </div>
     </div>

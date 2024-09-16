@@ -64,6 +64,8 @@ export const Workspace = (): ReactElement => {
             }}
             value={manifestsToOptionsMap[manifestIndex]}
             onChange={handleChange}
+            captureMenuScroll
+            menuShouldBlockScroll
             options={manifestsToOptionsMap}
             isSearchable
           />
