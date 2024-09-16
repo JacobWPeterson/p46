@@ -9,7 +9,7 @@ import styles from "./Modal.module.scss";
 interface ModalProps {
   handleClose: () => void;
   header?: string;
-  isCloseDisabled: boolean;
+  isCloseDisabled?: boolean;
   isOpen: boolean;
   classes?: string;
 }
@@ -19,7 +19,7 @@ export const Modal = ({
   classes,
   handleClose,
   header,
-  isCloseDisabled,
+  isCloseDisabled = false,
   isOpen,
 }: PropsWithChildren<ModalProps>): ReactElement => {
   useEffect(() => {
@@ -48,14 +48,22 @@ export const Modal = ({
           onClick={(e) => e.stopPropagation()}
           aria-hidden
         >
-          <div className={styles.Header}>
-            {header && <h2 className={styles.H2}>{header}</h2>}
+          {header ? (
+            <div className={styles.Header}>
+              <h2 className={styles.H2}>{header}</h2>
+              <button
+                onClick={handleClose}
+                className={styles.CloseButton}
+                disabled={isCloseDisabled}
+              />
+            </div>
+          ) : (
             <button
               onClick={handleClose}
               className={styles.CloseButton}
               disabled={isCloseDisabled}
             />
-          </div>
+          )}
           {children}
         </div>
       </div>

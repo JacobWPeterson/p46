@@ -58,6 +58,19 @@
         }
       }
 
+      .TranscriptionGuideButton {
+        position: absolute;
+        right: 50px;
+        font-family: Montserrat, sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        font-style: italic;
+        color: theme.$primary03;
+        outline: none;
+        height: 38px;
+        border: 1px solid transparent;
+      }
+
       .Control {
         width: 300px;
       }
@@ -99,4 +112,12 @@
   .Folio {
     width: 50px;
   }
+}
+
+.GuideModal {
+  width: 50%;
+  height: 80%;
+  overflow: auto;
+  padding: 12px;
+  box-sizing: border-box;
 }

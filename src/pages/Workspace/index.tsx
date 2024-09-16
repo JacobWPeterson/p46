@@ -4,6 +4,8 @@ import classNames from "classnames";
 
 import manifests from "../../static/files/manifests";
 import { E404 } from "../E404/E404";
+import { Modal } from "../../components/Modal/Modal";
+import { Guide } from "../Guide/Guide";
 
 import styles from "./index.module.scss";
 import { Mirador } from "./Mirador";
@@ -28,12 +30,17 @@ const manifestsToOptionsMap = manifests.map((manifest, index) => {
 
 export const Workspace = (): ReactElement => {
   const [manifestIndex, setManifestIndex] = useState<number>(0);
+  const [showGuideModal, setShowGuideModal] = useState<boolean>(false);
   if (!manifests[manifestIndex]) {
     return <E404 />;
   }
 
   const handleChange = (selectedOption: Option): void => {
     setManifestIndex(selectedOption.value);
+  };
+
+  const toggleGuideModal = (): void => {
+    setShowGuideModal((prev) => !prev);
   };
 
   return (
@@ -78,6 +85,12 @@ export const Workspace = (): ReactElement => {
           >
             Next
           </button>
+          <button
+            onClick={toggleGuideModal}
+            className={styles.TranscriptionGuideButton}
+          >
+            Transcription guide
+          </button>
         </div>
         <div className={styles.DisplayWrapper}>
           <div className={styles.MiradorWrapper}>
@@ -93,6 +106,15 @@ export const Workspace = (): ReactElement => {
           </div>
         </div>
       </div>
+      {showGuideModal && (
+        <Modal
+          handleClose={toggleGuideModal}
+          isOpen
+          classes={styles.GuideModal}
+        >
+          <Guide />
+        </Modal>
+      )}
     </div>
   );
 };
