@@ -13,7 +13,7 @@ import { useEffect } from "react";
 export default function useResizeObserver(
   element: Element | null,
   options: ResizeObserverOptions | undefined,
-  observerCallback: ResizeObserverCallback
+  observerCallback: ResizeObserverCallback,
 ): void {
   useEffect(() => {
     if (!element || !("ResizeObserver" in window)) {

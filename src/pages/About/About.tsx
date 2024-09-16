@@ -6,8 +6,26 @@ import styles from "./About.module.scss";
 export const About = (): ReactElement => (
   <div className="PageWrapper">
     <div className={classNames(styles.Container, styles.Upper)}>
-      <h1 className={styles.H1}>Why?</h1>
-      <div className={styles.Text}></div>
+      <h1 className={styles.H1}>About</h1>
+      <div className={styles.Text}>
+        This project derives from my doctoral thesis &quot;GA 1739: A Monk, His
+        Manuscript, and the Text of Paul&apos;s Letters&quot; (
+        <a
+          href="http://dx.doi.org/10.7488/era/528"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.Link}
+        >
+          link
+        </a>
+        ) which included a new transcription of P46 as an appendix. That format
+        is not particularly user friendly and I had always wanted to be able to
+        display the transcriptions alongside the latest digital images.
+        Thankfully, both the Chester Beatty and University of Michigan libraries
+        make their images available as IIIF manifests, thereby enabling a site
+        like this that can display all 86 leaves of the manuscript in once place
+        within a modern image viewer.
+      </div>
       <br />
       <div className={classNames(styles.Text, styles.Italic)}>
         Please use the contact form to send questions or suggestions for
@@ -48,6 +66,26 @@ export const About = (): ReactElement => (
           />
           <div className={classNames(styles.PartnerText, styles.CBLFont)}>
             Chester Beatty Library
+          </div>
+        </div>
+        <div
+          role="link"
+          className={classNames(styles.Partner)}
+          tabIndex={0}
+          onClick={() => window.open("https://www.lib.umich.edu/", "_blank")}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              window.open("https://www.lib.umich.edu/", "_blank");
+            }
+          }}
+        >
+          <img
+            src="/icons/UML.svg"
+            alt="University of Michigan Library logo"
+            height="40"
+          />
+          <div className={classNames(styles.PartnerText, styles.UMLFont)}>
+            University of Michigan Library
           </div>
         </div>
         <div
