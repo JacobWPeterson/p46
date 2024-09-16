@@ -10,13 +10,18 @@ import { Mirador } from "./Mirador";
 import { PDFViewer } from "./PDFViewer/PDFViewer";
 
 type Option = {
-  label: string;
+  label: ReactElement;
   value: number;
 };
 
 const manifestsToOptionsMap = manifests.map((manifest, index) => {
   return {
-    label: `${manifest.folio}: ${manifest.content}`,
+    label: (
+      <div className={styles.Label}>
+        <div className={styles.Folio}>{manifest.folio}</div>
+        <div>{manifest.content}</div>
+      </div>
+    ),
     value: index,
   };
 });

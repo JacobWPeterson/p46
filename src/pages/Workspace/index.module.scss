@@ -6,7 +6,7 @@
   height: calc(100% - variables.$headerHeight - variables.$footerHeight - 8px);
   display: flex;
   flex-direction: column;
-  margin: 0 0 8px 0;
+  margin: 0 auto 8px;
   box-sizing: border-box;
   overflow-y: hidden;
 
@@ -90,5 +90,13 @@
         }
       }
     }
+  }
+}
+
+.Label {
+  display: flex;
+
+  .Folio {
+    width: 50px;
   }
 }
