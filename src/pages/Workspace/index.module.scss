@@ -41,20 +41,68 @@
       gap: 12px;
 
       .Button {
+        position: relative;
         font-family: Montserrat, sans-serif;
         font-weight: 300;
         font-size: 16px;
         color: theme.$grey10;
-        outline: none;
         height: 38px;
-        padding: 0 8px;
-        border-radius: 4px;
+        width: 60px;
         border: 1px solid theme.$grey03;
+        box-sizing: border-box;
+        border-radius: 6px;
+        outline: none;
+        padding: 4px 8px;
+        font-size: 16px;
+        cursor: pointer;
         background: theme.$grey00;
 
-        &.Disabled {
-          color: theme.$grey05;
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: block;
+          border-radius: 4px;
+          background: theme.$primary04;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          transform: scaleX(0);
+          transition:
+            background 0.5s,
+            transform 0.5s,
+            opacity 0.5s ease-in;
+        }
+
+        &::before {
+          left: -30%;
+        }
+
+        &::after {
+          right: -30%;
+        }
+
+        &:disabled {
+          border-color: theme.$grey03;
+          color: theme.$grey04;
           cursor: not-allowed;
+        }
+
+        &:hover:not([disabled])::after,
+        &:focus-within:not([disabled])::after,
+        &:active:not([disabled])::after {
+          transform: scale(1);
+        }
+
+        &:hover:not([disabled]),
+        &:focus-within:not([disabled]),
+        &:active:not([disabled]) {
+          color: theme.$grey00;
+          border-color: theme.$primary05;
+          transform: translateY(0);
+          transition: border-color 1s;
         }
       }
 
@@ -69,10 +117,22 @@
         outline: none;
         height: 38px;
         border: 1px solid transparent;
+        background: transparent;
+
+        &:hover,
+        &:focus-within {
+          text-decoration: underline;
+        }
       }
 
       .Control {
         width: 300px;
+
+        &:hover,
+        &:focus-within {
+          border-color: theme.$primary05;
+          box-shadow: none;
+        }
       }
 
       .Menu {

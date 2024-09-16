@@ -68,7 +68,17 @@ export const Workspace = (): ReactElement => {
             classNames={{
               control: () => styles.Control,
               menu: () => styles.Menu,
+              option: () => styles.Option,
             }}
+            defaultMenuIsOpen
+            theme={(theme) => ({
+              ...theme,
+              colors: {
+                ...theme.colors,
+                primary: "#65743a",
+                primary25: "#a9bb77",
+              },
+            })}
             value={manifestsToOptionsMap[manifestIndex]}
             onChange={handleChange}
             captureMenuScroll
