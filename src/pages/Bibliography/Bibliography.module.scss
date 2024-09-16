@@ -1,0 +1,103 @@
+@use "src/styles/theme";
+
+.H1 {
+  font-style: italic;
+  text-align: center;
+  color: theme.$secondary05;
+
+  @media (width <= 800px) {
+    font-size: 26px;
+    margin: 8px 0 0;
+  }
+}
+
+.Container {
+  width: 70%;
+  margin: 0 auto 10px;
+
+  @media (width <= 1024px) {
+    width: 80%;
+  }
+
+  @media (width <= 800px) {
+    width: 90%;
+  }
+
+  .H2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 16px 0 8px;
+
+    @media (width <= 800px) {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+
+  .H3 {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 16px 0 8px;
+
+    @media (width <= 800px) {
+      font-size: 14px;
+    }
+  }
+
+  .H3:first-of-type {
+    margin: 0 0 8px;
+  }
+
+  .Section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-left: 40px;
+
+    @media (width <= 800px) {
+      font-size: 12px;
+      margin-left: 20px;
+    }
+
+    .Item {
+      margin: 0 0 0 40px;
+      text-indent: -40px;
+      letter-spacing: normal;
+
+      @media (width <= 800px) {
+        margin: 0 0 0 20px;
+        text-indent: -20px;
+      }
+    }
+
+    .ItemWithSub {
+      margin: 0 0 0 40px;
+      text-indent: -40px;
+      letter-spacing: normal;
+
+      @media (width <= 800px) {
+        margin: 0 0 0 20px;
+        text-indent: -20px;
+      }
+    }
+
+    .SubItem {
+      margin: 0 0 0 40px;
+
+      @media (width <= 800px) {
+        margin: 0 0 0 20px;
+      }
+    }
+  }
+}
+
+.Link {
+  font-weight: 400;
+  color: theme.$secondary05;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-within {
+    text-decoration: underline;
+  }
+}

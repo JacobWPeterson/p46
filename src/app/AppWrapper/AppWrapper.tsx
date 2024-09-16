@@ -15,8 +15,8 @@ export const AppWrapper = ({ children }: PropsWithChildren): ReactElement => {
           Papyrus 46
         </a>
         <div className={styles.NavButtons}>
-          <a className={styles.NavLink} href="/guide">
-            Guide
+          <a className={styles.NavLink} href="/bibliography">
+            Bibliography
           </a>
           <a className={styles.NavLink} href="/about">
             About
