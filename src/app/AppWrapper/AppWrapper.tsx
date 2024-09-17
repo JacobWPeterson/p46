@@ -12,7 +12,7 @@ export const AppWrapper = ({ children }: PropsWithChildren): ReactElement => {
     <div className={styles.AppWrapper}>
       <div className={styles.Navbar}>
         <a className={styles.Brand} href="/">
-          Papyrus 46
+          𝔓<sup>46</sup>
         </a>
         <div className={styles.NavButtons}>
           <a className={styles.NavLink} href="/bibliography">

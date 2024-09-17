@@ -42,6 +42,20 @@ export const Workspace = (): ReactElement => {
 
   const addViewer = (): void => {
     setNumberOfViewers((prev) => prev + 1);
+    setSelectedSourcePanels((prevState) => {
+      const prevSourcesToUpdate = [...prevState];
+      prevSourcesToUpdate.push(null);
+      return prevSourcesToUpdate;
+    });
+  };
+
+  const removeViewer = (index: number): void => {
+    setNumberOfViewers((prev) => prev - 1);
+    setSelectedSourcePanels((prevState) => {
+      const prevSourcesToUpdate = [...prevState];
+      prevSourcesToUpdate.splice(index, 1);
+      return prevSourcesToUpdate;
+    });
   };
 
   const updateSourcePanels = (newSource: Sources, index: number): void => {
@@ -71,7 +85,7 @@ export const Workspace = (): ReactElement => {
         <h2>Rotate your device to landscape</h2>
       </div>
       <div className={styles.ContentWrapper}>
-        <div className={styles.Header}>
+        <div className={styles.Header} style={{ right: window.innerWidth / 2 }}>
           <button
             disabled={manifestIndex === 0}
             className={classNames(styles.Button, {
@@ -112,8 +126,8 @@ export const Workspace = (): ReactElement => {
             Next
           </button>
           <button
-            disabled={manifests.length <= manifestIndex + 1}
-            className={classNames(styles.Button, {
+            disabled={numberOfViewers >= 4}
+            className={classNames(styles.Button, styles.Add, {
               [styles.Disabled]: numberOfViewers >= 4,
             })}
             onClick={addViewer}
@@ -123,16 +137,15 @@ export const Workspace = (): ReactElement => {
         </div>
         <div className={styles.DisplayWrapper}>
           {selectedSourcePanels.map((sourcePanel, index) => (
-            <>
-              <SourcePanel
-                key={`sourcepanel-${index}`}
-                manifestIndex={manifestIndex}
-                source={sourcePanel}
-                onChange={(newSource) => updateSourcePanels(newSource, index)}
-                toggleGuideModal={toggleGuideModal}
-              />
-              <div className={styles.Divider} />
-            </>
+            <SourcePanel
+              key={`sourcepanel-${index}`}
+              manifestIndex={manifestIndex}
+              source={sourcePanel}
+              selectedSourcePanels={selectedSourcePanels}
+              onChange={(newSource) => updateSourcePanels(newSource, index)}
+              closeViewer={() => removeViewer(index)}
+              toggleGuideModal={toggleGuideModal}
+            />
           ))}
         </div>
       </div>

@@ -32,12 +32,16 @@
     .Brand {
       color: theme.$primary03;
       font-size: 24px;
-      font-style: italic;
       text-decoration: none;
       font-weight: 500;
 
       @media (width <= 600px) {
         font-size: 20px;
+      }
+
+      &:hover,
+      &:focus-within {
+        color: theme.$primary05;
       }
     }
 

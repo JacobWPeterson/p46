@@ -36,7 +36,8 @@
     .Header {
       position: absolute;
       top: 0;
-      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -50,7 +51,6 @@
         font-size: 16px;
         color: theme.$grey10;
         height: 38px;
-        width: 60px;
         border: 1px solid theme.$grey03;
         box-sizing: border-box;
         border-radius: 6px;
@@ -59,6 +59,11 @@
         font-size: 16px;
         cursor: pointer;
         background: theme.$grey00;
+
+        &.Add {
+          width: 100px;
+          text-wrap: nowrap;
+        }
 
         &::before,
         &::after {

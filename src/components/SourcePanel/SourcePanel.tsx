@@ -16,9 +16,11 @@ const sourceOptions: Option[] = [
 ];
 
 interface SourcePanelProps {
-  source: Sources;
+  closeViewer: () => void;
   manifestIndex: number;
   onChange: (newSelection: Sources) => void;
+  selectedSourcePanels: Sources[];
+  source: Sources;
   toggleGuideModal: () => void;
 }
 
@@ -28,9 +30,11 @@ type Option = {
 };
 
 export const SourcePanel = ({
-  source,
+  closeViewer,
   manifestIndex,
   onChange,
+  selectedSourcePanels,
+  source,
   toggleGuideModal,
 }: SourcePanelProps): ReactElement => {
   const handleSourceChange = (newSource: Option): void => {
@@ -54,23 +58,35 @@ export const SourcePanel = ({
               primary25: "#a9bb77",
             },
           })}
-          value={sourceOptions.find(({ value }) => value === source)}
+          value={sourceOptions.find(({ value }) => value === source) || null}
           onChange={handleSourceChange}
           captureMenuScroll
           menuShouldBlockScroll
-          options={sourceOptions}
+          options={sourceOptions.filter(
+            (option) => !selectedSourcePanels.includes(option.value as Sources)
+          )}
           isSearchable
         />
-        {source === Sources.Peterson && (
+        <div className={styles.EndButtons}>
+          {source === Sources.Peterson && (
+            <button
+              onClick={toggleGuideModal}
+              className={styles.TranscriptionGuideButton}
+            >
+              Help
+            </button>
+          )}
           <button
-            onClick={toggleGuideModal}
-            className={styles.TranscriptionGuideButton}
+            onClick={closeViewer}
+            className={styles.CloseButton}
+            disabled={selectedSourcePanels.length < 2}
           >
-            Help
+            {"\u2573"}
           </button>
-        )}
+        </div>
       </div>
       <div className={styles.Content}>
+        {!source && "Select a source from the dropdown above"}
         {source === Sources.Mirador && (
           <Mirador
             canvasIndex={manifests[manifestIndex].canvasIndex}
