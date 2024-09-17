@@ -6,17 +6,19 @@ import manifests from "../../static/files/manifests";
 import { E404 } from "../E404/E404";
 import { Modal } from "../../components/Modal/Modal";
 import { Guide } from "../Guide/Guide";
+import { Sources } from "../../components/SourcePanel/sources.enum";
+import { SourcePanel } from "../../components/SourcePanel/SourcePanel";
 
 import styles from "./index.module.scss";
-import { Mirador } from "./Mirador";
-import { PDFViewer } from "./PDFViewer/PDFViewer";
 
 type Option = {
   label: ReactElement;
   value: number;
 };
 
-const manifestsToOptionsMap = manifests.map((manifest, index) => {
+type SelectedSourcesState = Sources[];
+
+const manifestsToOptionsMap: Option[] = manifests.map((manifest, index) => {
   return {
     label: (
       <div className={styles.Label}>
@@ -30,10 +32,25 @@ const manifestsToOptionsMap = manifests.map((manifest, index) => {
 
 export const Workspace = (): ReactElement => {
   const [manifestIndex, setManifestIndex] = useState<number>(0);
+  const [numberOfViewers, setNumberOfViewers] = useState<number>(2);
+  const [selectedSourcePanels, setSelectedSourcePanels] =
+    useState<SelectedSourcesState>([Sources.Mirador, Sources.Peterson]);
   const [showGuideModal, setShowGuideModal] = useState<boolean>(false);
   if (!manifests[manifestIndex]) {
     return <E404 />;
   }
+
+  const addViewer = (): void => {
+    setNumberOfViewers((prev) => prev + 1);
+  };
+
+  const updateSourcePanels = (newSource: Sources, index: number): void => {
+    setSelectedSourcePanels((prevState) => {
+      const prevSourcesToUpdate = [...prevState];
+      prevSourcesToUpdate[index] = newSource;
+      return prevSourcesToUpdate;
+    });
+  };
 
   const handleChange = (selectedOption: Option): void => {
     setManifestIndex(selectedOption.value);
@@ -70,7 +87,6 @@ export const Workspace = (): ReactElement => {
               menu: () => styles.Menu,
               option: () => styles.Option,
             }}
-            defaultMenuIsOpen
             theme={(theme) => ({
               ...theme,
               colors: {
@@ -96,24 +112,28 @@ export const Workspace = (): ReactElement => {
             Next
           </button>
           <button
-            onClick={toggleGuideModal}
-            className={styles.TranscriptionGuideButton}
+            disabled={manifests.length <= manifestIndex + 1}
+            className={classNames(styles.Button, {
+              [styles.Disabled]: numberOfViewers >= 4,
+            })}
+            onClick={addViewer}
           >
-            Transcription guide
+            Add viewer
           </button>
         </div>
         <div className={styles.DisplayWrapper}>
-          <div className={styles.MiradorWrapper}>
-            <Mirador
-              canvasIndex={manifests[manifestIndex].canvasIndex}
-              manifest={manifests[manifestIndex].url}
-            />
-          </div>
-          <div className={styles.PDFViewer}>
-            <PDFViewer
-              pageNumber={manifests[manifestIndex].transcriptionPage}
-            />
-          </div>
+          {selectedSourcePanels.map((sourcePanel, index) => (
+            <>
+              <SourcePanel
+                key={`sourcepanel-${index}`}
+                manifestIndex={manifestIndex}
+                source={sourcePanel}
+                onChange={(newSource) => updateSourcePanels(newSource, index)}
+                toggleGuideModal={toggleGuideModal}
+              />
+              <div className={styles.Divider} />
+            </>
+          ))}
         </div>
       </div>
       {showGuideModal && (

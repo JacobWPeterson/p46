@@ -34,6 +34,9 @@
     height: 100%;
 
     .Header {
+      position: absolute;
+      top: 0;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -91,37 +94,18 @@
         }
 
         &:hover:not([disabled])::after,
-        &:focus-within:not([disabled])::after,
+        &:focus-visible:not([disabled])::after,
         &:active:not([disabled])::after {
           transform: scale(1);
         }
 
         &:hover:not([disabled]),
-        &:focus-within:not([disabled]),
+        &:focus-visible:not([disabled]),
         &:active:not([disabled]) {
           color: theme.$grey00;
           border-color: theme.$primary05;
           transform: translateY(0);
           transition: border-color 1s;
-        }
-      }
-
-      .TranscriptionGuideButton {
-        position: absolute;
-        right: 50px;
-        font-family: Montserrat, sans-serif;
-        font-weight: 300;
-        font-size: 16px;
-        font-style: italic;
-        color: theme.$primary03;
-        outline: none;
-        height: 38px;
-        border: 1px solid transparent;
-        background: transparent;
-
-        &:hover,
-        &:focus-within {
-          text-decoration: underline;
         }
       }
 
@@ -141,27 +125,12 @@
     }
 
     .DisplayWrapper {
+      border-top: 1px solid theme.$grey03;
       display: flex;
-      height: calc(100% - 50px);
+      height: 100%;
+      width: 100%;
 
-      .MiradorWrapper {
-        width: 55%;
-        height: 100%;
-        position: relative;
-
-        @media ((width <= 1024px) and (orientation: portrait)) or ((width < 1024px) and (orientation: landscape)) {
-          display: none;
-        }
-      }
-
-      .PDFViewer {
-        display: flex;
-        width: 45%;
-
-        @media ((width <= 1024px) and (orientation: portrait)) or ((width < 1024px) and (orientation: landscape)) {
-          display: none;
-        }
-      }
+      gap: 4px;
     }
   }
 }
