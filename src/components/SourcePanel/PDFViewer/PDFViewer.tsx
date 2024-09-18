@@ -64,21 +64,41 @@ export const PDFViewer = ({
   return (
     <div ref={containerRef} className={styles.Container}>
       {isLoading && <div className={styles.Loading}>Loading...</div>}
-      <Document
-        file={`/files/${source}.pdf`}
-        onLoadSuccess={onDocumentLoadSuccess}
-      >
-        {source === Sources.KenyonText ? (
-          Array.from(
-            { length: (pageNumber as KenyonTextPageType).range },
-            (_, index) => (pageNumber as KenyonTextPageType).start + index
-          ).map((pageNumber) => (
-            <Page key={pageNumber} pageNumber={pageNumber} />
-          ))
-        ) : (
-          <Page pageNumber={pageNumber as number} scale={scale} />
-        )}
-      </Document>
+      {source === Sources.KenyonPlates ? (
+        <Document
+          file={
+            (pageNumber as number) <= 83
+              ? `/files/${source}1.pdf`
+              : `/files/${source}2.pdf`
+          }
+          onLoadSuccess={onDocumentLoadSuccess}
+        >
+          <Page
+            pageNumber={
+              (pageNumber as number) <= 83
+                ? (pageNumber as number)
+                : (pageNumber as number) - 83
+            }
+            scale={scale}
+          />
+        </Document>
+      ) : (
+        <Document
+          file={`/files/${source}.pdf`}
+          onLoadSuccess={onDocumentLoadSuccess}
+        >
+          {source === Sources.KenyonText ? (
+            Array.from(
+              { length: (pageNumber as KenyonTextPageType).range },
+              (_, index) => (pageNumber as KenyonTextPageType).start + index
+            ).map((pageNumber) => (
+              <Page key={pageNumber} pageNumber={pageNumber} />
+            ))
+          ) : (
+            <Page pageNumber={pageNumber as number} scale={scale} />
+          )}
+        </Document>
+      )}
       <div className={styles.Controls} style={{ width: containerWidth }}>
         <button
           className={styles.Button}
