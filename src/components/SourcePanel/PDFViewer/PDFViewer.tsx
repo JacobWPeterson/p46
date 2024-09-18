@@ -6,6 +6,7 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 
 import useResizeObserver from "../../../utils/useResizeObserver";
+import { Sources } from "../sources.enum";
 
 import styles from "./PDFViewer.module.scss";
 
@@ -17,10 +18,14 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 const resizeObserverOptions = {};
 
+type KenyonTextPageType = Record<"start" | "range", number>;
+
 export const PDFViewer = ({
-  pageNumber = 1,
+  pageNumber,
+  source,
 }: {
-  pageNumber: number;
+  pageNumber: number | KenyonTextPageType;
+  source: Sources;
 }): ReactElement => {
   const [containerWidth, setContainerWidth] = useState<number>();
   const [scale, setScale] = useState<number>(1);
@@ -60,10 +65,19 @@ export const PDFViewer = ({
     <div ref={containerRef} className={styles.Container}>
       {isLoading && <div className={styles.Loading}>Loading...</div>}
       <Document
-        file="/files/transcriptions.pdf"
+        file={`/files/${source}.pdf`}
         onLoadSuccess={onDocumentLoadSuccess}
       >
-        <Page pageNumber={pageNumber} scale={scale} />
+        {source === Sources.KenyonText ? (
+          Array.from(
+            { length: (pageNumber as KenyonTextPageType).range },
+            (_, index) => (pageNumber as KenyonTextPageType).start + index
+          ).map((pageNumber) => (
+            <Page key={pageNumber} pageNumber={pageNumber} />
+          ))
+        ) : (
+          <Page pageNumber={pageNumber as number} scale={scale} />
+        )}
       </Document>
       <div className={styles.Controls} style={{ width: containerWidth }}>
         <button

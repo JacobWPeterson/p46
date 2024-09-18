@@ -41,6 +41,23 @@ export const SourcePanel = ({
     onChange(newSource.value as Sources);
   };
 
+  const getContent = (): ReactElement | string => {
+    if (!source) {
+      return "Select a source from the dropdown above";
+    }
+    return source === Sources.Mirador ? (
+      <Mirador
+        canvasIndex={manifests[manifestIndex].canvasIndex}
+        manifest={manifests[manifestIndex].url}
+      />
+    ) : (
+      <PDFViewer
+        source={source}
+        pageNumber={manifests[manifestIndex][`${source}Page`]}
+      />
+    );
+  };
+
   return (
     <div className={styles.Container}>
       <div className={styles.Header}>
@@ -85,18 +102,7 @@ export const SourcePanel = ({
           </button>
         </div>
       </div>
-      <div className={styles.Content}>
-        {!source && "Select a source from the dropdown above"}
-        {source === Sources.Mirador && (
-          <Mirador
-            canvasIndex={manifests[manifestIndex].canvasIndex}
-            manifest={manifests[manifestIndex].url}
-          />
-        )}
-        {source === Sources.Peterson && (
-          <PDFViewer pageNumber={manifests[manifestIndex].petersonPage} />
-        )}
-      </div>
+      <div className={styles.Content}>{getContent()}</div>
     </div>
   );
 };
