@@ -34,20 +34,6 @@
     }
   }
 
-  .H3 {
-    font-size: 18px;
-    font-weight: 400;
-    margin: 16px 0 8px;
-
-    @media (width <= 800px) {
-      font-size: 14px;
-    }
-  }
-
-  .H3:first-of-type {
-    margin: 0 0 8px;
-  }
-
   .Section {
     display: flex;
     flex-direction: column;

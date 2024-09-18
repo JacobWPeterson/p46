@@ -6,6 +6,7 @@ export const Bibliography = (): ReactElement => (
   <div className="PageWrapper">
     <h1 className={styles.H1}>Bibliography</h1>
     <div className={styles.Container}>
+      <h2 className={styles.H2}>more to come</h2>
       <div className={styles.Section}>
         <p className={styles.Item}>
           Peterson, Jacob W. “See With What Variable Letter Sizes I Write–A
