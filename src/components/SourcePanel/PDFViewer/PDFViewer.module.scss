@@ -33,5 +33,16 @@
     outline: none;
     border: none;
     background: transparent;
+
+    > svg {
+      stroke: theme.$grey10;
+    }
+
+    &:hover,
+    &:focus-within {
+      > svg {
+        stroke: theme.$primary03;
+      }
+    }
   }
 }
