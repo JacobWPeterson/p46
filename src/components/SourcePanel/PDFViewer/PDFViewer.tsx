@@ -13,7 +13,7 @@ import styles from "./PDFViewer.module.scss";
 // eslint-disable-next-line compat/compat
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url
+  import.meta.url,
 ).toString();
 
 const resizeObserverOptions = {};
@@ -90,7 +90,7 @@ export const PDFViewer = ({
           {source === Sources.KenyonText ? (
             Array.from(
               { length: (pageNumber as KenyonTextPageType).range },
-              (_, index) => (pageNumber as KenyonTextPageType).start + index
+              (_, index) => (pageNumber as KenyonTextPageType).start + index,
             ).map((pageNumber) => (
               <Page key={pageNumber} pageNumber={pageNumber} />
             ))
