@@ -13,7 +13,7 @@ import styles from "./SourcePanel.module.scss";
 const sourceOptions: Option[] = [
   { label: "CBL and UM images", value: Sources.Mirador },
   { label: "Kenyon plates", value: Sources.KenyonPlates },
-  { label: "Peterson transcriptions", value: Sources.Peterson },
+  { label: "Peterson transcription", value: Sources.Peterson },
   { label: "Kenyon transcription", value: Sources.KenyonText },
 ];
 
@@ -151,7 +151,7 @@ export const SourcePanel = ({
           captureMenuScroll
           menuShouldBlockScroll
           options={sourceOptions.filter(
-            (option) => !selectedSourcePanels.includes(option.value as Sources),
+            (option) => !selectedSourcePanels.includes(option.value as Sources)
           )}
           isSearchable
         />

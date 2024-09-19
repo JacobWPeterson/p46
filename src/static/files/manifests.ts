@@ -12,10 +12,10 @@ const manifests = [
   // 13–15 at CBL, part of bifolia with 92, 91, 90 respectively
   {folio: '13↓', content: 'Rom 9.22–33', kenyonPlatesPage: 7, kenyonTextPage: {start: 6, range: 1}, petersonPage: 7, canvasIndex: 0, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_13_92/manifest'},
   {folio: '13→', content: 'Rom 10.1–12', kenyonPlatesPage: 8, kenyonTextPage: {start: 6, range: 2}, petersonPage: 8, canvasIndex: 1, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_13_92/manifest'},
-  {folio: '14↓', content: 'Rom 10.12–11.3', kenyonPlatesPage: 9, kenyonTextPage: {start: 7, range: 2}, petersonPage: 9, canvasIndex: 0, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_14_91/manifest'},
-  {folio: '14→', content: 'Rom 11.3–13', kenyonPlatesPage: 10, kenyonTextPage: {start: 8, range: 2}, petersonPage: 10, canvasIndex: 1, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_14_91/manifest'},
-  {folio: '15↓', content: 'Rom 11.13–24', kenyonPlatesPage: 11, kenyonTextPage: {start: 9, range: 2}, petersonPage: 11, canvasIndex: 0, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_15_90/manifest'},
-  {folio: '15→', content: 'Rom 11.24–35', kenyonPlatesPage: 12, kenyonTextPage: {start: 10, range: 1}, petersonPage: 12, canvasIndex: 1, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_15_90/manifest'},
+  {folio: '14↓', content: 'Rom 10.12–11.3', kenyonPlatesPage: 9, kenyonTextPage: {start: 7, range: 2}, petersonPage: 9, canvasIndex: 1, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_14_91/manifest'},
+  {folio: '14→', content: 'Rom 11.3–13', kenyonPlatesPage: 10, kenyonTextPage: {start: 8, range: 2}, petersonPage: 10, canvasIndex: 0, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_14_91/manifest'},
+  {folio: '15↓', content: 'Rom 11.13–24', kenyonPlatesPage: 11, kenyonTextPage: {start: 9, range: 2}, petersonPage: 11, canvasIndex: 1, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_15_90/manifest'},
+  {folio: '15→', content: 'Rom 11.24–35', kenyonPlatesPage: 12, kenyonTextPage: {start: 10, range: 1}, petersonPage: 12, canvasIndex: 0, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_15_90/manifest'},
   // 16–17 at UM
   {folio: '16↓', content: 'Rom 11.35–12.10', kenyonPlatesPage: 13, kenyonTextPage: {start: 10, range: 2}, petersonPage: 13, canvasIndex: 0, url: 'https://quod.lib.umich.edu/cgi/i/image/api/manifest/apis:3553:6238_30.TIF'},
   {folio: '16→', content: 'Rom 12.10–13.2', kenyonPlatesPage: 14, kenyonTextPage: {start: 11, range: 2}, petersonPage: 14, canvasIndex: 0, url: 'https://quod.lib.umich.edu/cgi/i/image/api/manifest/apis:3554:6238_31.TIF'},
@@ -179,16 +179,16 @@ const manifests = [
 
   {folio: '91→', content: 'Col 1.16–27', kenyonPlatesPage: 163, kenyonTextPage: {start: 150, range: 1}, petersonPage: 163, canvasIndex: 0, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_14_91/manifest'},
   {folio: '91↓', content: 'Col 1.27–2.8', kenyonPlatesPage: 164, kenyonTextPage: {start: 151, range: 1}, petersonPage: 164, canvasIndex: 1, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_14_91/manifest'},
-  {folio: '92→', content: 'Col 2.8–22', kenyonPlatesPage: 165, kenyonTextPage: {start: 151, range: 2}, petersonPage: 165, canvasIndex: 0, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_13_92/manifest'},
-  {folio: '92↓', content: 'Col 2.22–3.13', kenyonPlatesPage: 166, kenyonTextPage: {start: 152, range: 2}, petersonPage: 166, canvasIndex: 1, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_13_92/manifest'},
+  {folio: '92→', content: 'Col 2.8–22', kenyonPlatesPage: 165, kenyonTextPage: {start: 151, range: 2}, petersonPage: 165, canvasIndex: 1, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_13_92/manifest'},
+  {folio: '92↓', content: 'Col 2.22–3.13', kenyonPlatesPage: 166, kenyonTextPage: {start: 152, range: 2}, petersonPage: 166, canvasIndex: 0, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_13_92/manifest'},
   {folio: '93→', content: 'Col 3.13–4.3', kenyonPlatesPage: 167, kenyonTextPage: {start: 153, range: 2}, petersonPage: 167, canvasIndex: 0, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_f_93/manifest'},
   {folio: '93↓', content: 'Col 4.3–16', kenyonPlatesPage: 168, kenyonTextPage: {start: 154, range: 2}, petersonPage: 168, canvasIndex: 1, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_f_93/manifest'},
   {folio: '94→', content: 'Col 4.16–1 Thess 1.2', kenyonPlatesPage: 169, kenyonTextPage: {start: 155, range: 1}, petersonPage: 169, canvasIndex: 0, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_f_94/manifest'},
   {folio: '94↓', content: '1 Thess 1.8–2.3', kenyonPlatesPage: 170, kenyonTextPage: {start: 155, range: 2}, petersonPage: 170, canvasIndex: 1, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_f_94/manifest'},
   // 96 Missing
   // 97 at CBL, part of bifolio with 8
-  {folio: '97→', content: '1 Thess 5.5–9', kenyonPlatesPage: 171, kenyonTextPage: {start: 156, range: 1}, petersonPage: 171, canvasIndex: 0, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_8_97/manifest'},
-  {folio: '97↓', content: '1 Thess 5.23–28', kenyonPlatesPage: 172, kenyonTextPage: {start: 156, range: 1}, petersonPage: 172, canvasIndex: 1, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_8_97/manifest'},
+  {folio: '97→', content: '1 Thess 5.5–9', kenyonPlatesPage: 171, kenyonTextPage: {start: 156, range: 1}, petersonPage: 171, canvasIndex: 1, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_8_97/manifest'},
+  {folio: '97↓', content: '1 Thess 5.23–28', kenyonPlatesPage: 172, kenyonTextPage: {start: 156, range: 1}, petersonPage: 172, canvasIndex: 0, url: 'https://viewer.cbl.ie/viewer/api/v1/records/BP_II_ff_8_97/manifest'},
 ];
 
 export default manifests;
