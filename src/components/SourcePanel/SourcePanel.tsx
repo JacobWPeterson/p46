@@ -1,9 +1,8 @@
-import { useState, type ReactElement } from "react";
+import type { ReactElement } from "react";
 import Select from "react-select";
 import { Info, X } from "react-feather";
 
 import manifests from "../../static/files/manifests";
-import { Modal } from "../Modal/Modal";
 
 import { Mirador } from "./Mirador";
 import { PDFViewer } from "./PDFViewer/PDFViewer";
@@ -13,7 +12,7 @@ import styles from "./SourcePanel.module.scss";
 const sourceOptions: Option[] = [
   { label: "CBL and UM images", value: Sources.Mirador },
   { label: "Kenyon plates", value: Sources.KenyonPlates },
-  { label: "Peterson transcriptions", value: Sources.Peterson },
+  { label: "Peterson transcription", value: Sources.Peterson },
   { label: "Kenyon transcription", value: Sources.KenyonText },
 ];
 
@@ -39,7 +38,6 @@ export const SourcePanel = ({
   source,
   toggleGuideModal,
 }: SourcePanelProps): ReactElement => {
-  const [showInfoModal, setShowInfoModal] = useState<boolean>(false);
   const handleSourceChange = (newSource: Option): void => {
     onChange(newSource.value as Sources);
   };
@@ -151,7 +149,7 @@ export const SourcePanel = ({
           captureMenuScroll
           menuShouldBlockScroll
           options={sourceOptions.filter(
-            (option) => !selectedSourcePanels.includes(option.value as Sources),
+            (option) => !selectedSourcePanels.includes(option.value as Sources)
           )}
           isSearchable
         />
@@ -178,9 +176,6 @@ export const SourcePanel = ({
         </div>
       </div>
       <div className={styles.Content}>{getContent()}</div>
-      <Modal isOpen={showInfoModal} handleClose={() => setShowInfoModal(false)}>
-        <>hello</>
-      </Modal>
     </div>
   );
 };
