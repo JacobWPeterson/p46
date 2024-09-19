@@ -1,9 +1,8 @@
-import { useState, type ReactElement } from "react";
+import type { ReactElement } from "react";
 import Select from "react-select";
 import { Info, X } from "react-feather";
 
 import manifests from "../../static/files/manifests";
-import { Modal } from "../Modal/Modal";
 
 import { Mirador } from "./Mirador";
 import { PDFViewer } from "./PDFViewer/PDFViewer";
@@ -39,7 +38,6 @@ export const SourcePanel = ({
   source,
   toggleGuideModal,
 }: SourcePanelProps): ReactElement => {
-  const [showInfoModal, setShowInfoModal] = useState<boolean>(false);
   const handleSourceChange = (newSource: Option): void => {
     onChange(newSource.value as Sources);
   };
@@ -178,9 +176,6 @@ export const SourcePanel = ({
         </div>
       </div>
       <div className={styles.Content}>{getContent()}</div>
-      <Modal isOpen={showInfoModal} handleClose={() => setShowInfoModal(false)}>
-        <>hello</>
-      </Modal>
     </div>
   );
 };
