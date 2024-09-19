@@ -4,6 +4,7 @@ import { useCallback, useRef, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
+import { MinusCircle, PlusCircle } from "react-feather";
 
 import useResizeObserver from "../../../utils/useResizeObserver";
 import { Sources } from "../sources.enum";
@@ -13,7 +14,7 @@ import styles from "./PDFViewer.module.scss";
 // eslint-disable-next-line compat/compat
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url,
+  import.meta.url
 ).toString();
 
 const resizeObserverOptions = {};
@@ -90,7 +91,7 @@ export const PDFViewer = ({
           {source === Sources.KenyonText ? (
             Array.from(
               { length: (pageNumber as KenyonTextPageType).range },
-              (_, index) => (pageNumber as KenyonTextPageType).start + index,
+              (_, index) => (pageNumber as KenyonTextPageType).start + index
             ).map((pageNumber) => (
               <Page key={pageNumber} pageNumber={pageNumber} />
             ))
@@ -105,10 +106,10 @@ export const PDFViewer = ({
           disabled={isMinZoom}
           onClick={zoomOut}
         >
-          <img src="/icons/zoomOut.svg" alt="zoom out" />
+          <MinusCircle size={20} />
         </button>
         <button className={styles.Button} disabled={isMaxZoom} onClick={zoomIn}>
-          <img src="/icons/zoomIn.svg" alt="zoom in" />
+          <PlusCircle size={20} />
         </button>
       </div>
     </div>
