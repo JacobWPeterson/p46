@@ -1,6 +1,70 @@
 @use "src/styles/theme";
 @use "src/styles/variables";
 
+.Tooltip {
+  position: relative;
+  display: inline-block;
+
+  &:hover,
+  &:focus-within {
+    > svg {
+      stroke: theme.$primary03;
+    }
+  }
+}
+
+.Tooltip .TooltipText {
+  visibility: hidden;
+  width: 300px;
+  font-size: 14px;
+  background-color: theme.$grey00;
+  color: theme.$grey10;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 10;
+  top: 125%;
+  left: 50%;
+  margin-left: -250px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: 0 2px 2px rgb(130 130 130 / 100%);
+
+  .Link {
+    font-weight: 400;
+    color: theme.$secondary05;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-within {
+      text-decoration: underline;
+    }
+  }
+}
+
+.Tooltip .TooltipText::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 250px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent theme.$grey00 transparent;
+  filter: drop-shadow(0 -2px -2px rgb(130 130 130 / 100%));
+}
+
+.Tooltip:hover .TooltipText {
+  visibility: visible;
+  opacity: 1;
+}
+
+.Tooltip:focus-within .TooltipText {
+  visibility: visible;
+  opacity: 1;
+}
+
 .Container {
   height: 100%;
   flex: 1;
@@ -21,45 +85,39 @@
     .EndButtons {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 8px;
 
-      .CloseButton {
-        color: theme.$grey10;
+      .IconButton {
+        position: relative;
+        top: 1px;
         height: 38px;
         width: 38px;
         background: transparent;
-        border: 1px solid transparent;
+        border: none;
         outline: none;
+
+        > svg {
+          stroke: theme.$grey10;
+        }
 
         &:hover,
         &:focus-within {
-          color: theme.$primary03;
-          font-weight: 500;
-          border: 1px solid theme.$primary03;
-          border-radius: 19px;
-          box-sizing: border-box;
+          > svg {
+            stroke: theme.$primary03;
+          }
         }
 
         &:disabled {
-          color: theme.$grey05;
-          font-weight: 500;
           cursor: not-allowed;
-          border-radius: 19px;
-          box-sizing: border-box;
 
-          &:hover,
-          &:focus-within {
-            font-weight: 500;
-            border: 1px solid theme.$grey05;
-            border-radius: 19px;
-            box-sizing: border-box;
+          > svg {
+            stroke: theme.$grey05;
           }
         }
       }
 
       .TranscriptionGuideButton {
         position: relative;
-        left: 10px;
         font-family: Montserrat, sans-serif;
         font-weight: 300;
         font-size: 16px;
