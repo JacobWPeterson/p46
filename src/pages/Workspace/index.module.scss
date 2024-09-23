@@ -151,7 +151,12 @@
 .GuideModal {
   width: 50%;
   height: 80%;
-  overflow: auto;
-  padding: 12px;
-  box-sizing: border-box;
+
+  @media (width <= 1200px) {
+    width: 70%;
+  }
+
+  @media (width <= 800px) {
+    width: 95%;
+  }
 }
