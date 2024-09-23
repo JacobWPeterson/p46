@@ -54,7 +54,7 @@ export const ContactModal = ({
       "template_r9mhd7m",
       {
         from_name: nameInput,
-        message: messageInput,
+        message: `Message from P46 site: ${messageInput}`,
         reply_to: emailInput,
       },
       {

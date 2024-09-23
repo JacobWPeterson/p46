@@ -23,7 +23,7 @@ export const About = (): ReactElement => (
         display the transcriptions alongside the latest digital images.
         Thankfully, both the Chester Beatty and University of Michigan libraries
         make their images available as IIIF manifests, thereby enabling a site
-        like this that can display all 86 leaves of the manuscript in once place
+        like this that can display all 86 leaves of the manuscript in one place
         within a modern image viewer.
       </div>
       <br />

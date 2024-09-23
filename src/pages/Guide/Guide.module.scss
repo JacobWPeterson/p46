@@ -8,7 +8,6 @@
   text-align: justify;
   text-indent: 24px;
   letter-spacing: 0.03em;
-  line-height: 1.5;
 
   @media (width < 1024px) {
     font-size: 14px;
@@ -36,7 +35,9 @@
   font-weight: 600;
   color: theme.$secondary03;
   text-align: center;
-  margin: 6px auto;
+  padding: 12px 0;
+  margin: 0;
+  border-bottom: 1px solid theme.$grey03;
 }
 
 .H2 {
@@ -57,11 +58,19 @@
 }
 
 .Container {
-  width: 90%;
   height: 100%;
+  overflow: hidden;
 
   @media (width < 800px) {
     margin: 6px auto;
+  }
+
+  .GuideBody {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 73px - 12px);
+    padding: 12px 24px 24px 12px;
+    overflow-y: auto;
   }
 }
 
