@@ -5,9 +5,45 @@ import styles from "./Bibliography.module.scss";
 export const Bibliography = (): ReactElement => (
   <div className="PageWrapper">
     <h1 className={styles.H1}>Bibliography</h1>
+    <h2 className={styles.H2}>(in progress)</h2>
     <div className={styles.Container}>
-      <h2 className={styles.H2}>more to come</h2>
       <div className={styles.Section}>
+        <p className={styles.Item}>
+          Aland, Kurt, Annette Benduhn-Merz, Gerd Mink, and Horst Bachmann.{" "}
+          <i>
+            Text und Textwert der griechischen Handschriften des Neuen
+            Testaments II: Die Paulinischen Briefe, Band 1: Allgemeines,
+            Römerbrief und Ergänzungsliste.
+          </i>{" "}
+          ANTF 16. Berlin: de Gruyter, 1991.
+        </p>
+        <p className={styles.Item}>
+          Aland, Kurt, Annette Benduhn-Merz, Gerd Mink, and Horst Bachmann.{" "}
+          <i>
+            Text und Textwert der griechischen Handschriften des Neuen
+            Testaments II: Die Paulinischen Briefe, Band 2: Der 1. und der 2.
+            Korintherbrief.
+          </i>{" "}
+          ANTF 17. Berlin: de Gruyter, 1991.
+        </p>
+        <p className={styles.Item}>
+          Aland, Kurt, Annette Benduhn-Merz, Gerd Mink, and Horst Bachmann.{" "}
+          <i>
+            Text und Textwert der griechischen Handschriften des Neuen
+            Testaments II: Die Paulinischen Briefe, Band 3: Galaterbrief bis
+            Philipperbrief.
+          </i>{" "}
+          ANTF 18. Berlin: de Gruyter, 1991.
+        </p>
+        <p className={styles.Item}>
+          Aland, Kurt, Annette Benduhn-Merz, Gerd Mink, and Horst Bachmann.{" "}
+          <i>
+            Text und Textwert der griechischen Handschriften des Neuen
+            Testaments II: Die Paulinischen Briefe, Band 4: Kolosserbrief bis
+            Hebräerbrief.
+          </i>{" "}
+          ANTF 19. Berlin: de Gruyter, 1991.
+        </p>
         <p className={styles.Item}>
           Ebojo, Edgar B. &quot;A Scribe and His Manuscript: An Investigation
           into the Scribal Habits of Papyrus 46 (P. Chester Beatty II––P. Mich.
@@ -21,6 +57,14 @@ export const Bibliography = (): ReactElement => (
             UoB ETheses
           </a>
           )
+        </p>
+        <p className={styles.Item}>
+          Junack, Klaus, Eberhard Güting, Ursula Nimtz, and Klaus Witte.{" "}
+          <i>
+            Das Neue Testament auf Papyrus II: Die Paulinischen Briefe, Teil 1:
+            Röm, 1 Kor, 2 Kor.
+          </i>{" "}
+          ANTF 12. Berlin: de Gruyter, 1989.
         </p>
         <p className={styles.Item}>
           Kenyon, Frederic G., ed.{" "}
@@ -126,6 +170,21 @@ export const Bibliography = (): ReactElement => (
           <i>A Third-Century Papyrus Codex of the Epistles of Paul</i>.{" "}
           University of Michigan Studies Humanistic Series 38. Ann Arbor:
           University of Michigan Press, 1935.
+        </p>
+        <p className={styles.Item}>
+          Wachtel, Klaus and Klaus Witte.{" "}
+          <i>
+            Das Neue Testament auf Papyrus II: Die Paulinischen Briefe, Teil 2:
+            Gal, Eph, Phil, Kol, 1 u. 2 Thess, 1 u 2 Tim, Tit, Phlm, Hebr.
+          </i>{" "}
+          ANTF 22. Berlin: de Gruyter, 1994.
+        </p>
+        <p className={styles.Item}>
+          Zuntz, Günther.{" "}
+          <i>
+            The Text of the Epistles: A Disquisition upon the Corpus Paulinum.
+          </i>{" "}
+          The Schweich Lectures, 1946. London: Oxford University Press, 1953.
         </p>
       </div>
     </div>
