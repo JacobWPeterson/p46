@@ -1,7 +1,7 @@
 @use "src/styles/theme";
 
 .Container {
-  width: 80vw;
+  width: 70vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,6 +13,7 @@
   }
 
   &.Lower {
+    width: 60vw;
     flex-direction: row;
     background: theme.$grey02;
     margin: 10px auto;
@@ -22,6 +23,7 @@
 
     @media (width < 1024px) {
       flex-direction: column;
+      width: 90vw;
     }
 
     @media (width < 600px) {
@@ -51,10 +53,10 @@
   }
 
   .Text {
-    font-size: 18px;
+    font-size: 16px;
     color: theme.$grey10;
     text-align: justify;
-    line-height: 1.5;
+    line-height: 1.1;
 
     @media (width < 1024px) {
       font-size: 14px;
@@ -65,7 +67,7 @@
     }
 
     &.Smaller {
-      font-size: 16px;
+      font-size: 14px;
 
       @media (width < 1024px) {
         font-size: 12px;
@@ -77,7 +79,7 @@
 .H1 {
   font-size: 40px;
   font-weight: 600;
-  color: theme.$secondary03;
+  color: theme.$primary03;
   text-align: center;
   margin: 6px auto;
 }
@@ -171,7 +173,7 @@
 
   &:hover,
   &:focus {
-    color: theme.$primary05;
+    color: theme.$primary04;
     outline: none;
     cursor: pointer;
   }

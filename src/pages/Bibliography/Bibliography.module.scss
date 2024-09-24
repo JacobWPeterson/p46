@@ -3,7 +3,7 @@
 .H1 {
   font-style: italic;
   text-align: center;
-  color: theme.$secondary05;
+  color: theme.$primary03;
 
   @media (width <= 800px) {
     font-size: 26px;
@@ -81,7 +81,7 @@
 
 .Link {
   font-weight: 400;
-  color: theme.$secondary05;
+  color: theme.$primary03;
   text-decoration: none;
 
   &:hover,
