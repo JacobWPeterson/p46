@@ -32,10 +32,10 @@ const config: any = {
   theme: {
     palette: {
       primary: {
-        main: "#c9ac5f",
+        main: "#65743a",
       },
       secondary: {
-        main: "#65743a",
+        main: "#c9ac5f",
       },
       shades: {
         // Shades that can be used to offset color areas of the Workspace / Window

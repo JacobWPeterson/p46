@@ -41,7 +41,7 @@
 
       &:hover,
       &:focus-within {
-        color: theme.$primary05;
+        color: theme.$primary04;
       }
     }
 
@@ -130,7 +130,8 @@
   &:focus {
     outline: none;
     cursor: pointer;
-    color: theme.$primary05;
+    color: theme.$primary04;
+    font-weight: 400;
   }
 
   &:focus {

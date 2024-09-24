@@ -33,7 +33,7 @@
 
   .Link {
     font-weight: 400;
-    color: theme.$secondary05;
+    color: theme.$primary03;
     text-decoration: none;
 
     &:hover,
@@ -140,7 +140,7 @@
 
       &:hover,
       &:focus-within {
-        border-color: theme.$primary05;
+        border-color: theme.$primary04;
         box-shadow: none;
       }
     }

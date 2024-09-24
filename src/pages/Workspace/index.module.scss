@@ -108,7 +108,7 @@
         &:focus-visible:not([disabled]),
         &:active:not([disabled]) {
           color: theme.$grey00;
-          border-color: theme.$primary05;
+          border-color: theme.$primary04;
           transform: translateY(0);
           transition: border-color 1s;
         }
@@ -119,7 +119,7 @@
 
         &:hover,
         &:focus-within {
-          border-color: theme.$primary05;
+          border-color: theme.$primary04;
           box-shadow: none;
         }
       }
