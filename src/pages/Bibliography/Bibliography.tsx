@@ -245,8 +245,9 @@ export const Bibliography = (): ReactElement => (
         </p>
         <p className={styles.Item}>
           Collomp, Paul. “Les Papyri Chester Beatty: Observations
-          bibliologiques.” <i>Revue d'histoire et de philosophie religieuses</i>{" "}
-          14 (1934): 130–143.
+          bibliologiques.”{" "}
+          <i>Revue d&#39;histoire et de philosophie religieuses</i> 14 (1934):
+          130–143.
         </p>
         <p className={styles.Item}>
           Comfort, Philip W.{" "}
@@ -358,8 +359,9 @@ export const Bibliography = (): ReactElement => (
           , edited by J.K. Elliott. NovTSup 137. Leiden: Brill, 2011.
         </p>
         <p className={styles.Item}>
-          Epp, Eldon Jay. “It's All about Variants: A Variant-Conscious Approach
-          to New Testament Textual Criticism.” <i>HTR</i> 100 (2007): 275–308.
+          Epp, Eldon Jay. “It&apos;s All about Variants: A Variant-Conscious
+          Approach to New Testament Textual Criticism.” <i>HTR</i> 100 (2007):
+          275–308.
         </p>
         <p className={styles.Item}>
           ––––– “Minor Textual Variants in Romans 16:7,” 123–141 in{" "}
@@ -483,18 +485,97 @@ export const Bibliography = (): ReactElement => (
           New Orleans, November 24, 1996.
         </p>
         <p className={styles.Item}>
+          Guppy, Henry. “Notes and News: Chester Beatty Biblical Papyri.”{" "}
+          <i>Bulletin of the John Rylands Library</i> 17.2 (1933): 196–197.
+        </p>
+        <p className={styles.Item}>
           Gurry, Peter J. and Elijah Hixson, eds.{" "}
           <i>Myths and Mistakes in New Testament Textual Criticism.</i> Downers
           Grove, IL: IVP Academic, 2019.
+        </p>
+        <p className={styles.Item}>
+          Haines-Eitzen, Kim.{" "}
+          <i>
+            Guardians of Letters: Literacy, Power, and the Transmitters of Early
+            Christian Literature
+          </i>
+          . Oxford: Oxford University Press, 2000.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Social History of Early Christian Scribes,” 479–495 in{" "}
+          <i>
+            The Text of the New Testament in Contemporary Research: Essays on
+            the Status Quaestionis
+          </i>
+          . 2nd ed., edited by Bart D. Ehrman and Michael W. Holmes. NTTSD 42.
+          Leiden: Brill, 2013.
+        </p>
+        <p className={styles.Item}>
+          Harris, Hall.{" "}
+          <i>
+            The Descent of Christ: Ephesians 4:7-11 and Traditional Hebrew
+            Imagery
+          </i>
+          . Arbeiten zur Geschichte des antiken Judentums und des Urchristentums
+          32. Leiden: Brill, 2018.
+        </p>
+        <p className={styles.Item}>
+          Hatch, William H.P. “The Position of Hebrews in the Canon of the New
+          Testament.” <i>HTR</i> 29.2 (1936): 133–151.
+        </p>
+        <p className={styles.Item}>
+          ––––– <i>The Principal Uncial Manuscripts of the New Testament</i>.
+          Vol. 2. Chicago: University of Chicago Press, 1939.
+        </p>
+        <p className={styles.Item}>
+          Hayes, R.J. “Contemporary Collectors XVIII: The Chester Beatty
+          Library.” <i>The Book Collector</i> 7.3 (1958): 253–264.
+        </p>
+        <p className={styles.Item}>
+          Head, Peter M. “Additional Greek Witnesses to the New Testament
+          (Ostraca, Amulets, Inscriptions, and Other Sources),” 429–460 in{" "}
+          <i>
+            The Text of the New Testament in Contemporary Research: Essays on
+            the Status Quaestionis
+          </i>
+          . 2nd ed., edited by Bart D. Ehrman and Michael W. Holmes. NTTSD 42.
+          Leiden: Brill, 2013.
+        </p>
+        <p className={styles.Item}>
+          Heide, Martin. “Die alttestamentlichen Zitate der syrischen Peschitta
+          im Hebräerbrief Kap. 1–3,” 249–282 in{" "}
+          <i>
+            Von der Septuaginta zum Neuen Testament: textgeschichtliche
+            Erörterungen
+          </i>
+          , edited by Martin Karrer, Siegfried Kreuzer, and Marcus Sigismund.
+          ANTF 43. Berlin: De Gruyter, 2010.
         </p>
         <p className={styles.Item}>
           Hirunuma, Toshio <i>The Papyri Bearing the New Testament Text.</i>{" "}
           Vol. II. 3 vols. Osaka: Christian Bookshop, 1998.
         </p>
         <p className={styles.Item}>
-          Holmes, Michael W. “The Text of the Epistles Sixty Years After: An
-          Assessment of Günther Zuntz’s Contribution to Text-Critical
-          Methodology and History,” 89–113 in{" "}
+          Hixson, Elijah. “Dating Myths, Part One: How We Determine the Ages of
+          Manuscripts,” 90–109 in{" "}
+          <i>Myths and Mistakes in New Testament Textual Criticism</i>, edited
+          by Elijah Hixson and Peter J. Gurry. Downers Grove, IL: IVP Academic,
+          2019.
+        </p>
+        <p className={styles.Item}>
+          Holmes, Michael W. “Reasoned Eclecticism in New Testament Textual
+          Criticism,” 771–802 in{" "}
+          <i>
+            The Text of the New Testament in Contemporary Research: Essays on
+            the Status Quaestionis
+          </i>
+          . 2nd ed., edited by Bart D. Ehrman and Michael W. Holmes. NTTSD 42.
+          Leiden: Brill, 2013.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Text of the Epistles Sixty Years After: An Assessment of
+          Günther Zuntz’s Contribution to Text-Critical Methodology and
+          History,” 89–113 in{" "}
           <i>
             Transmission and Reception: New Testament Text-Critical and
             Exegetical Studies,
@@ -540,6 +621,27 @@ export const Bibliography = (): ReactElement => (
           London: B. Quaritch, 1938.
         </p>
         <p className={styles.Item}>
+          Houghton, H.A.G. “An Initial Selection of Manuscripts for the Editio
+          Critica Maior of the Pauline Epistles,” 343–359 in{" "}
+          <i>
+            The New Testament in Antiquity and Byzantium: Traditional and
+            Digital Approaches to its Texts and Editing-A Festschrift for Klaus
+            Wachtel
+          </i>
+          , edited by H.A.G. Houghton, D. C. Parker, and Holger Strutwolf. ANTF
+          52. Berlin: De Gruyter, 2019.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Use of the Latin Fathers for New Testament Textual
+          Criticism.” 375–405 in{" "}
+          <i>
+            The Text of the New Testament in Contemporary Research: Essays on
+            the Status Quaestionis
+          </i>
+          . 2nd ed., edited by Bart D. Ehrman and Michael W. Holmes. NTTSD 42.
+          Leiden: Brill, 2013.
+        </p>
+        <p className={styles.Item}>
           Hurtado, Larry W.{" "}
           <i>
             The Earliest Christian Artifacts: Manuscripts and Christian Origins.
@@ -547,8 +649,41 @@ export const Bibliography = (): ReactElement => (
           Grand Rapids: Eerdmans, 2006.
         </p>
         <p className={styles.Item}>
+          ––––– “The New Testament in the Second Century: Text, Collections and
+          Canon,” 3–27 in{" "}
+          <i>
+            Transmission and Reception: New Testament Text-Critical and
+            Exegetical Studies
+          </i>
+          , edited by Jeff W. Childers and D.C. Parker. T&S III 4. Piscataway,
+          NJ: Gorgias, 2006.
+        </p>
+        <p className={styles.Item}>
+          Ito, Akio. “The Chester Beatty Biblical Papyri (P45, P46, P47)
+          (チェスター・ビーティー新約聖書写本).”{" "}
+          <i>
+            Christ and the World: Bulletin of Tokyo Christian University
+            (キリストと世界)
+          </i>{" "}
+          27 (2017): 62–83.
+        </p>
+        <p className={styles.Item}>
           Jang, Min Seok. “A Reconsideration of the Date of Papyrus 46.” PhD
           Diss., New Orleans Baptist Theological Seminary, 2010.
+        </p>
+        <p className={styles.Item}>
+          Jellicoe, Sidney. <i>The Septuagint and Modern Study</i>. Oxford:
+          Clarendon, 1968.
+        </p>
+        <p className={styles.Item}>
+          Jongkind, Dirk. “Some Observations on the Relevance of the Early
+          Byzantine Glossary of Paul for the Textual Criticism of the Corpus
+          Paulinum.” <i>NovT</i> 53.4 (2011): 358–375.
+        </p>
+        <p className={styles.Item}>
+          ––––– “TheText of the Pauline Corpus,” 216–231 in{" "}
+          <i>The Blackwell Companion to Paul</i>, edited by Stephen Westerholm.
+          Malden, MA: Wiley-Blackwell, 2011.
         </p>
         <p className={styles.Item}>
           Junack, Klaus, Eberhard Güting, Ursula Nimtz, and Klaus Witte.{" "}
@@ -559,7 +694,73 @@ export const Bibliography = (): ReactElement => (
           ANTF 12. Berlin: de Gruyter, 1989.
         </p>
         <p className={styles.Item}>
+          Karrer, Martin and Johannes de Vries. “Die Schriftzitate im ersten
+          Christentum und die Textgeschichte der Septuaginta: Ein Wuppertaler
+          Forschungsprojekt,” 311–357 in{" "}
+          <i>Text-Critical and Hermeneutical Studies in the Septuagint</i>,
+          edited by Johann Cook and Hermann-Josef Stipp. VTSup 157. Leiden:
+          Brill, 2012.
+        </p>
+        <p className={styles.Item}>
+          Karrer, Martin and Ulrich Schmid. “Old Testament Quotations in the New
+          Testament and the Textual History of the Bible – the Wuppertal
+          Research Project,” 155–196 in{" "}
+          <i>
+            Von der Septuaginta zum Neuen Testament: textgeschichtliche
+            Erörterungen
+          </i>
+          , edited by Martin Karrer, Siegfried Kreuzer, and Marcus Sigismund.
+          ANTF 43. Berlin: De Gruyter, 2010.
+        </p>
+        <p className={styles.Item}>
           Kenyon, Frederic G., ed.{" "}
+          <i>Books and Readers in Ancient Greece and Rome.</i> Oxford:
+          Clarendon, 1932. (2nd ed. Oxford: Clarendon, 1951.)
+        </p>
+        <p className={styles.Item}>
+          ––––– <i>La Documentation Catholique</i> XXVII (1932).
+        </p>
+        <p className={styles.Item}>
+          ––––– “New Light on the Text of the Bible.”{" "}
+          <i>Discovery: A Monthly Popular Journal of Knowledge</i> 14, no. 167
+          (1933): 331–334.
+        </p>
+        <p className={styles.Item}>
+          ––––– “New Biblical Texts.”{" "}
+          <i>Discovery: A Monthly Popular Journal of Knowledge</i> 16.186
+          (1935): 157–161.
+        </p>
+        <p className={styles.Item}>
+          ––––– “Nomina Sacra in the Chester Beatty Papyri.” <i>Aegyptus</i>{" "}
+          13.1/2 (1933): 5–10.
+        </p>
+        <p className={styles.Item}>
+          –––––{" "}
+          <i>
+            Recent Developments in the Textual Criticism of the Greek Bible.
+          </i>{" "}
+          The Schweich Lectures of the British Academy 1932. London: Oxford
+          University Press, 1933.
+        </p>
+        <p className={styles.Item}>
+          ––––– “Recent Developments in the Textual Criticism of the Greek
+          Bible.” <i>Journal of the Transactions of the Victoria Institute</i>{" "}
+          65 (1933): 175–193.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Chester Beatty Biblical Papyri.” <i>Gnomon</i> 8.1 (1932):
+          46–49.
+        </p>
+        <p className={styles.Item}>
+          –––––{" "}
+          <i>
+            The Chester Beatty Biblical Papyri, Fasciculus I: General
+            Introduction with Plates.
+          </i>{" "}
+          London: Emery Walker, 1933.
+        </p>
+        <p className={styles.Item}>
+          –––––{" "}
           <i>
             The Chester Beatty Biblical Papyri, Fasciculus III: Pauline Epistles
             and Revelation, Text.
@@ -583,13 +784,85 @@ export const Bibliography = (): ReactElement => (
           London: Emery Walker, 1937.
         </p>
         <p className={styles.Item}>
-          Lagrange, Marie-Joseph.{" "}
-          <i>Critique textuelle II: La critique rationelle</i> Paris: Gabalda,
-          1935.
+          –––––{" "}
+          <i>The Story of the Bible: A Popular Account of How it Came to Us</i>.
+          London: John Murray, 1936.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Text of the Bible: A New Discovery—More Papyri from Egypt.”{" "}
+          <i>The Times</i>, 19 November 1931.
+        </p>
+        <p className={styles.Item}>
+          –––––{" "}
+          <i>
+            The Text of the Greek Bible: A Students Handbook. Studies in
+            Theology.
+          </i>{" "}
+          London: Duckworth, 1937.
+        </p>
+        <p className={styles.Item}>
+          Kenyon, Frederic G. and Arthur W. Adams.{" "}
+          <i>Our Bible and the Ancient Manuscripts</i>. 5th ed. London: Harper &
+          Row, 1958.
+        </p>
+        <p className={styles.Item}>
+          Kilpatrick, G.D. “The Chester Beatty Papyrus P46 and Hebrews XI.4.”{" "}
+          <i>JTS</i> 42.165/6 (1941): 68–69.
+        </p>
+        <p className={styles.Item}>
+          Kim, Kyu Seop. “The Pauline Corpus in Light of Ancient Editorial
+          Practice: A Theory of ‘the Two-Volume Archetype’.”{" "}
+          <i>Canon & Culture</i> 16.1 (2022): 107–144.
+        </p>
+        <p className={styles.Item}>
+          Kim, Young K. “Palaeographical Dating of P46 to the Later First
+          Century.” <i>Bib</i> 69 (1988): 248–257.
+        </p>
+        <p className={styles.Item}>
+          Köster, Beate, Bruce M. Metzger, Erroll F. Rhodes, and Rudolf Smend.
+          “Bible Manuscripts and Editions” in{" "}
+          <i>Encyclopedia of Christianity Online</i>, edited by John Mbiti.
+          Leiden: Brill, 2011.
+        </p>
+        <p className={styles.Item}>
+          Kraus, Thomas J. “Ad fontes—The Benefit of the Consultation of
+          Original Manuscripts as for Instance P.Vindob.G 31974,” 25–45 in{" "}
+          <i>
+            Ad fontes: Original Manuscripts and Their Significance for Studying
+            Early Christianity — Selected Essays
+          </i>
+          , edited by Thomas J. Kraus. TENTS 3. Leiden: Brill, 2007.
+        </p>
+        <p className={styles.Item}>
+          Lagrange, Marie-Joseph. “Bulletin.” <i>RB</i> 41.3 (1932): 453–454.
+        </p>
+        <p className={styles.Item}>
+          ––––– “Bulletin.” <i>RB</i> 44.4 (1935): 625–629.
+        </p>
+        <p className={styles.Item}>
+          ––––– <i>Critique textuelle II: La critique rationelle</i> Paris:
+          Gabalda, 1935.
         </p>
         <p className={styles.Item}>
           ––––– “Les Papyrus Chester Beatty pour les épîtres de S. Paul et
           l’Apocalypse.” <i>RB</i> 43, no. 4 (1934): 481–493.
+        </p>
+        <p className={styles.Item}>
+          Lake, Kirsopp and Silva Lake. “Some Recent Discoveries.”{" "}
+          <i>Religion in Life</i> 5.1 (1936): 89–102.
+        </p>
+        <p className={styles.Item}>
+          Lang, Friedrich G. “Stichometry” in{" "}
+          <i>Religion Past and Present, Volume 12 (Sif-Tog)</i>, edited by Hans
+          Dieter Betz, Don Browning, Bernd Janowski, and Eberhard Jüngel.
+          Leiden: Brill, 2012.
+        </p>
+        <p className={styles.Item}>
+          Lanier, Gregory R. “Dating Myths, Part Two: How Later Manuscripts Can
+          Be Better Manuscripts,” 110–131 in{" "}
+          <i>Myths and Mistakes in New Testament Textual Criticism</i>, edited
+          by Elijah Hixson and Peter J. Gurry. Downers Grove, IL: IVP Academic,
+          2019.
         </p>
         <p className={styles.Item}>
           Lietzmann, D. Hans. “Zur Würdigung des Chester-Beatty-Papyrus der
@@ -598,13 +871,31 @@ export const Bibliography = (): ReactElement => (
           25 (1934): 774–782.
         </p>
         <p className={styles.Item}>
+          Lockwood, Wilfrid.{" "}
+          <i>
+            The Word of God: Biblical Manuscripts at the Chester Beatty Library
+          </i>
+          . Dublin: Chester Beatty Library, 1987.
+        </p>
+        <p className={styles.Item}>
           Maldfeld, Georg. “Die griechischen Handschriftenbruchstücke des Neuen
           Testamentes auf Papyrus.” <i>ZNW</i> 42.1 (1949): 228–253.
         </p>
         <p className={styles.Item}>
-          Malik, Peter.{" "}
-          <i>P.Beatty III (P47): The Codex, Its Scribe, and Its Text.</i> NTTSD
-          52. Leiden: Brill, 2017.
+          Malik, Peter. “A Fresh Look at P.Beatty III (P47): Towards an
+          Integrative Study of an Early Christian Codex.” <i>APF</i> 62.1
+          (2016): 67–77.
+        </p>
+        <p className={styles.Item}>
+          ––––– “Myths about Copying: The Mistakes and Corrections Scribes
+          Made,” 152–170 in{" "}
+          <i>Myths and Mistakes in New Testament Textual Criticism</i>, edited
+          by Elijah Hixson and Peter J. Gurry. Downers Grove, IL: IVP Academic,
+          2019.
+        </p>
+        <p className={styles.Item}>
+          ––––– <i>P.Beatty III (P47): The Codex, Its Scribe, and Its Text.</i>{" "}
+          NTTSD 52. Leiden: Brill, 2017.
         </p>
         <p className={styles.Item}>
           ––––– “Rid Us (Not) of the Temptation: A Note on the Text of Hebrews
@@ -626,6 +917,37 @@ export const Bibliography = (): ReactElement => (
           <i>NovT</i> 66 (2024): 257–278.
         </p>
         <p className={styles.Item}>
+          McCown, C.C. “Codex and Roll in the New Testament.” <i>HTR</i> 34.4
+          (1941): 219–249.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Earliest Christian Books.”{" "}
+          <i>The Biblical Archaeologist</i> 6.2 (1943): 21–31.
+        </p>
+        <p className={styles.Item}>
+          McGing, Brian. “Papyrology in its Second Century, and the Chester
+          Beatty,” 7–17 in{" "}
+          <i>
+            The Chester Beatty Biblical Papyri at Ninety: Literature,
+            Papyrology, Ethics
+          </i>
+          , edited by Garrick V. Allen, Usama Gad, Kelsie G. Rodenbiker, Anthony
+          P. Royle, and Jill Unkel. Manuscripta Biblica 10. Berlin: De Gruyter,
+          2023.
+        </p>
+        <p className={styles.Item}>
+          McLay, Tim. “Chester Beatty Papyri,” 234 in{" "}
+          <i>Eerdmans Dictionary of the Bible</i>, edited by David N. Freedman.
+          Grand Rapids: Eerdmans, 2019.
+        </p>
+        <p className={styles.Item}>
+          Meade, John D. “Myths about Canon: What the Codex Can and Can’t Tell
+          Us,” 253–277 in{" "}
+          <i>Myths and Mistakes in New Testament Textual Criticism</i>, edited
+          by Elijah Hixson and Peter J. Gurry. Downers Grove, IL: IVP Academic,
+          2019.
+        </p>
+        <p className={styles.Item}>
           Mene, Florenc. “Nomina Sacra in the Corpus Paulinum in the First
           Millennium: The Textual and Visual Transmission of θεοϲ, κυριοϲ,
           ιηϲουϲ, χριϲτοϲ, and υιοϲ in the Papyri and Majuscules of Romans, 1
@@ -637,7 +959,19 @@ export const Bibliography = (): ReactElement => (
           Dědictví sv. Prokopa, 1939.
         </p>
         <p className={styles.Item}>
-          Metzger, Bruce M.{" "}
+          Merk, Augustinus. “Novi Codices Sanctae Scripturae.” <i>Bib</i> 13.1
+          (1932): 118–120.
+        </p>
+        <p className={styles.Item}>
+          Metzger, Bruce M. “A List of Greek Papyri of the New Testament.”{" "}
+          <i>ExpTim</i> 59.3 (1947): 80–81.
+        </p>
+        <p className={styles.Item}>
+          ––––– <i>A Textual Commentary on the Greek New Testament</i>. 2nd ed.
+          Stuttgart: Deutsche Bibelgesellschaft, 1994.
+        </p>
+        <p className={styles.Item}>
+          –––––{" "}
           <i>
             Manuscripts of the Greek Bible: An Introduction to Greek
             Palaeography.
@@ -645,18 +979,75 @@ export const Bibliography = (): ReactElement => (
           Oxford: Oxford University Press, 1981.
         </p>
         <p className={styles.Item}>
+          ––––– “Recently Published Greek Papyri of the New Testament.”{" "}
+          <i>The Biblical Archaeologist</i> 10.2 (1947): 25–44.
+        </p>
+        <p className={styles.Item}>
+          Metzger, Bruce M. and Bart D. Ehrman.{" "}
+          <i>
+            The Text of the New Testament: Its Transmission, Corruption, and
+            Restoration
+          </i>
+          . 4th ed. Oxford: Oxford University Press, 2005.
+        </p>
+        <p className={styles.Item}>
+          Milligan, George. <i>The New Testament and Its Transmission</i>.
+          London: Hodder & Stoughton, 1932.
+        </p>
+        <p className={styles.Item}>
+          Min, Kyoung Shik.{" "}
+          <i>
+            Die früheste Überlieferung des Matthäusevangeliums (bis zum 3./4.
+            Jh.): Edition und Untersuchung
+          </i>
+          . ANTF 34. Berlin: de Gruyter, 2005.
+        </p>
+        <p className={styles.Item}>
+          ––––– “Textual-Critical Observations on Recently Published Oxyrhynchus
+          NT Papyri: P119, P120, P121, P122.”{" "}
+          <i>Journal of Biblical Text Research</i> 33 (2013): 54–76.
+        </p>
+        <p className={styles.Item}>
+          Montevecchi, Orsolina. <i>La papirologia</i>. Ristampa riv. e corr.
+          con addenda ed. Milan: Vita e Pensiero, 1988.
+        </p>
+        <p className={styles.Item}>
+          Mowry, Lucetta. “The Early Circulation of Paul’s Letters.” <i>JBL</i>{" "}
+          63.2 (1944): 73–86.
+        </p>
+        <p className={styles.Item}>
           Mugridge, Alan.{" "}
           <i>Copying Early Christian Texts: A Study of Scribal Practice.</i>{" "}
           WUNT II 362. Tübingen: Mohr Siebeck, 2016.
         </p>
         <p className={styles.Item}>
-          Nongbri, Brent. “The Acquisition of the University of Michigan’s
-          Portion of the Chester Beatty Biblical Papyri and a New Suggested
-          Provenance.” <i>APF</i> 60.1 (2014): 93–116.
+          Niccum, Curt. &quot;Hoskier and His (Per)Version of the
+          Ethiopic,&quot; 265–281 in{" "}
+          <i>
+            The Future of New Testament Textual Scholarship: From H. C. Hoskier
+            to the Editio Critica Maior and Beyond
+          </i>
+          , edited by Garrick V. Allen. WUNT 417. Tübingen: Mohr Siebeck, 2019.
+        </p>
+        <p className={styles.Item}>
+          Nongbri, Brent.{" "}
+          <i>
+            God’s Library: The Archaeology of the Earliest Christian Manuscripts
+          </i>
+          . New Haven: Yale, 2018.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Acquisition of the University of Michigan’s Portion of the
+          Chester Beatty Biblical Papyri and a New Suggested Provenance.”{" "}
+          <i>APF</i> 60.1 (2014): 93–116.
         </p>
         <p className={styles.Item}>
           ––––– “The Construction and Contents of the Beatty-Michigan Pauline
           Epistles Codex (𝔓⁴⁶).” <i>NovT</i> 64.3 (2022): 388–407.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Use and Abuse of P52: Papyrological Pitfalls in the Dating
+          of the Fourth Gospel.” <i>HTR</i> 98.1 (2005): 23–48.
         </p>
         <p className={styles.Item}>
           ––––– “Two Neglected Textual Variants in Philippians 1.” <i>JBL</i>{" "}
