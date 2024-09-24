@@ -19,7 +19,7 @@
 
     &:hover,
     &:focus {
-      color: theme.$primary05;
+      color: theme.$primary04;
       outline: none;
       cursor: pointer;
     }
@@ -33,7 +33,7 @@
 .H1 {
   font-size: 32px;
   font-weight: 600;
-  color: theme.$secondary03;
+  color: theme.$primary03;
   text-align: center;
   padding: 12px 0;
   margin: 0;
