@@ -453,6 +453,10 @@ export const Bibliography = (): ReactElement => (
           Boernerianus.” <i>NTS</i> 70.2 (2024): 187–203.
         </p>
         <p className={styles.Item}>
+          Flood II, David A. “Manuscripts of John of Damascus on Paul.” PhD
+          Thesis, University of Edinburgh, 2024.
+        </p>
+        <p className={styles.Item}>
           Gamble, Harry Y. “The Formation of the Pauline Corpus,” 338–354 in{" "}
           <i>The Oxford Handbook of Pauline Studies</i>, edited by Matthew V.
           Novenson and R. Barry Matlock. Oxford: Oxford University Press, 2022.
@@ -492,6 +496,11 @@ export const Bibliography = (): ReactElement => (
           Gurry, Peter J. and Elijah Hixson, eds.{" "}
           <i>Myths and Mistakes in New Testament Textual Criticism.</i> Downers
           Grove, IL: IVP Academic, 2019.
+        </p>
+        <p className={styles.Item}>
+          Haelst, Joseph van.{" "}
+          <i>Catalogue des papyrus littéraires juifs et chrétiens</i>. Série
+          Papyrologie 1. Paris: Publications de la Sorbonne, 1976.
         </p>
         <p className={styles.Item}>
           Haines-Eitzen, Kim.{" "}
@@ -1054,6 +1063,10 @@ export const Bibliography = (): ReactElement => (
           128.4 (2009): 803–808.
         </p>
         <p className={styles.Item}>
+          O&apos;Callaghan, José. “Verso le origini del Nuovo Testamento.”{" "}
+          <i>La Civiltà cattolica</i> 3321 (1988): 269–272.
+        </p>
+        <p className={styles.Item}>
           Orsini, Pasquale and Willy Clarysse. &quot;Early New Testament
           Manuscripts and Their Dates: A Critique of Theological
           Palaeography.&quot; <i>ETL</i> 88.4 (2012): 443–474.
@@ -1065,6 +1078,19 @@ export const Bibliography = (): ReactElement => (
             The Sources and Some Deductions
           </i>{" "}
           Leiden: Brill, 1959.
+        </p>
+        <p className={styles.Item}>
+          Parker, D.C. “The Development of Textual Criticism Since B. H.
+          Streeter.” <i>NTS</i> 24.1 (1977): 149–162.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Majuscule Manuscripts of the New Testament,” 41–68 in{" "}
+          <i>
+            The Text of the New Testament in Contemporary Research: Essays on
+            the Status Quaestionis
+          </i>
+          . 2nd ed., edited by Bart D. Ehrman and Michael W. Holmes. NTTSD 42.
+          Leiden: Brill, 2013.
         </p>
         <p className={styles.Item}>
           Peri, Alessandra. “Il codice più antico delle epistole paoline:
@@ -1157,8 +1183,59 @@ export const Bibliography = (): ReactElement => (
           Grand Rapids: Eerdmans, 1998.
         </p>
         <p className={styles.Item}>
+          Pietersma, Albert. “Chester Beatty Papyri,” 901–903 in{" "}
+          <i>The Anchor Bible Dictionary</i>. Volume 1. A–C. Vol., edited by
+          David N. Freedman. New York: Doubleday; 1992.
+        </p>
+        <p className={styles.Item}>
+          Porter, Stanley E. “P.Oxy. 744.4 and Colossians 3,9.” <i>Bib</i> 73.4
+          (1992): 565–567.
+        </p>
+        <p className={styles.Item}>
+          Price, Ira Maurice.{" "}
+          <i>
+            The Ancestry of Our English Bible: An Account of Manuscripts, Texts,
+            and Versions of the Bible
+          </i>
+          . 9th ed. New York: Harper, 1934.
+        </p>
+        <p className={styles.Item}>
           Quinn, Jerome D. “P46–The Pauline Canon?”. <i>CBQ</i> 36 (1974):
           379–385.
+        </p>
+        <p className={styles.Item}>
+          Reece, Steve.{" "}
+          <i>
+            Paul&apos;s Large Letters: Paul&apos;s Autographic Subscription in
+            the Light of Ancient Epistolary Conventions
+          </i>
+          . LNTS 561. London: T&T Clark, 2016.
+        </p>
+        <p className={styles.Item}>
+          Ritmeyer, Kathleen. “How an American Coal Miner Acquired Scared
+          Biblical Papyri.” <i>BRev</i> 18.4 (2002): 33–37.
+        </p>
+        <p className={styles.Item}>
+          Rodenbiker, Kelsie G. “Scribal “Faithfulness” and the Text-Critical
+          Imaginary,” 107–120 in{" "}
+          <i>
+            The Chester Beatty Biblical Papyri at Ninety: Literature,
+            Papyrology, Ethics
+          </i>
+          , edited by Garrick V. Allen, Usama Gad, Kelsie G. Rodenbiker, Anthony
+          P. Royle, and Jill Unkel. Manuscripta Biblica 10. Boston: De Gruyter,
+          2023.
+        </p>
+        <p className={styles.Item}>
+          Rose-Beers, Kristine. “The Threads that Bind: Evidence of the Early
+          Codex Structure in Chester Beatty’s Papyri,” 121–142 in{" "}
+          <i>
+            The Chester Beatty Biblical Papyri at Ninety: Literature,
+            Papyrology, Ethics
+          </i>
+          , edited by Garrick V. Allen, Usama Gad, Kelsie G. Rodenbiker, Anthony
+          P. Royle, and Jill Unkel. Manuscripta Biblica 10. Boston: De Gruyter,
+          2023.
         </p>
         <p className={styles.Item}>
           Royse, James R.{" "}
@@ -1181,6 +1258,11 @@ export const Bibliography = (): ReactElement => (
           and Michael J. Kruger. Oxford: Oxford University Press, 2012.
         </p>
         <p className={styles.Item}>
+          Salgado, Denis L. “Textual Tradition of Romans in the Greek
+          Lectionaries (9th–13th Century).” PhD Thesis, University of Edinburgh,
+          2024.
+        </p>
+        <p className={styles.Item}>
           Sanders, Henry A., ed.{" "}
           <i>A Third-Century Papyrus Codex of the Epistles of Paul</i>.{" "}
           University of Michigan Studies Humanistic Series 38. Ann Arbor:
@@ -1191,8 +1273,74 @@ export const Bibliography = (): ReactElement => (
           <i>Gereformeerd Theologisch Tijdschrift</i> 57 (1957): 121–127.
         </p>
         <p className={styles.Item}>
+          Schmid, Ulrich.{" "}
+          <i>
+            Marcion und sein Apostolos: Rekonstruktion und historische
+            Einordnung der marcionitischen Paulusbriefausgabe
+          </i>
+          . ANTF 25. Berlin: de Gruyter, 1995.
+        </p>
+        <p className={styles.Item}>
+          Schmidt, Andreas. “Zwei Anmerkungen zu P. Ryl. III 457.” <i>APF</i> 35
+          (1989): 11–12.
+        </p>
+        <p className={styles.Item}>
+          Schmidt, Carl. “Die neuesten Bibelfunde aus Ägypten.” <i>ZNW</i> 30.3
+          (1931): 285–293.
+        </p>
+        <p className={styles.Item}>
+          Schnabel, Eckhard J.{" "}
+          <i>Der erste Brief des Paulus an die Korinther</i>.
+          Historisch-Theologische Auslegung 3. Witten: SCM R. Brockhaus, 2006.
+        </p>
+        <p className={styles.Item}>
+          Schofield, Ellwood M. “The Papyrus Fragments of the Greek New
+          Testament.” PhD Thesis, Southern Baptist Theological Seminary, 1936.
+        </p>
+        <p className={styles.Item}>
+          Seesemann, Heinrich. “Der Chester-Beatty Papyrus 46 und der Paulustext
+          des Clemens Alexandrinus.” <i>ZNW</i> 36 (1937): 90–97.
+        </p>
+        <p className={styles.Item}>
+          ––––– “Die Bedeutung des Chester-Beatty Papyrus für die Textkritik des
+          Paulusbriefe.” <i>Theologische Blätter</i> 16 (1937): 92–97.
+        </p>
+        <p className={styles.Item}>
+          Sharp, Daniel B. and Brent Nongbri. “The Bodmer Papyri and the Chester
+          Beatty,” 37–50 in{" "}
+          <i>
+            The Chester Beatty Biblical Papyri at Ninety: Literature,
+            Papyrology, Ethics
+          </i>
+          , edited by Garrick V. Allen, Usama Gad, Kelsie G. Rodenbiker, Anthony
+          P. Royle, and Jill Unkel. Manuscripta Biblica 10. Berlin: De Gruyter,
+          2023.
+        </p>
+        <p className={styles.Item}>
+          Skeat, T.C. “Did Paul Write to &rsquo;Bishops and Deacons&lsquo; at
+          Philippi? A Note on Philippians 1:1.” <i>NovT</i> 37, no. 1 (1995):
+          12-15.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Length of the Standard Papyrus Roll and the Cost-Advantage
+          of the Codex.” <i>ZPE</i> 45 (1982): 169–175.
+        </p>
+        <p className={styles.Item}>
+          Smothers, Edgar R. “Les papyrus Beatty de la Bible grecque.”{" "}
+          <i>Recherches de science religieuse</i> 24 (1934): 12–34.
+        </p>
+        <p className={styles.Item}>
           Sparks, H.F.D. “The Order of the Epistles in P46.” <i>JTS</i> 42, no.
           167/8 (1941): 180–181.
+        </p>
+        <p className={styles.Item}>
+          Stevens, Chris S.{" "}
+          <i>
+            History of the Pauline Corpus in Texts, Transmissions and
+            Trajectories: A Textual Analysis of Manuscripts from the Second to
+            the Fifth Century
+          </i>
+          . TENTS 14. Leiden: Brill, 2020.
         </p>
         <p className={styles.Item}>
           Swanson, Reuben J., ed.{" "}
@@ -1227,8 +1375,23 @@ export const Bibliography = (): ReactElement => (
           Wheaton, IL: Tyndale House Publishers, 2005.
         </p>
         <p className={styles.Item}>
+          Tagami, Mark H. “A Textual Analysis of the Manuscripts Comprising
+          Family 1739 in Hebrews.” PhD Dissertations, New Orleans Baptist
+          Theological Seminary, 2007.
+        </p>
+        <p className={styles.Item}>
           Tasker, R.V.G. “The Text of the &lsquo;Corpus Paulinum&rsquo;.”{" "}
           <i>NTS</i> 1 (1955): 180–191.
+        </p>
+        <p className={styles.Item}>
+          Tichý, Ladislav. “What Do the Variants of P46 Say?: Tested on 1
+          Corinthians and Galatians,” 241–251 in{" "}
+          <i>
+            The Process of Authority: The Dynamics in Transmission and Reception
+            of Canonical Texts
+          </i>
+          , edited by Jan Dušek and Jan Roskovec. Deuterocanonical and Cognate
+          Literature Studies 27. Berlin: De Gruyter, 2016.
         </p>
         <p className={styles.Item}>
           Trobisch, David.{" "}
@@ -1251,6 +1414,33 @@ export const Bibliography = (): ReactElement => (
           University of Pennsylvania Press, 1977.
         </p>
         <p className={styles.Item}>
+          Unkel, Jill. “An Old Story Retold: The Acquisition of the Chester
+          Beatty Biblical Papyri,” 51–81 in{" "}
+          <i>
+            The Chester Beatty Biblical Papyri at Ninety: Literature,
+            Papyrology, Ethics
+          </i>
+          , edited by Garrick V. Allen, Usama Gad, Kelsie G. Rodenbiker, Anthony
+          P. Royle, and Jill Unkel. Manuscripta Biblica 10. Boston: De Gruyter,
+          2023.
+        </p>
+        <p className={styles.Item}>
+          Vaganay, Léon and Christian-Bernard Amphoux.{" "}
+          <i>An introduction to New Testament textual criticism</i>. 2nd rev.
+          and updated ed. Translated by Jenny Heimerdinger. Cambridge: Cambridge
+          University Press, 1991.
+        </p>
+        <p className={styles.Item}>
+          Varner, William. “Can Papyri Correspondence Help Us to Understand
+          Paul&apos;s “Large Letters” in Galatians?” 146–171 in{" "}
+          <i>
+            Studies on the Paratextual Features of Early New Testament
+            Manuscripts: Texts and Editions of the New Testament
+          </i>
+          , edited by Stanley E. Porter, Chris S. Stevens, and Daniel I. Yoon.
+          TENTS 16. Leiden: Brill, 2023.
+        </p>
+        <p className={styles.Item}>
           Vries, Johannes de. “The Textual History of the Scriptural Quotations
           in the New Testament: An Examination of Papyrus 46,” 79–92 in{" "}
           <i>
@@ -1266,6 +1456,10 @@ export const Bibliography = (): ReactElement => (
             Gal, Eph, Phil, Kol, 1 u. 2 Thess, 1 u 2 Tim, Tit, Phlm, Hebr.
           </i>{" "}
           ANTF 22. Berlin: de Gruyter, 1994.
+        </p>
+        <p className={styles.Item}>
+          Wallace, Daniel B. “Review of Paleographical Dating of P46 to the
+          Later First Century by Young K. Kim.” <i>BSac</i> 146 (1989): 451–452.
         </p>
         <p className={styles.Item}>
           Waltz, Robert B. &quot;NT Manuscripts - Papyri - P46.&quot; (
