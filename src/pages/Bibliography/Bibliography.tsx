@@ -5,7 +5,6 @@ import styles from "./Bibliography.module.scss";
 export const Bibliography = (): ReactElement => (
   <div className="PageWrapper">
     <h1 className={styles.H1}>Bibliography</h1>
-    <h2 className={styles.H2}>(in progress)</h2>
     <div className={styles.Container}>
       <div className={styles.Section}>
         <p className={styles.Item}>
@@ -116,13 +115,189 @@ export const Bibliography = (): ReactElement => (
           Manuscripta Biblica 10. Boston: De Gruyter, 2023.
         </p>
         <p className={styles.Item}>
-          Carlson, Stephen C. <i>The Text of Galatians and Its History.</i> WUNT
-          II 385. Tübingen: Mohr Siebeck, 2015.
+          Assaël, Jacqueline. “La mort au pluriel ou la mort dans l’âme : Sur le
+          pluriel de thanatos en 2 Co 1,10 dans le papyrus 46 et les manuscrits
+          en minuscule.” <i>Études théologiques et religieuses</i> 91.1 (2016):
+          57–69.
         </p>
         <p className={styles.Item}>
-          Cole, Zachary J.{" "}
-          <i>Numerals in Early Greek New Testament Manuscripts</i> NTTSD 53.
-          Leiden: Brill, 2017.
+          Barker, Don. “The Dating of New Testament Papyri.” <i>NTS</i> 57.4
+          (2011): 571–582.
+        </p>
+        <p className={styles.Item}>
+          Beare, Frank W. “The Text of the Epistle to the Hebrews in P46.”{" "}
+          <i>JBL</i> 63.4 (1944): 379–396.
+        </p>
+        <p className={styles.Item}>
+          Benoit, Pierre. “Le Codex Paulinien Chester Beatty.” <i>RB</i> 46
+          (1937): 58–82.
+        </p>
+        <p className={styles.Item}>
+          Bokedal, Tomas{" "}
+          <i>
+            The Formation and Significance of the Christian Biblical Canon: A
+            Study in Text, Ritual and Interpretation.
+          </i>{" "}
+          London: T&T Clark, 2014.
+        </p>
+        <p className={styles.Item}>
+          –––––{" "}
+          <i>
+            Christ the Center: How the Rule of Faith, the Nomina Sacra, and
+            Numerical Patterns Shape the Canon.
+          </i>{" "}
+          Bellingham, WA: Lexham, 2023.
+        </p>
+        <p className={styles.Item}>
+          Bonner, Campbell. “New Biblical Papyri at the University of Michigan.”{" "}
+          <i>HTR</i> 25.2 (1932): 205–206.
+        </p>
+        <p className={styles.Item}>
+          Brady, E. “The Position of Romans in P46.” <i>ExpTim</i> 59.9 (1948):
+          249–250.
+        </p>
+        <p className={styles.Item}>
+          Brown, Michelle P., ed.{" "}
+          <i>In the Beginning: Bibles before the Year 1000.</i> Washington,
+          D.C.: Smithsonian Institution, 2006.
+        </p>
+        <p className={styles.Item}>
+          Burkitt, F. Crawford. “The Chester Beatty Papyri.” <i>JTS</i> 34.136
+          (1933): 363–368.
+        </p>
+        <p className={styles.Item}>
+          Cantalamessa, Raniero. “Il papiro Chester Beatty III (P⁴⁶) e la
+          tradizione indiretta di Hebr. 10,1.”<i>Aegyptus</i> 45.3/4 (1965):
+          194–215.
+        </p>
+        <p className={styles.Item}>
+          Carlson, Stephen C. “&lsquo;For Sinai is a Mountain in Arabia:&rsquo;
+          A Note on the Text of Galatians 4,25.”<i>ZNW</i> 105.1 (2014): 80–101.
+        </p>
+        <p className={styles.Item}>
+          ––––– <i>The Text of Galatians and Its History.</i> WUNT II 385.
+          Tübingen: Mohr Siebeck, 2015.
+        </p>
+        <p className={styles.Item}>
+          Cavallo, Guglielmo. “Γράμματα Ἀλεξανδρίνα.”{" "}
+          <i>Jahrbuch der österreichischen Byzantinistik</i> 24 (1975): 23–54.
+        </p>
+        <p className={styles.Item}>
+          –––––{" "}
+          <i>
+            Il calamo e il papiro: La scrittura greca dall’età ellenistica ai
+            primi secoli di Bizanzio
+          </i>{" "}
+          Papyrologica Florentina 36. Firenze: Gonnelli, 2005.
+        </p>
+        <p className={styles.Item}>
+          Chapa, Juan{" "}
+          <i>
+            La transmisión textual del Nuevo Testamento: manuscritos, variantes
+            y autoridad.
+          </i>{" "}
+          Salamanca: Ediciones Sígueme, 2021.
+        </p>
+        <p className={styles.Item}>
+          Childers, Jeff W. “The Georgian Version of the New Testament,” 293–327
+          in{" "}
+          <i>
+            The Text of the New Testament in Contemporary Research: Essays on
+            the Status Quaestionis.
+          </i>{" "}
+          2nd ed., edited by Bart D. Ehrman and Michael W. Holmes. NTTSD 42.
+          Leiden: Brill, 2013.
+        </p>
+        <p className={styles.Item}>
+          Cingolani, Sergio.{" "}
+          <i>
+            Dizionario di Critica Testuale del Nuovo Testamento: Storia, canone,
+            apocrifi, paleografia.
+          </i>{" "}
+          Milan: San Paolo, 2008
+        </p>
+        <p className={styles.Item}>
+          Clark, Kenneth W.{" "}
+          <i>
+            A Descriptive Catalogue of Greek New Testament Manuscripts in
+            America.
+          </i>{" "}
+          Chicago: University of Chicago Press, 1937.
+        </p>
+        <p className={styles.Item}>
+          ––––– “Note on the Beatty-Michigan Pauline Papyrus.” <i>JBL</i> 55.1
+          (1936): 83–84.
+        </p>
+        <p className={styles.Item}>
+          Cole, Zachary J. “Myths about Copyists: The Scribes Who Copied our
+          Earliest Manuscripts,” 132–151 in{" "}
+          <i>Myths and Mistakes in New Testament Textual Criticism</i>, edited
+          by Elijah Hixson and Peter J. Gurry. Downers Grove, IL: IVP Academic,
+          2019.
+        </p>
+        <p className={styles.Item}>
+          ––––– <i>Numerals in Early Greek New Testament Manuscripts</i> NTTSD
+          53. Leiden: Brill, 2017.
+        </p>
+        <p className={styles.Item}>
+          ––––– “Scribal Corrections in Early Greek New Testament Manuscripts:
+          The Fragments.” <i>TC</i> 28 (2023): 19–41.
+        </p>
+        <p className={styles.Item}>
+          Collomp, Paul. “Les Papyri Chester Beatty: Observations
+          bibliologiques.” <i>Revue d'histoire et de philosophie religieuses</i>{" "}
+          14 (1934): 130–143.
+        </p>
+        <p className={styles.Item}>
+          Comfort, Philip W.{" "}
+          <i>
+            Encountering the Manuscripts: An Introduction to New Testament
+            Paleography & Textual Criticism.
+          </i>{" "}
+          Nashville: B&H Publishing, 2005.
+        </p>
+        <p className={styles.Item}>
+          ––––– “New Reconstructions and Identifications of New Testament
+          Papyri.” <i>NovT</i> 41.3 (1999): 214–230.
+        </p>
+        <p className={styles.Item}>
+          Comfort, Philip W. and David P. Barrett, eds.{" "}
+          <i>The Complete Text of the Earliest New Testament Manuscripts.</i>{" "}
+          Grand Rapids: Baker, 1999.
+        </p>
+        <p className={styles.Item}>
+          –––––{" "}
+          <i>
+            The Text of the Earliest New Testament Greek Manuscripts: A
+            Corrected, Enlarged Edition of The Complete Text of the Earliest New
+            Testament Manuscripts.
+          </i>{" "}
+          Wheaton, IL: Tyndale House, 2001.
+        </p>
+        <p className={styles.Item}>
+          –––––{" "}
+          <i>
+            The Text of the Earliest New Testament Greek Manuscripts: Papyri
+            1–72.
+          </i>{" "}
+          Vol. I. 2 vols. Grand Rapids, MI: Kregel Academic, 2019.
+        </p>
+        <p className={styles.Item}>
+          Crisp, Simon. “P46 and Good as New: The Bearing of Manuscript Evidence
+          on Decisions about Canon,” in{" "}
+          <i>
+            Canon and Modern Bible Translation in Interconfessional Perspective
+          </i>
+          , edited by Lénart J. de Regt. Istanbul: United Bible Societies, 2006.
+        </p>
+        <p className={styles.Item}>
+          Debrunner, Albert. “Über einige Lesarten der Chester Beatty Papyri des
+          Neuen Testamentes.”<i>ConBNT</i> 11 (1947): 33–49.
+        </p>
+        <p className={styles.Item}>
+          Deuel, Leo.{" "}
+          <i>Testaments Of Time: Search For Lost Manuscripts And Records</i>.
+          London: Secker & Warburg, 1966.
         </p>
         <p className={styles.Item}>
           Dobschütz, Ernst von. &quot;Zur Liste der Neutestamentlichen
@@ -155,6 +330,11 @@ export const Bibliography = (): ReactElement => (
           )
         </p>
         <p className={styles.Item}>
+          ––––– “&lsquo;The Way I See It&rsquo;: P46 as a Paradigm for
+          Reader-Response Criticism.”
+          <i>BT</i> 60 (2009): 22–36
+        </p>
+        <p className={styles.Item}>
           ––––– “When Nonsense Makes Sense: Scribal Habits in the
           Space-intervals, Sense-pauses, and Other Visual Features in P46.”{" "}
           <i>BT</i> 64 (2013): 128–150
@@ -166,6 +346,136 @@ export const Bibliography = (): ReactElement => (
             the Status Quaestionis.
           </i>{" "}
           2nd ed. NTTSD 42. Leiden: Brill, 2013.
+        </p>
+        <p className={styles.Item}>
+          Elliott, J.K. “The Nature Of The Evidence Available For
+          Reconstructuring The Text Of The New Testament In The Second Century,”
+          29–39 in{" "}
+          <i>
+            New Testament Textual Criticism: The Application of Thoroughgoing
+            Principles
+          </i>
+          , edited by J.K. Elliott. NovTSup 137. Leiden: Brill, 2011.
+        </p>
+        <p className={styles.Item}>
+          Epp, Eldon Jay. “It's All about Variants: A Variant-Conscious Approach
+          to New Testament Textual Criticism.” <i>HTR</i> 100 (2007): 275–308.
+        </p>
+        <p className={styles.Item}>
+          ––––– “Minor Textual Variants in Romans 16:7,” 123–141 in{" "}
+          <i>
+            Transmission and Reception: New Testament Text-Critical and
+            Exegetical Studies
+          </i>
+          , edited by Jeff W. Childers and D.C. Parker. T&SIII 4. Piscataway,
+          NJ: Gorgias, 2006.
+        </p>
+        <p className={styles.Item}>
+          ––––– ““Textual Clusters: Their Past and Future in New Testament
+          Textual Criticism,” 519–577 in{" "}
+          <i>
+            The Text of the New Testament in Contemporary Research: Essays on
+            the Status Quaestionis
+          </i>
+          . 2nd ed., edited by Bart D. Ehrman and Michael W. Holmes. NTTSD 42.
+          Leiden: Brill, 2013.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Papyrus Manuscripts of the New Testament,” 1–39 in{" "}
+          <i>
+            The Text of the New Testament in Contemporary Research: Essays on
+            the Status Quaestionis
+          </i>
+          . 2nd ed., edited by Bart D. Ehrman and Michael W. Holmes. NTTSD 42.
+          Leiden: Brill, 2013.
+        </p>
+        <p className={styles.Item}>
+          Eshbaugh, Howard. “Textual Variants and Theology: A Study of the
+          Galatians Text of Papyrus 46.” <i>JSNT</i> 2.3 (1979): 60–72.
+        </p>
+        <p className={styles.Item}>
+          Estes, Joel D. “Reading for the Spirit of the Text: nomina sacra and
+          πνεῦμα Language in P46.” <i>NTS</i> 61.4 (2015): 566–594.
+        </p>
+        <p className={styles.Item}>
+          Falluomini, Carla.{" "}
+          <i>
+            The Gothic Version of the Gospels and Pauline Epistles: Cultural
+            Background, Transmission and Character
+          </i>
+          . ANTF 46. Berlin: de Gruyter, 2015.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Gothic Version of the New Testament,” 329–350 in{" "}
+          <i>
+            The Text of the New Testament in Contemporary Research: Essays on
+            the Status Quaestionis
+          </i>
+          . 2nd ed., edited by Bart D. Ehrman and Michael W. Holmes. NTTSD 42.
+          Leiden: Brill, 2013.
+        </p>
+        <p className={styles.Item}>
+          Fewster, Gregory P. “Finding Your Place: Developing Cross-reference
+          Systems in Late Antique Biblical Codices,” 155–179 in{" "}
+          <i>
+            The Future of New Testament Textual Scholarship: From H. C. Hoskier
+            to the Editio Critica Maior and Beyond
+          </i>
+          , edited by Garrick V. Allen. WUNT 417. Tübingen: Mohr Siebeck, 2019.
+        </p>
+        <p className={styles.Item}>
+          Finegan, Jack.{" "}
+          <i>
+            {" "}
+            Encountering New Testament Manuscripts: A Working Introduction to
+            Textual Criticism.
+          </i>{" "}
+          Grand Rapids: Eerdmans, 1974.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Original Form of the Pauline Collection.” <i>HTR</i> 49.2
+          (1956): 85–103.
+        </p>
+        <p className={styles.Item}>
+          Finney, T.J. “A Proposed Reconstruction of Hebrews 7:28a in P46.”{" "}
+          <i>NTS</i> 40 (1994): 472-473.
+        </p>
+        <p className={styles.Item}>
+          Fischer, Georg, Beate Köster, and Michael Welte. “Biblical
+          Manuscripts.” In <i>Religion Past and Present, Volume 2 (Bia-Chr)</i>,
+          edited by Hans Dieter Betz, Don Browning, Bernd Janowski, and Eberhard
+          Jüngel. Leiden: Brill, 2011.
+        </p>
+        <p className={styles.Item}>
+          Fisher, Alec. “Codex Augiensis is a Copy of the Greek Text of Codex
+          Boernerianus.” <i>NTS</i> 70.2 (2024): 187–203.
+        </p>
+        <p className={styles.Item}>
+          Gamble, Harry Y. “The Formation of the Pauline Corpus,” 338–354 in{" "}
+          <i>The Oxford Handbook of Pauline Studies</i>, edited by Matthew V.
+          Novenson and R. Barry Matlock. Oxford: Oxford University Press, 2022.
+        </p>
+        <p className={styles.Item}>
+          Gathergood, Emily. “Papyrus 32 (Titus) as a Multi-text Codex: A New
+          Reconstruction.” <i>NTS</i> 59.4 (2013): 588–606.
+        </p>
+        <p className={styles.Item}>
+          Ghedini, Giacomo. “Nuovi Codici Biblici.” <i>La Scuola Cattolica</i>{" "}
+          60.2 (1932): 155–158.
+        </p>
+        <p className={styles.Item}>
+          Giffin, Ryan Kristopher. “Paul Not Yet Justified? The Text of
+          Philippians 3:12 in P46.” <i>TC</i> 25 (2020): 37–47.
+        </p>
+        <p className={styles.Item}>
+          Giversen, Søren. “The Pauline Epistles on Papyrus,” 201–212 in{" "}
+          <i>
+            Die Paulinische Literatur und Theologie / The Pauline Literature and
+            Theology: Anlässlich der 50-jährigen Gründungs-Feier der Universität
+            von Aarhus
+          </i>
+          , edited by Sigfred Pederson. Teologiske Studier 7. Göttingen:
+          Vandenhoeck & Ruprecht, 1980.
         </p>
         <p className={styles.Item}>
           Griffin, Bruce W. &quot;The Paleographical Dating of P-46.&quot; Paper
@@ -548,6 +858,15 @@ export const Bibliography = (): ReactElement => (
         <p className={styles.Item}>
           Turner, Eric G. <i>The Typology of the Early Codex</i> Pennsylvania:
           University of Pennsylvania Press, 1977.
+        </p>
+        <p className={styles.Item}>
+          Vries, Johannes de. “The Textual History of the Scriptural Quotations
+          in the New Testament: An Examination of Papyrus 46,” 79–92 in{" "}
+          <i>
+            Textual History and the Reception of Scripture in Early Christianity
+          </i>
+          , edited by Johannes de Vries and Martin Karrer. SBLSCS 60. Atlanta:
+          Society of Biblical Literature, 2013.
         </p>
         <p className={styles.Item}>
           Wachtel, Klaus and Klaus Witte.{" "}
