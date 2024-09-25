@@ -8,22 +8,23 @@ export const Bibliography = (): ReactElement => (
     <div className={styles.Container}>
       <div className={styles.Section}>
         <p className={styles.Item}>
-          Aland, Barbara. “The Significance of the Chester Beatty in Early
-          Church History,” 108–121 in{" "}
+          Aland, Barbara. “Sind Schreiber früher neutestamentlicher
+          Handschriften InterpretendesTextes?” 114–122 in{" "}
+          <i>
+            Transmission and Reception: New Testament Text-Critical and
+            Exegetical Studies
+          </i>
+          , edited by Jeff W. Childers and D. C. Parker. T&S III 4. Piscataway,
+          NJ: Gorgias, 2006.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Significance of the Chester Beatty in Early Church
+          History,” 108–121 in{" "}
           <i>
             The Earliest Eospels: The Origins and Transmission of the Earliest
             Gospels; The Contribution of the Chester Beatty Gospel Codex P45,
           </i>{" "}
           edited by Charles Horton. JSNTSup 258. London: T&T Clark, 2004.
-        </p>
-        <p className={styles.Item}>
-          Aland, Barbara and Kurt Aland.{" "}
-          <i>
-            The Text of the New Testament: An Introduction to the Critical
-            Editions and to the Theory and Practice of Modern Textual Criticism.
-          </i>{" "}
-          2nd rev. ed. Translated by Erroll F. Rhodes. Grand Rapids: Eerdmans,
-          1995.
         </p>
         <p className={styles.Item}>
           Aland, Kurt. <i>Repertorium der griechischen christlichen Papyri.</i>{" "}
@@ -50,12 +51,21 @@ export const Bibliography = (): ReactElement => (
           <i>ZNW.</i> 48 (1957): 141–191.
         </p>
         <p className={styles.Item}>
+          Aland, Kurt and Barbara Aland.{" "}
+          <i>
+            The Text of the New Testament: An Introduction to the Critical
+            Editions and to the Theory and Practice of Modern Textual Criticism.
+          </i>{" "}
+          2nd rev. ed. Translated by Erroll F. Rhodes. Grand Rapids: Eerdmans,
+          1995.
+        </p>
+        <p className={styles.Item}>
           Aland, Kurt, Michael Welte, Beate Köster, and Klaus Junack.{" "}
           <i>
             Kurzgefaßte Liste der griechischen Handschriften des Neuen
             Testaments.
           </i>{" "}
-          2nd ed. ANTF 1. Berlin: de Gruyter, 1994.
+          2nd ed. ANTF 1. Berlin: de Gruyter, 1994. (1st ed., 1963)
         </p>
         <p className={styles.Item}>
           Aland, Kurt, Annette Benduhn-Merz, Gerd Mink, and Horst Bachmann.{" "}
@@ -100,6 +110,13 @@ export const Bibliography = (): ReactElement => (
             to the Editio Critica Maior and Beyond
           </i>{" "}
           WUNT 417. Tübingen: Mohr Siebeck, 2019.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Patient Collator and the Philology of the Beyond: H.C.
+          Hoskier and the New Testament,” 3–38 in The Future of New Testament
+          Textual Scholarship: From H. C. Hoskier to the Editio Critica Maior
+          and Beyond, edited by Garrick V. Allen. WUNT 417. Tübingen: Mohr
+          Siebeck, 2019.
         </p>
         <p className={styles.Item}>
           ––––– “Titles in the New Testament Papyri.” <i>NTS</i> 68 (2022):
@@ -383,6 +400,14 @@ export const Bibliography = (): ReactElement => (
           Leiden: Brill, 2013.
         </p>
         <p className={styles.Item}>
+          ––––– “The Eclectic Method in New Testament Textual Criticism:
+          Solution or Symptom?” <i>HTR</i> 69.3/4 (1976): 211–257.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Multivalence of the Term ‘Original Text’ in New Testament
+          Textual Criticism.” <i>HTR</i> 92.3 (1999): 245–281.
+        </p>
+        <p className={styles.Item}>
           ––––– “The Papyrus Manuscripts of the New Testament,” 1–39 in{" "}
           <i>
             The Text of the New Testament in Contemporary Research: Essays on
@@ -390,6 +415,10 @@ export const Bibliography = (): ReactElement => (
           </i>
           . 2nd ed., edited by Bart D. Ehrman and Michael W. Holmes. NTTSD 42.
           Leiden: Brill, 2013.
+        </p>
+        <p className={styles.Item}>
+          ––––– “The Twentieth Century Interlude in New Testament Textual
+          Criticism.” <i>JBL</i> 93.3 (1974): 386–414.
         </p>
         <p className={styles.Item}>
           Eshbaugh, Howard. “Textual Variants and Theology: A Study of the
@@ -602,6 +631,10 @@ export const Bibliography = (): ReactElement => (
           ––––– “The Text of the Pauline Corpus,” 314–337 in{" "}
           <i>The Oxford Handbook of Pauline Studies,</i> edited by Matthew V.
           Novenson and R. Barry Matlock. Oxford: Oxford University Press, 2022.
+        </p>
+        <p className={styles.Item}>
+          Hombert, Marcel. “Deux découvertes sensationnelles.”{" "}
+          <i>Chronique d&#39;Égypte</i> 8.15 (1933): 181–183.
         </p>
         <p className={styles.Item}>
           Hoskier, Hermann C.{" "}
@@ -1474,6 +1507,24 @@ export const Bibliography = (): ReactElement => (
           )
         </p>
         <p className={styles.Item}>
+          ––––– &quot;The Bible In History: A Chronological and Biological Guide
+          to the Hebrew and Greek Testaments.&quot; 2013. (
+          <a
+            href="https://books.google.co.uk/books?id=3tWMmH9LRcYC&printsec=frontcover&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.Link}
+          >
+            Google Books
+          </a>
+          )
+        </p>
+        <p className={styles.Item}>
+          Weiss, Hans-Friedrich. <i>Der Brief an die Hebräer</i>. 15th (1. Aufl.
+          dieser Auslegung) ed. Kritisch-exegetischer Kommentar über das Neue
+          Testament 13. Göttingen: Vandenhoeck & Ruprecht, 1991.
+        </p>
+        <p className={styles.Item}>
           Wilcken, Ulrich. “The Chester Beatty Biblical Papyri.” <i>APF</i> 11
           (1935): 112–114.
         </p>
@@ -1483,10 +1534,120 @@ export const Bibliography = (): ReactElement => (
         </p>
         <p className={styles.Item}>
           Zuntz, Günther.{" "}
+          <i>Opuscula Selecta: Classica, Hellenistica, Christiana</i>.
+          Manchester: Manchester University Press, 1972.
+        </p>
+        <p className={styles.Item}>
+          ––––– “Réflexions sur l&#39;histoire du texte paulinien.” <i>RB</i>{" "}
+          59, no. 1 (1952): 5–22.
+        </p>
+        <p className={styles.Item}>
+          –––––{" "}
           <i>
             The Text of the Epistles: A Disquisition upon the Corpus Paulinum.
           </i>{" "}
           The Schweich Lectures, 1946. London: Oxford University Press, 1953.
+        </p>
+      </div>
+      <div className={styles.Section}>
+        <h2 className={styles.H2}>Unknown Authors</h2>
+        <p className={styles.Item}>
+          “Ancient Biblical Texts Digitized for Posterity.” <i>USA Today</i>, 1
+          November 2013, 7.
+        </p>
+        <p className={styles.Item}>
+          “Benefactor Of Learning Looks Back At 90.” <i>The Times</i>, 8
+          Feburary 1965, 7.
+        </p>
+        <p className={styles.Item}>
+          <i>Illustrated London News</i>, 5 Dec 1931, 884.
+        </p>
+        <p className={styles.Item}>
+          “Mitteilungen: Septuaginta-Handschriften aus dem 2. Jahrhundert n.
+          Chr.” <i>Archiv für Orientforschung</i> 7 (1932): 302–303.
+        </p>
+      </div>
+      <div className={styles.Section}>
+        <h2 className={styles.H2}>Online Anonymous Resources</h2>
+        <p className={styles.Item}>
+          Chester Beatty Library Biblical Papyri Collection (
+          <a
+            href="https://viewer.cbl.ie/viewer/search/-/-/1/RANDOM/DC%3Abiblicalpapyricollection/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.Link}
+          >
+            link
+          </a>
+          )
+        </p>
+        <p className={styles.Item}>
+          University of Michigan Library Digital Collection (
+          <a
+            href="https://quod.lib.umich.edu/a/apis?type=boolean;view=reslist;rgn1=apis_inv;select1=phrase;q1=P.Mich.inv.+6238"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.Link}
+          >
+            link
+          </a>
+          )
+        </p>
+        <p className={styles.Item}>
+          New Testament Virtual Manuscript Room by the Institut für
+          neutestamentliche Textforschung. (
+          <a
+            href="http://ntvmr.uni-muenster.de/manuscript-workspace"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.Link}
+          >
+            link
+          </a>
+          )
+        </p>
+        <p className={styles.Item}>
+          Digital Manuscript Collection by the Center for the Study of New
+          Testament Manuscripts. (
+          <a
+            href="https://manuscripts.csntm.org/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.Link}
+          >
+            link
+          </a>
+          )
+        </p>
+        <p className={styles.Item}>
+          The Center for New Testament Textual Studies NT Critical Apparatus. (
+          <a
+            href="https://www.accordancebible.com/product/cntts-nt-critical-apparatus-3/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.Link}
+          >
+            Accordance
+          </a>{" "}
+          |{" "}
+          <a
+            href="https://www.logos.com/product/32501/center-for-new-testament-textual-studies-new-testament-critical-apparatus?srsltid=AfmBOoqmm0IJETF8Zjl5bmdOGXAiND7B93k4UqCtTmKY7FyZbsc3JTxu"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.Link}
+          >
+            Logos
+          </a>{" "}
+          |{" "}
+          <a
+            href="https://faithlife.com/store/product/215259"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.Link}
+          >
+            Faithlife
+          </a>
+          )
         </p>
       </div>
     </div>
