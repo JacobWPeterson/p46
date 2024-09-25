@@ -32,7 +32,7 @@ const config: any = {
   theme: {
     palette: {
       primary: {
-        main: "#65743a",
+        main: "#00667a",
       },
       secondary: {
         main: "#c9ac5f",
