@@ -42,6 +42,17 @@ export const Workspace = (): ReactElement => {
 
   const addViewer = (): void => {
     setNumberOfViewers((prev) => prev + 1);
+    if (numberOfViewers === Object.values(Sources).length - 1) {
+      const remaining = Object.values(Sources).filter(
+        (source) => !selectedSourcePanels.includes(source)
+      );
+      setSelectedSourcePanels((prevState) => {
+        const prevSourcesToUpdate = [...prevState];
+        prevSourcesToUpdate.push(remaining[0]);
+        return prevSourcesToUpdate;
+      });
+      return;
+    }
     setSelectedSourcePanels((prevState) => {
       const prevSourcesToUpdate = [...prevState];
       prevSourcesToUpdate.push(null);
@@ -126,9 +137,9 @@ export const Workspace = (): ReactElement => {
             Next
           </button>
           <button
-            disabled={numberOfViewers >= 4}
+            disabled={numberOfViewers >= Object.keys(Sources).length}
             className={classNames(styles.Button, styles.Add, {
-              [styles.Disabled]: numberOfViewers >= 4,
+              [styles.Disabled]: numberOfViewers >= Object.keys(Sources).length,
             })}
             onClick={addViewer}
           >
