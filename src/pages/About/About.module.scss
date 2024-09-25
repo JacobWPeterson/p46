@@ -23,7 +23,7 @@
 
     @media (width < 1024px) {
       flex-direction: column;
-      width: 90vw;
+      width: 80vw;
     }
 
     @media (width < 600px) {
@@ -110,7 +110,7 @@
     gap: 24px;
   }
 
-  @media (width < 600px) {
+  @media (width < 820px) {
     flex-direction: column;
     gap: 4px;
   }

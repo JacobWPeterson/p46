@@ -15,7 +15,7 @@
     color: theme.$primary03;
     text-align: center;
 
-    @media (width <= 1024px) and (orientation: portrait) {
+    @media (orientation: portrait) {
       display: flex;
       margin: auto;
       flex-direction: column;
@@ -23,8 +23,8 @@
     }
 
     .Image {
-      width: 500px;
-      height: 500px;
+      margin: auto;
+      width: 70%;
     }
   }
 
@@ -32,6 +32,10 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+
+    @media (orientation: portrait) {
+      display: none;
+    }
 
     .Header {
       position: absolute;
@@ -60,9 +64,17 @@
         cursor: pointer;
         background: theme.$grey00;
 
+        @media (width < 850px) {
+          display: none;
+        }
+
         &.Add {
           width: 100px;
           text-wrap: nowrap;
+
+          @media (width < 950px) {
+            display: none;
+          }
         }
 
         &::before,
