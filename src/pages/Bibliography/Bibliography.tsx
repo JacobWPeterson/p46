@@ -1072,7 +1072,12 @@ export const Bibliography = (): ReactElement => (
           , edited by Garrick V. Allen. WUNT 417. Tübingen: Mohr Siebeck, 2019.
         </p>
         <p className={styles.Item}>
-          Nongbri, Brent.{" "}
+          Nongbri, Brent. “A Papyrus Codex of Paul’s Letters in Greek: Another
+          Look at PSI XIV 1373 (P65) and P.Yale I 2 + II 86 (P49).” <i>NovT</i>{" "}
+          66.4 (2024): 499–514.
+        </p>
+        <p className={styles.Item}>
+          –––––{" "}
           <i>
             God’s Library: The Archaeology of the Earliest Christian Manuscripts
           </i>
