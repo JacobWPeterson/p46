@@ -3,7 +3,7 @@
 .GuideText {
   width: 100%;
   margin: 6px auto;
-  color: theme.$grey07;
+  color: theme.$grey10;
   font-size: 16px;
   text-align: justify;
   text-indent: 24px;
@@ -45,16 +45,7 @@
   font-weight: 600;
   color: theme.$grey10;
   text-align: left;
-  margin: 6px auto;
-}
-
-.H3 {
-  font-size: 18px;
-  font-weight: 500;
-  color: theme.$grey10;
-  text-align: left;
-  font-style: italic;
-  margin: 6px auto;
+  margin: 6px 0 6px 12px;
 }
 
 .Container {
@@ -69,7 +60,7 @@
     display: flex;
     flex-direction: column;
     height: calc(100% - 73px - 12px);
-    padding: 12px 24px 24px 12px;
+    padding: 12px 24px 24px 24px;
     overflow-y: auto;
   }
 }

@@ -8,26 +8,35 @@ export const Guide = (): ReactElement => (
     <div className={styles.GuideBody}>
       <h2 className={styles.H2}>Introduction</h2>
       <p className={styles.GuideText}>
-        The following is a new transcription of 𝔓46 created as part of my
-        doctoral thesis. They are based on the 2013–14 images produced by the
-        Center for the Study of New Testament Manuscripts and personal visits to
-        the Chester Beatty Library. There are a few different features needing
-        explanation to facilitate ease of use. The reading marks and few rough
-        breathing marks present in the manuscript have not been replicated.
-        Since the transcription contains a reconstruction of lacunose and
-        damaged texts, characters that would be a blank space with an underdot
-        in a diplomatic edition have been moved to inside the square brackets
-        where the letter is presented with an underdot. This allows for
-        distinguishing between a character that is able to be partially
-        identified but has an underdot and a blank space with an underdot. Below
-        each transcribed page is a list of corrections, if applicable. The
-        number before the correction refers to the line, not the scripture
-        reference. Any <i>in scribendo</i> corrections have been recorded here,
-        with the main text of the transcription reading the corrected text. If
-        the original scribe made what appears to be a subsequent correction, the
-        uncorrected text is in the main text block. The correction list and hand
-        ascriptions are based upon my article “An Updated Correction List for
-        Chester Beatty BP II + P.Mich. Inv. 6238 (Gregory-Aland Papyrus 46 [𝔓
+        The &quot;Peterson transcription&quot; of 𝔓<sup>46</sup> was created as
+        part of my doctoral thesis (
+        <a
+          href="http://dx.doi.org/10.7488/era/528"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.Link}
+        >
+          doi.org/10.7488/era/528
+        </a>
+        ). It is based on the 2013–14 images produced by the Center for the
+        Study of New Testament Manuscripts and personal visits to the Chester
+        Beatty Library. There are a few different features needing explanation
+        to facilitate ease of use. The reading marks and few rough breathing
+        marks present in the manuscript have not been replicated. Since the
+        transcription contains a reconstruction of lacunose and damaged texts,
+        characters that would be a blank space with an underdot in a diplomatic
+        edition have been moved to inside the square brackets where the letter
+        is presented with an underdot. This allows for distinguishing between a
+        character that is able to be partially identified but has an underdot
+        and a blank space with an underdot. Below each transcribed page is a
+        list of corrections, if applicable. The number before the correction
+        refers to the line, not the scripture reference. Any <i>in scribendo</i>{" "}
+        corrections have been recorded here, with the main text of the
+        transcription reading the corrected text. If the original scribe made
+        what appears to be a subsequent correction, the uncorrected text is in
+        the main text block. The correction list and hand ascriptions are based
+        upon my article “An Updated Correction List for Chester Beatty BP II +
+        P.Mich. Inv. 6238 (Gregory-Aland Papyrus 46 [𝔓
         <sup>46</sup>]).”{" "}
         <i>Bulletin of the American Society of Papyrologists</i> 56 (2019):
         173–195. (
