@@ -68,11 +68,21 @@ export default defineConfig(({ mode }) => {
       outDir: "dist",
     },
     publicDir: "src/static",
+    resolve: {
+      alias: {
+        "@styles": path.resolve(__dirname, "src/styles"),
+      },
+    },
     css: {
       modules: {
         generateScopedName: isProduction
           ? "[hash:base64]"
           : "[path][name]_[local]",
+      },
+      preprocessorOptions: {
+        scss: {
+          api: "modern",
+        },
       },
     },
     test: {
