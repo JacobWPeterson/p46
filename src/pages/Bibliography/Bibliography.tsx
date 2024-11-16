@@ -1142,10 +1142,19 @@ export const Bibliography = (): ReactElement => (
           Diplomatica e Archivistica, 2012.
         </p>
         <p className={styles.Item}>
-          Peterson, Jacob W. “See With What Variable Letter Sizes I Write–A
-          Response to Varner on Gal 6.11 in Papyrus 46.”{" "}
-          <i>TC: A Journal of Biblical Textual Criticism</i> 29 (
-          <i>forthcoming</i>, 2024).
+          Peterson, Jacob W. “See With What Variable Letter Sizes I Write: A
+          Response to William Varner on Gal 6:11 in Papyrus 46.”{" "}
+          <i>TC: A Journal of Biblical Textual Criticism</i> 29 (2024): 173–182.
+          (
+          <a
+            href="https://jbtc.org/v29/TC_Peterson.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.Link}
+          >
+            link
+          </a>
+          )
         </p>
         <p className={styles.Item}>
           ––––– &quot;GA 1739: A Monk, His Manuscript, and the Text of
@@ -1317,10 +1326,6 @@ export const Bibliography = (): ReactElement => (
             Einordnung der marcionitischen Paulusbriefausgabe
           </i>
           . ANTF 25. Berlin: de Gruyter, 1995.
-        </p>
-        <p className={styles.Item}>
-          Schmidt, Andreas. “Zwei Anmerkungen zu P. Ryl. III 457.” <i>APF</i> 35
-          (1989): 11–12.
         </p>
         <p className={styles.Item}>
           Schmidt, Carl. “Die neuesten Bibelfunde aus Ägypten.” <i>ZNW</i> 30.3
