@@ -140,8 +140,9 @@ export const SourcePanel = ({
             ...theme,
             colors: {
               ...theme.colors,
-              primary: "#65743a",
-              primary25: "#a9bb77",
+              primary: "#00333d",
+              primary25: "#dbf5fb",
+              primary50: "#00667a",
             },
           })}
           value={sourceOptions.find(({ value }) => value === source) || null}
@@ -149,7 +150,7 @@ export const SourcePanel = ({
           captureMenuScroll
           menuShouldBlockScroll
           options={sourceOptions.filter(
-            (option) => !selectedSourcePanels.includes(option.value as Sources),
+            (option) => !selectedSourcePanels.includes(option.value as Sources)
           )}
           isSearchable
         />

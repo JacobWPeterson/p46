@@ -139,6 +139,12 @@
       .Menu {
         z-index: 3;
       }
+
+      .Option {
+        &:active {
+          color: theme.$grey00;
+        }
+      }
     }
 
     .DisplayWrapper {
