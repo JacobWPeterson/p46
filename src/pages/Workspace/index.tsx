@@ -116,8 +116,9 @@ export const Workspace = (): ReactElement => {
               ...theme,
               colors: {
                 ...theme.colors,
-                primary: "#65743a",
-                primary25: "#a9bb77",
+                primary: "#00333d",
+                primary25: "#dbf5fb",
+                primary50: "#00667a",
               },
             })}
             value={manifestsToOptionsMap[manifestIndex]}
