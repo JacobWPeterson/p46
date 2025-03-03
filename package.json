@@ -34,7 +34,7 @@
   "homepage": "https://github.com/JacobWPeterson/p46#readme",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "mirador": "^4.0.0-alpha.10",
+    "mirador": "^4.0.0-alpha.15",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-feather": "^2.0.10",
