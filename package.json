@@ -40,7 +40,7 @@
     "react-feather": "^2.0.10",
     "react-hook-form": "^7.56.4",
     "react-pdf": "^9.2.1",
-    "react-router-dom": "^7.6.0",
+    "react-router-dom": "^7.6.1",
     "react-select": "^5.10.1"
   },
   "devDependencies": {
