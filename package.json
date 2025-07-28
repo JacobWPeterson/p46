@@ -35,13 +35,13 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "mirador": "^4.0.0-alpha.17",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "react-feather": "^2.0.10",
-    "react-hook-form": "^7.59.0",
+    "react-hook-form": "^7.61.1",
     "react-pdf": "^10.0.1",
-    "react-router-dom": "^7.6.3",
-    "react-select": "^5.10.1"
+    "react-router-dom": "^7.7.1",
+    "react-select": "^5.10.2"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",
