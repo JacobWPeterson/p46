@@ -44,8 +44,8 @@
     "react-select": "^5.10.1"
   },
   "devDependencies": {
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
@@ -66,18 +66,18 @@
     "postcss": "8.5.6",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-normalize": "13.0.1",
-    "postcss-preset-env": "10.2.4",
+    "postcss-preset-env": "10.3.0",
     "prettier": "^3.6.2",
-    "sass": "^1.89.2",
-    "stylelint": "^16.21.0",
+    "sass": "^1.90.0",
+    "stylelint": "^16.23.1",
     "stylelint-config-standard": "^38.0.0",
     "stylelint-config-standard-scss": "^15.0.1",
     "stylelint-order": "^7.0.0",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.35.0",
-    "vite": "^7.0.0",
-    "vite-plugin-static-copy": "^3.1.0",
-    "vite-plugin-svgr": "4.3.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.40.0",
+    "vite": "^7.1.3",
+    "vite-plugin-static-copy": "^3.1.2",
+    "vite-plugin-svgr": "4.5.0",
     "vitest": "^3.0.4"
   }
 }
