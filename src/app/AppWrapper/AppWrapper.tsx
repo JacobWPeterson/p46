@@ -36,7 +36,7 @@ export const AppWrapper = ({ children }: PropsWithChildren): ReactElement => {
         </div>
         <div className={styles.VerticalDivider} />
         <div className={styles.CopyrightText}>
-          © 2024{" "}
+          © 2025{" "}
           <a
             className={styles.Link}
             href="https://www.jacobwpeterson.com"
