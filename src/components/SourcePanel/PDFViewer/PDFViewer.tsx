@@ -16,6 +16,8 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url,
 ).toString();
 
+const options = { wasmUrl: "/wasm/" };
+
 type KenyonTextPageType = Record<"start" | "range", number>;
 
 export const PDFViewer = ({
@@ -93,6 +95,7 @@ export const PDFViewer = ({
         <Document
           file={`/files/${source}.pdf`}
           onLoadSuccess={onDocumentLoadSuccess}
+          options={options}
         >
           {source === Sources.KenyonText ? (
             Array.from(
