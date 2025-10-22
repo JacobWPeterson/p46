@@ -44,7 +44,7 @@ export const Workspace = (): ReactElement => {
     setNumberOfViewers((prev) => prev + 1);
     if (numberOfViewers === Object.values(Sources).length - 1) {
       const remaining = Object.values(Sources).filter(
-        (source) => !selectedSourcePanels.includes(source)
+        (source) => !selectedSourcePanels.includes(source),
       );
       setSelectedSourcePanels((prevState) => {
         const prevSourcesToUpdate = [...prevState];
