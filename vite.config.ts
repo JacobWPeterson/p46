@@ -12,6 +12,7 @@ const require = createRequire(import.meta.url);
 
 const pdfjsDistPath = path.dirname(require.resolve("pdfjs-dist/package.json"));
 const cMapsDir = normalizePath(path.join(pdfjsDistPath, "cmaps"));
+const wasmDir = normalizePath(path.join(pdfjsDistPath, "wasm"));
 const standardFontsDir = normalizePath(
   path.join(
     path.dirname(require.resolve("pdfjs-dist/package.json")),
@@ -33,11 +34,7 @@ export default defineConfig(({ mode }) => {
             plugins: [
               {
                 name: "preset-default",
-                params: {
-                  overrides: {
-                    removeViewBox: false,
-                  },
-                },
+                params: { overrides: { removeViewBox: false } },
               },
             ],
           },
@@ -48,42 +45,23 @@ export default defineConfig(({ mode }) => {
       react(),
       viteStaticCopy({
         targets: [
-          {
-            src: standardFontsDir,
-            dest: "",
-          },
-          {
-            src: cMapsDir,
-            dest: "",
-          },
+          { src: standardFontsDir, dest: "" },
+          { src: cMapsDir, dest: "" },
+          { src: wasmDir, dest: "" },
         ],
       }),
     ],
-    server: {
-      hmr: true,
-      port: 3000,
-      open: true,
-    },
-    build: {
-      outDir: "dist",
-    },
+    server: { hmr: true, port: 3000, open: true },
+    build: { outDir: "dist" },
     publicDir: "src/static",
-    resolve: {
-      alias: {
-        "@styles": path.resolve(__dirname, "src/styles"),
-      },
-    },
+    resolve: { alias: { "@styles": path.resolve(__dirname, "src/styles") } },
     css: {
       modules: {
         generateScopedName: isProduction
           ? "[hash:base64]"
           : "[path][name]_[local]",
       },
-      preprocessorOptions: {
-        scss: {
-          api: "modern",
-        },
-      },
+      preprocessorOptions: { scss: { api: "modern" } },
     },
     test: {
       globals: true,
