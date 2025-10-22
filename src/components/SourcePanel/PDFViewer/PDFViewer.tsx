@@ -1,12 +1,11 @@
 /* eslint-disable import/no-unassigned-import */
 import type { ReactElement } from "react";
-import { useCallback, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-import "react-pdf/dist/esm/Page/TextLayer.css";
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
 import { MinusCircle, PlusCircle } from "react-feather";
 
-import useResizeObserver from "../../../utils/useResizeObserver";
 import { Sources } from "../sources.enum";
 
 import styles from "./PDFViewer.module.scss";
@@ -16,8 +15,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
   import.meta.url,
 ).toString();
-
-const resizeObserverOptions = {};
 
 type KenyonTextPageType = Record<"start" | "range", number>;
 
@@ -31,7 +28,7 @@ export const PDFViewer = ({
   const [containerWidth, setContainerWidth] = useState<number>();
   const [scale, setScale] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const containerRef = useRef();
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const isMinZoom = scale < 0.8;
   const isMaxZoom = scale >= 3.0;
@@ -48,15 +45,24 @@ export const PDFViewer = ({
     }
   };
 
-  const onResize = useCallback<ResizeObserverCallback>((entries) => {
-    const [entry] = entries;
-
-    if (entry) {
-      setContainerWidth(entry.contentRect.width);
+  useEffect(() => {
+    if (!containerRef || !("ResizeObserver" in window)) {
+      return undefined;
     }
-  }, []);
 
-  useResizeObserver(containerRef.current, resizeObserverOptions, onResize);
+    // eslint-disable-next-line compat/compat
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setContainerWidth(entry.contentRect.width);
+      }
+    });
+
+    observer.observe(containerRef.current);
+
+    return (): void => {
+      observer.disconnect();
+    };
+  }, [containerRef]);
 
   const onDocumentLoadSuccess = (): void => {
     setIsLoading(false);
