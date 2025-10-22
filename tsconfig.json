@@ -15,16 +15,12 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "strictNullChecks": false,
-    "types": ["node", "vitest/globals"],
+    "types": ["vitest/globals"],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "useDefineForClassFields": true
   },
   "include": ["src", "vitestSetup.ts"],
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  }
+  "ts-node": { "compilerOptions": { "module": "CommonJS" } }
 }

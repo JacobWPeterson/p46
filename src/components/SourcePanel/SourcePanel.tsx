@@ -150,7 +150,7 @@ export const SourcePanel = ({
           captureMenuScroll
           menuShouldBlockScroll
           options={sourceOptions.filter(
-            (option) => !selectedSourcePanels.includes(option.value as Sources)
+            (option) => !selectedSourcePanels.includes(option.value as Sources),
           )}
           isSearchable
         />
