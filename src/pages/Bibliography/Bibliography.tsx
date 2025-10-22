@@ -44,7 +44,7 @@ export const Bibliography = (): ReactElement => (
           <i>
             Studien zur Überlieferung des Neuen Testaments und seines Textes.
           </i>{" "}
-          ANTF 2. Berlin,: de Gruyter, 1967.
+          ANTF 2. Berlin: de Gruyter, 1967.
         </p>
         <p className={styles.Item}>
           ––––– &quot;Zur Liste der Neutestamentlichen Handschriften. VI.&quot;{" "}
