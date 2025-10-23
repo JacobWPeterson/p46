@@ -162,11 +162,16 @@ export const ContactModal = ({
         )}
       </div>
       <div className={styles.Footer}>
-        <button className={styles.CancelButton} onClick={handleCancel}>
+        <button
+          aria-label={emailSent ? "Close" : "Cancel"}
+          className={styles.CancelButton}
+          onClick={handleCancel}
+        >
           {emailSent ? "Close" : "Cancel"}
         </button>
         {!emailSent && (
           <button
+            aria-label={isSending ? "Sending" : "Send"}
             className={styles.Button}
             disabled={
               isFormIncomplete || isSending || Object.keys(errors).length > 0

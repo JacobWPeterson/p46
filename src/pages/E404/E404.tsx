@@ -17,7 +17,12 @@ export const E404 = (): ReactElement => {
           check the address you have entered or just click below to go back
           home.
         </p>
-        <button className={styles.Button} onClick={handleGoHome} type="button">
+        <button
+          aria-label="home"
+          className={styles.Button}
+          onClick={handleGoHome}
+          type="button"
+        >
           Home
         </button>
       </div>
