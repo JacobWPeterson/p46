@@ -111,13 +111,19 @@ export const PDFViewer = ({
       )}
       <div className={styles.Controls} style={{ width: containerWidth }}>
         <button
+          aria-label="zoom out"
           className={styles.Button}
           disabled={isMinZoom}
           onClick={zoomOut}
         >
           <MinusCircle size={20} />
         </button>
-        <button className={styles.Button} disabled={isMaxZoom} onClick={zoomIn}>
+        <button
+          aria-label="zoom in"
+          className={styles.Button}
+          disabled={isMaxZoom}
+          onClick={zoomIn}
+        >
           <PlusCircle size={20} />
         </button>
       </div>

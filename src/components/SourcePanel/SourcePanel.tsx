@@ -25,10 +25,7 @@ interface SourcePanelProps {
   toggleGuideModal: () => void;
 }
 
-type Option = {
-  label: string;
-  value: string;
-};
+type Option = { label: string; value: string };
 
 export const SourcePanel = ({
   closeViewer,
@@ -131,6 +128,7 @@ export const SourcePanel = ({
     <div className={styles.Container}>
       <div className={styles.Header}>
         <Select
+          aria-label="Choose viewer source"
           classNames={{
             control: () => styles.Control,
             menu: () => styles.Menu,
@@ -157,17 +155,24 @@ export const SourcePanel = ({
         <div className={styles.EndButtons}>
           {source === Sources.Peterson && (
             <button
+              aria-label="Help"
               onClick={toggleGuideModal}
               className={styles.TranscriptionGuideButton}
             >
               Help
             </button>
           )}
-          <div className={styles.Tooltip} tabIndex={0} role="button">
+          <div
+            aria-label="info tooltip"
+            className={styles.Tooltip}
+            tabIndex={0}
+            role="button"
+          >
             <Info size={18} />
             <span className={styles.TooltipText}>{getHelpText()}</span>
           </div>
           <button
+            aria-label="Close viewer"
             onClick={closeViewer}
             className={styles.IconButton}
             disabled={selectedSourcePanels.length < 2}
