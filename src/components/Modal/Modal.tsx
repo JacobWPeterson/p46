@@ -52,6 +52,7 @@ export const Modal = ({
             <div className={styles.Header}>
               <h2 className={styles.H2}>{header}</h2>
               <button
+                aria-label="close"
                 onClick={handleClose}
                 className={styles.CloseButton}
                 disabled={isCloseDisabled}
@@ -59,6 +60,7 @@ export const Modal = ({
             </div>
           ) : (
             <button
+              aria-label="close"
               onClick={handleClose}
               className={styles.CloseButton}
               disabled={isCloseDisabled}

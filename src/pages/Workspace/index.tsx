@@ -11,10 +11,7 @@ import { SourcePanel } from "../../components/SourcePanel/SourcePanel";
 
 import styles from "./index.module.scss";
 
-type Option = {
-  label: ReactElement;
-  value: number;
-};
+type Option = { label: ReactElement; value: number };
 
 type SelectedSourcesState = Sources[];
 
@@ -98,6 +95,7 @@ export const Workspace = (): ReactElement => {
       <div className={styles.ContentWrapper}>
         <div className={styles.Header} style={{ right: window.innerWidth / 2 }}>
           <button
+            aria-label="previous"
             disabled={manifestIndex === 0}
             className={classNames(styles.Button, {
               [styles.Disabled]: manifestIndex === 0,
@@ -107,6 +105,7 @@ export const Workspace = (): ReactElement => {
             Prev
           </button>
           <Select
+            aria-label="Choose folio"
             classNames={{
               control: () => styles.Control,
               menu: () => styles.Menu,
@@ -129,6 +128,7 @@ export const Workspace = (): ReactElement => {
             isSearchable
           />
           <button
+            aria-label="next"
             disabled={manifests.length <= manifestIndex + 1}
             className={classNames(styles.Button, {
               [styles.Disabled]: manifests.length <= manifestIndex + 1,
@@ -138,6 +138,7 @@ export const Workspace = (): ReactElement => {
             Next
           </button>
           <button
+            aria-label="add viewer"
             disabled={numberOfViewers >= Object.keys(Sources).length}
             className={classNames(styles.Button, styles.Add, {
               [styles.Disabled]: numberOfViewers >= Object.keys(Sources).length,
