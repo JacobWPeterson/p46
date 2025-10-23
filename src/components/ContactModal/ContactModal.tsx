@@ -12,11 +12,7 @@ interface ContactModalProps {
   onHide: () => void;
 }
 
-type ContactFormData = {
-  name: string;
-  email: string;
-  message: string;
-};
+type ContactFormData = { name: string; email: string; message: string };
 
 export const ContactModal = ({
   show,
@@ -33,9 +29,7 @@ export const ContactModal = ({
     watch,
   } = useForm<ContactFormData>({ mode: "onTouched" });
 
-  const nameInput = watch("name");
-  const emailInput = watch("email");
-  const messageInput = watch("message");
+  const [name, email, message] = watch(["name", "email", "message"]);
 
   // Mid-strength solution comes from https://www.regular-expressions.info/email.html
   const emailRegex =
@@ -53,13 +47,11 @@ export const ContactModal = ({
       "service_v5oeqac",
       "template_r9mhd7m",
       {
-        from_name: nameInput,
-        message: `Message from P46 site: ${messageInput}`,
-        reply_to: emailInput,
+        from_name: name,
+        message: `Message from P46 site: ${message}`,
+        reply_to: email,
       },
-      {
-        publicKey: "bLp81eIkp1XLYMVPi",
-      },
+      { publicKey: "bLp81eIkp1XLYMVPi" },
     )
       .then(() => {
         setEmailSent(true);
@@ -75,7 +67,7 @@ export const ContactModal = ({
       });
   };
 
-  const isFormIncomplete = !nameInput || !emailInput || !messageInput;
+  const isFormIncomplete = !name || !email || !message;
 
   return (
     <Modal
@@ -83,9 +75,7 @@ export const ContactModal = ({
       handleClose={handleCancel}
       isCloseDisabled={isSending}
       header="Contact form"
-      classes={classNames(styles.Modal, {
-        [styles.Sent]: emailSent,
-      })}
+      classes={classNames(styles.Modal, { [styles.Sent]: emailSent })}
     >
       <div className={styles.Body}>
         {emailSent ? (
@@ -143,10 +133,7 @@ export const ContactModal = ({
               Message
               <textarea
                 className={styles.TextArea}
-                {...register("message", {
-                  required: true,
-                  minLength: 5,
-                })}
+                {...register("message", { required: true, minLength: 5 })}
                 maxLength={2000}
                 aria-invalid={errors.message ? "true" : "false"}
                 placeholder="Enter your message here"
@@ -167,7 +154,7 @@ export const ContactModal = ({
                   </p>
                 )}
                 <p className={styles.Help} role="alert">
-                  {`(${messageInput?.length || 0}/2000)`}
+                  {`(${message?.length || 0}/2000)`}
                 </p>
               </div>
             </label>
