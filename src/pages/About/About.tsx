@@ -123,7 +123,12 @@ export const About = (): ReactElement => (
       </div>
     </div>
     <div className={classNames(styles.Container, styles.Lower)}>
-      <img className={styles.Image} src="/images/me.jpg" alt="creator" />
+      <img
+        className={styles.Image}
+        loading="lazy"
+        src="/images/me.jpg"
+        alt="creator"
+      />
       <div className={styles.Section}>
         <h2 className={styles.H2}>About Me</h2>
         <div className={styles.Text}>
