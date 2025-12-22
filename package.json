@@ -39,9 +39,9 @@
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-feather": "^2.0.10",
-    "react-hook-form": "^7.68.0",
+    "react-hook-form": "^7.69.0",
     "react-pdf": "^10.2.0",
-    "react-router-dom": "^7.10.1",
+    "react-router-dom": "^7.11.0",
     "react-select": "^5.10.2"
   },
   "devDependencies": {
