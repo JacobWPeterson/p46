@@ -1,9 +1,9 @@
-import type { PropsWithChildren, ReactElement } from "react";
-import { useState } from "react";
+import type { PropsWithChildren, ReactElement } from 'react';
+import { useState } from 'react';
 
-import { ContactModal } from "../../components/ContactModal/ContactModal";
+import { ContactModal } from '../../components/ContactModal/ContactModal';
 
-import styles from "./AppWrapper.module.scss";
+import styles from './AppWrapper.module.scss';
 
 export const AppWrapper = ({ children }: PropsWithChildren): ReactElement => {
   const [showModal, setShowModal] = useState(false);
@@ -30,13 +30,13 @@ export const AppWrapper = ({ children }: PropsWithChildren): ReactElement => {
           role="button"
           tabIndex={0}
           onClick={() => setShowModal(true)}
-          onKeyDown={(e) => e.key === "Enter" && setShowModal(true)}
+          onKeyDown={e => e.key === 'Enter' && setShowModal(true)}
         >
           Contact
         </div>
         <div className={styles.VerticalDivider} />
         <div className={styles.CopyrightText}>
-          © 2025{" "}
+          © 2025{' '}
           <a
             className={styles.Link}
             href="https://www.jacobwpeterson.com"

@@ -1,10 +1,10 @@
-import type { PropsWithChildren, ReactElement } from "react";
-import { useEffect } from "react";
-import classNames from "classnames";
+import type { PropsWithChildren, ReactElement } from 'react';
+import { useEffect } from 'react';
+import classNames from 'classnames';
 
-import { Portal } from "../Portal/Portal";
+import { Portal } from '../Portal/Portal';
 
-import styles from "./Modal.module.scss";
+import styles from './Modal.module.scss';
 
 interface ModalProps {
   handleClose: () => void;
@@ -20,14 +20,14 @@ export const Modal = ({
   handleClose,
   header,
   isCloseDisabled = false,
-  isOpen,
+  isOpen
 }: PropsWithChildren<ModalProps>): ReactElement => {
   useEffect(() => {
     const closeOnEscapeKey = (e: KeyboardEvent): void =>
-      e.key === "Escape" ? handleClose() : null;
-    document.body.addEventListener("keydown", closeOnEscapeKey);
+      e.key === 'Escape' ? handleClose() : null;
+    document.body.addEventListener('keydown', closeOnEscapeKey);
     return (): void => {
-      document.body.removeEventListener("keydown", closeOnEscapeKey);
+      document.body.removeEventListener('keydown', closeOnEscapeKey);
     };
   }, [handleClose]);
 
@@ -45,7 +45,7 @@ export const Modal = ({
       >
         <div
           className={classNames(styles.Content, classes)}
-          onClick={(e) => e.stopPropagation()}
+          onClick={e => e.stopPropagation()}
           aria-hidden
         >
           {header ? (

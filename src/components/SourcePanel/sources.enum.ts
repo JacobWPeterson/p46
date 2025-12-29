@@ -1,6 +1,6 @@
 export enum Sources {
-  Mirador = "mirador",
-  Peterson = "peterson",
-  KenyonPlates = "kenyonPlates",
-  KenyonText = "kenyonText",
+  Mirador = 'mirador',
+  Peterson = 'peterson',
+  KenyonPlates = 'kenyonPlates',
+  KenyonText = 'kenyonText'
 }
