@@ -1,5 +1,5 @@
-@use "@styles/theme";
-@use "@styles/variables";
+@use '@styles/theme';
+@use '@styles/variables';
 
 .AppWrapper {
   font-family: Montserrat, sans-serif;
@@ -67,7 +67,7 @@
         display: inline-block;
 
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           width: 100%;
           left: 0;

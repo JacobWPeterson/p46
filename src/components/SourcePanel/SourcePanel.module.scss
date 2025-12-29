@@ -1,5 +1,5 @@
-@use "@styles/theme";
-@use "@styles/variables";
+@use '@styles/theme';
+@use '@styles/variables';
 
 .Tooltip {
   position: relative;
@@ -44,7 +44,7 @@
 }
 
 .Tooltip .TooltipText::before {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 100%;
   left: 250px;

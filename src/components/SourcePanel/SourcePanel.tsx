@@ -1,19 +1,19 @@
-import type { ReactElement } from "react";
-import Select from "react-select";
-import { Info, X } from "react-feather";
+import type { ReactElement } from 'react';
+import Select from 'react-select';
+import { Info, X } from 'react-feather';
 
-import manifests from "../../static/files/manifests";
+import manifests from '../../static/files/manifests';
 
-import { Mirador } from "./Mirador";
-import { PDFViewer } from "./PDFViewer/PDFViewer";
-import { Sources } from "./sources.enum";
-import styles from "./SourcePanel.module.scss";
+import { Mirador } from './Mirador';
+import { PDFViewer } from './PDFViewer/PDFViewer';
+import { Sources } from './sources.enum';
+import styles from './SourcePanel.module.scss';
 
 const sourceOptions: Option[] = [
-  { label: "CBL and UM images", value: Sources.Mirador },
-  { label: "Kenyon plates", value: Sources.KenyonPlates },
-  { label: "Peterson transcription", value: Sources.Peterson },
-  { label: "Kenyon transcription", value: Sources.KenyonText },
+  { label: 'CBL and UM images', value: Sources.Mirador },
+  { label: 'Kenyon plates', value: Sources.KenyonPlates },
+  { label: 'Peterson transcription', value: Sources.Peterson },
+  { label: 'Kenyon transcription', value: Sources.KenyonText }
 ];
 
 interface SourcePanelProps {
@@ -33,7 +33,7 @@ export const SourcePanel = ({
   onChange,
   selectedSourcePanels,
   source,
-  toggleGuideModal,
+  toggleGuideModal
 }: SourcePanelProps): ReactElement => {
   const handleSourceChange = (newSource: Option): void => {
     onChange(newSource.value as Sources);
@@ -41,7 +41,7 @@ export const SourcePanel = ({
 
   const getContent = (): ReactElement | string => {
     if (!source) {
-      return "Select a source from the dropdown above";
+      return 'Select a source from the dropdown above';
     }
     return source === Sources.Mirador ? (
       <Mirador
@@ -49,10 +49,7 @@ export const SourcePanel = ({
         manifest={manifests[manifestIndex].url}
       />
     ) : (
-      <PDFViewer
-        source={source}
-        pageNumber={manifests[manifestIndex][`${source}Page`]}
-      />
+      <PDFViewer source={source} pageNumber={manifests[manifestIndex][`${source}Page`]} />
     );
   };
 
@@ -60,9 +57,8 @@ export const SourcePanel = ({
     if (source === Sources.Peterson) {
       return (
         <p className={styles.Item}>
-          Peterson, Jacob W. &quot;GA 1739: A Monk, His Manuscript, and the Text
-          of Paul&apos;s Letters.&quot; PhD Thesis, University of Edinburgh,
-          2020. (
+          Peterson, Jacob W. &quot;GA 1739: A Monk, His Manuscript, and the Text of Paul&apos;s
+          Letters.&quot; PhD Thesis, University of Edinburgh, 2020. (
           <a
             href="http://dx.doi.org/10.7488/era/528"
             target="_blank"
@@ -77,31 +73,29 @@ export const SourcePanel = ({
     } else if (source === Sources.KenyonText) {
       return (
         <p className={styles.Item}>
-          Kenyon, Frederic G., ed.{" "}
+          Kenyon, Frederic G., ed.{' '}
           <i>
-            The Chester Beatty Biblical Papyri, Fasciculus III, Supplement:
-            Pauline Epistles, Text.
-          </i>{" "}
+            The Chester Beatty Biblical Papyri, Fasciculus III, Supplement: Pauline Epistles, Text.
+          </i>{' '}
           London: Emery Walker, 1936.
         </p>
       );
     } else if (source === Sources.KenyonPlates) {
       return (
         <p className={styles.Item}>
-          Kenyon, Frederic G., ed.{" "}
+          Kenyon, Frederic G., ed.{' '}
           <i>
-            The Chester Beatty Biblical Papyri, Fasciculus III, Supplement:
-            Pauline Epistles, Plates.
-          </i>{" "}
+            The Chester Beatty Biblical Papyri, Fasciculus III, Supplement: Pauline Epistles,
+            Plates.
+          </i>{' '}
           London: Emery Walker, 1937.
         </p>
       );
     } else {
       return (
         <p className={styles.Item}>
-          Images from both the Chester Beatty Library and University of Michigan
-          Library are provided under a Creative Commons license. For more
-          information, see{" "}
+          Images from both the Chester Beatty Library and University of Michigan Library are
+          provided under a Creative Commons license. For more information, see{' '}
           <a
             href="https://chesterbeatty.ie/about/copyright-2/"
             target="_blank"
@@ -109,8 +103,8 @@ export const SourcePanel = ({
             className={styles.Link}
           >
             Chester Beatty Library
-          </a>{" "}
-          and{" "}
+          </a>{' '}
+          and{' '}
           <a
             href="https://quod.lib.umich.edu/a/apis/x-3553/6238_30.TIF?lasttype=boolean;lastview=reslist;resnum=1;size=50;sort=apis_inv;start=1;subview=detail;view=entry;rgn1=apis_inv;select1=phrase;q1=P.Mich.inv.+6238#rights-permissions"
             target="_blank"
@@ -132,23 +126,23 @@ export const SourcePanel = ({
           classNames={{
             control: () => styles.Control,
             menu: () => styles.Menu,
-            option: () => styles.Option,
+            option: () => styles.Option
           }}
-          theme={(theme) => ({
+          theme={theme => ({
             ...theme,
             colors: {
               ...theme.colors,
-              primary: "#00333d",
-              primary25: "#dbf5fb",
-              primary50: "#00667a",
-            },
+              primary: '#00333d',
+              primary25: '#dbf5fb',
+              primary50: '#00667a'
+            }
           })}
           value={sourceOptions.find(({ value }) => value === source) || null}
           onChange={handleSourceChange}
           captureMenuScroll
           menuShouldBlockScroll
           options={sourceOptions.filter(
-            (option) => !selectedSourcePanels.includes(option.value as Sources),
+            option => !selectedSourcePanels.includes(option.value as Sources)
           )}
           isSearchable
         />
@@ -162,12 +156,7 @@ export const SourcePanel = ({
               Help
             </button>
           )}
-          <div
-            aria-label="info tooltip"
-            className={styles.Tooltip}
-            tabIndex={0}
-            role="button"
-          >
+          <div aria-label="info tooltip" className={styles.Tooltip} tabIndex={0} role="button">
             <Info size={18} />
             <span className={styles.TooltipText}>{getHelpText()}</span>
           </div>

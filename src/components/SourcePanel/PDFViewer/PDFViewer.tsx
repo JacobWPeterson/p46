@@ -1,28 +1,28 @@
 /* eslint-disable import/no-unassigned-import */
-import type { ReactElement } from "react";
-import { useEffect, useRef, useState } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
-import { MinusCircle, PlusCircle } from "react-feather";
+import type { ReactElement } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
+import { MinusCircle, PlusCircle } from 'react-feather';
 
-import { Sources } from "../sources.enum";
+import { Sources } from '../sources.enum';
 
-import styles from "./PDFViewer.module.scss";
+import styles from './PDFViewer.module.scss';
 
 // eslint-disable-next-line compat/compat
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url,
+  'pdfjs-dist/build/pdf.worker.min.mjs',
+  import.meta.url
 ).toString();
 
-const options = { wasmUrl: "/wasm/" };
+const options = { wasmUrl: '/wasm/' };
 
-type KenyonTextPageType = Record<"start" | "range", number>;
+type KenyonTextPageType = Record<'start' | 'range', number>;
 
 export const PDFViewer = ({
   pageNumber,
-  source,
+  source
 }: {
   pageNumber: number | KenyonTextPageType;
   source: Sources;
@@ -48,12 +48,12 @@ export const PDFViewer = ({
   };
 
   useEffect(() => {
-    if (!containerRef || !("ResizeObserver" in window)) {
+    if (!containerRef || !('ResizeObserver' in window)) {
       return undefined;
     }
 
     // eslint-disable-next-line compat/compat
-    const observer = new ResizeObserver((entries) => {
+    const observer = new ResizeObserver(entries => {
       for (const entry of entries) {
         setContainerWidth(entry.contentRect.width);
       }
@@ -75,18 +75,12 @@ export const PDFViewer = ({
       {isLoading && <div className={styles.Loading}>Loading...</div>}
       {source === Sources.KenyonPlates ? (
         <Document
-          file={
-            (pageNumber as number) <= 83
-              ? `/files/${source}1.pdf`
-              : `/files/${source}2.pdf`
-          }
+          file={(pageNumber as number) <= 83 ? `/files/${source}1.pdf` : `/files/${source}2.pdf`}
           onLoadSuccess={onDocumentLoadSuccess}
         >
           <Page
             pageNumber={
-              (pageNumber as number) <= 83
-                ? (pageNumber as number)
-                : (pageNumber as number) - 83
+              (pageNumber as number) <= 83 ? (pageNumber as number) : (pageNumber as number) - 83
             }
             scale={scale}
           />
@@ -100,10 +94,8 @@ export const PDFViewer = ({
           {source === Sources.KenyonText ? (
             Array.from(
               { length: (pageNumber as KenyonTextPageType).range },
-              (_, index) => (pageNumber as KenyonTextPageType).start + index,
-            ).map((pageNumber) => (
-              <Page key={pageNumber} pageNumber={pageNumber} />
-            ))
+              (_, index) => (pageNumber as KenyonTextPageType).start + index
+            ).map(pageNumber => <Page key={pageNumber} pageNumber={pageNumber} />)
           ) : (
             <Page pageNumber={pageNumber as number} scale={scale} />
           )}

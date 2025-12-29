@@ -1,3 +1,3 @@
-declare module "mirador";
+declare module 'mirador';
 
-declare module "mirador-image-tools";
+declare module 'mirador-image-tools';
