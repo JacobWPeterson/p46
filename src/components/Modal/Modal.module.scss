@@ -1,4 +1,4 @@
-@use "@styles/theme";
+@use '@styles/theme';
 
 .Modal {
   position: fixed;
@@ -71,7 +71,7 @@
   &::after {
     position: absolute;
     left: 20px;
-    content: " ";
+    content: ' ';
     height: 21px;
     width: 2px;
     background-color: theme.$grey08;
