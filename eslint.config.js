@@ -1,7 +1,7 @@
 import { defineConfig } from "eslint/config";
 import { fixupPluginRules } from "@eslint/compat";
 import react from "eslint-plugin-react";
-import jsxA11Y from "eslint-plugin-jsx-a11y";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import reactRefresh from "eslint-plugin-react-refresh";
 import compatPlugin from "eslint-plugin-compat";
@@ -22,6 +22,7 @@ export default defineConfig([
 		ignores: ["dist/**", "node_modules/**", ".git/**"],
 	},
 	js.configs.recommended,
+	compatPlugin.configs["flat/recommended"],
 	{
 		files: ["src/**/*.{ts,tsx}"],
 		languageOptions: {
@@ -38,10 +39,9 @@ export default defineConfig([
 		},
 		plugins: {
 			react: fixupPluginRules(react),
-			"jsx-a11y": fixupPluginRules(jsxA11Y),
+			"jsx-a11y": fixupPluginRules(jsxA11y),
 			"@typescript-eslint": fixupPluginRules(typescriptEslint),
 			"react-refresh": reactRefresh,
-			compat: fixupPluginRules(compatPlugin),
 			vitest,
 			import: fixupPluginRules(importPlugin),
 			"react-hooks": fixupPluginRules(reactHooks),
@@ -131,6 +131,7 @@ export default defineConfig([
 			"no-restricted-globals": ["error"],
 			"no-unreachable": "warn",
 			"no-unused-labels": "warn",
+			"no-unused-vars": "off",
 			"no-useless-computed-key": "warn",
 			"no-useless-concat": "warn",
 			"no-useless-escape": "warn",
@@ -151,10 +152,14 @@ export default defineConfig([
 			"@typescript-eslint/ban-ts-comment": "off",
 			"@typescript-eslint/consistent-type-imports": "error",
 			"@typescript-eslint/explicit-function-return-type": "error",
-			"@typescript-eslint/no-unused-vars": "error",
+			"@typescript-eslint/no-unused-vars": ["error", {
+				"argsIgnorePattern": "^_",
+				"varsIgnorePattern": "^_",
+			}],
 			"@typescript-eslint/no-unnecessary-type-arguments": "error",
 			"@typescript-eslint/prefer-nullish-coalescing": "off",
 			"@typescript-eslint/prefer-optional-chain": "error",
+			"@typescript-eslint/no-explicit-any": "error",
 			"@typescript-eslint/no-use-before-define": "off",
 			"@typescript-eslint/no-var-requires": "off",
 			"@typescript-eslint/no-unsafe-call": "off",
