@@ -4,6 +4,7 @@ import type { SingleValue } from 'react-select';
 import { Info, X } from 'react-feather';
 
 import manifests from '../../static/files/manifests';
+import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
 
 import { Mirador } from './Mirador';
 import { PDFViewer } from './PDFViewer/PDFViewer';
@@ -48,13 +49,17 @@ export const SourcePanel = ({
     if (!source) {
       return 'Select a source from the dropdown above';
     }
-    return source === Sources.Mirador ? (
-      <Mirador
-        canvasIndex={manifests[manifestIndex].canvasIndex}
-        manifest={manifests[manifestIndex].url}
-      />
-    ) : (
-      <PDFViewer source={source} pageNumber={manifests[manifestIndex][`${source}Page`]} />
+    return (
+      <ErrorBoundary>
+        {source === Sources.Mirador ? (
+          <Mirador
+            canvasIndex={manifests[manifestIndex].canvasIndex}
+            manifest={manifests[manifestIndex].url}
+          />
+        ) : (
+          <PDFViewer source={source} pageNumber={manifests[manifestIndex][`${source}Page`]} />
+        )}
+      </ErrorBoundary>
     );
   };
 
