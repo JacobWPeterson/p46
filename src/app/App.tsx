@@ -7,6 +7,11 @@ import { Routes } from './Routes';
 import { AppWrapper } from './AppWrapper/AppWrapper';
 
 const container = document.getElementById('app');
+
+if (!container) {
+  throw new Error('App container not found');
+}
+
 const root = createRoot(container);
 
 root.render(

@@ -48,7 +48,7 @@ export const PDFViewer = ({
   };
 
   useEffect(() => {
-    if (!containerRef || !('ResizeObserver' in window)) {
+    if (!containerRef.current || !('ResizeObserver' in window)) {
       return undefined;
     }
 
@@ -64,7 +64,7 @@ export const PDFViewer = ({
     return (): void => {
       observer.disconnect();
     };
-  }, [containerRef]);
+  }, []);
 
   const onDocumentLoadSuccess = (): void => {
     setIsLoading(false);

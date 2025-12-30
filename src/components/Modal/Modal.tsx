@@ -21,10 +21,13 @@ export const Modal = ({
   header,
   isCloseDisabled = false,
   isOpen
-}: PropsWithChildren<ModalProps>): ReactElement => {
+}: PropsWithChildren<ModalProps>): ReactElement | null => {
   useEffect(() => {
-    const closeOnEscapeKey = (e: KeyboardEvent): void =>
-      e.key === 'Escape' ? handleClose() : null;
+    const closeOnEscapeKey = (e: KeyboardEvent): void => {
+      if (e.key === 'Escape') {
+        handleClose();
+      }
+    };
     document.body.addEventListener('keydown', closeOnEscapeKey);
     return (): void => {
       document.body.removeEventListener('keydown', closeOnEscapeKey);

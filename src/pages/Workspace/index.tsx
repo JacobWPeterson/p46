@@ -1,6 +1,6 @@
 import { useState, type ReactElement } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Select from 'react-select';
+import Select, { type SingleValue } from 'react-select';
 import classNames from 'classnames';
 
 import manifests from '../../static/files/manifests';
@@ -14,7 +14,7 @@ import styles from './index.module.scss';
 
 type Option = { label: ReactElement; value: number };
 
-type SelectedSourcesState = Sources[];
+type SelectedSourcesState = Array<Sources | null>;
 
 const manifestsToOptionsMap: Option[] = manifests.map((manifest, index) => {
   return {
@@ -96,7 +96,11 @@ export const Workspace = (): ReactElement => {
     });
   };
 
-  const handleChange = (selectedOption: Option): void => {
+  const handleChange = (selectedOption: SingleValue<Option>): void => {
+    if (!selectedOption) {
+      return;
+    }
+
     handleSelectFolio(selectedOption.value);
   };
 
