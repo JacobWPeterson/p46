@@ -43,13 +43,24 @@ export const Modal = ({
       <div
         className={styles.Modal}
         onClick={isCloseDisabled ? (): void => {} : handleClose}
-        aria-modal="true"
-        aria-hidden
+        onKeyDown={(e): void => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (!isCloseDisabled) {
+              handleClose();
+            }
+          }
+        }}
+        role="presentation"
+        aria-label="Modal backdrop"
       >
         <div
           className={classNames(styles.Content, classes)}
           onClick={e => e.stopPropagation()}
-          aria-hidden
+          onKeyDown={e => e.stopPropagation()}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={header ? 'modal-header' : undefined}
         >
           {header ? (
             <div className={styles.Header}>
