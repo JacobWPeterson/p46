@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 import Select from 'react-select';
+import type { SingleValue } from 'react-select';
 import { Info, X } from 'react-feather';
 
 import manifests from '../../static/files/manifests';
@@ -19,9 +20,9 @@ const sourceOptions: Option[] = [
 interface SourcePanelProps {
   closeViewer: () => void;
   manifestIndex: number;
-  onChange: (newSelection: Sources) => void;
-  selectedSourcePanels: Sources[];
-  source: Sources;
+  onChange: (_newSelection: Sources) => void;
+  selectedSourcePanels: Array<Sources | null>;
+  source: Sources | null;
   toggleGuideModal: () => void;
 }
 
@@ -35,7 +36,11 @@ export const SourcePanel = ({
   source,
   toggleGuideModal
 }: SourcePanelProps): ReactElement => {
-  const handleSourceChange = (newSource: Option): void => {
+  const handleSourceChange = (newSource: SingleValue<Option>): void => {
+    if (!newSource) {
+      return;
+    }
+
     onChange(newSource.value as Sources);
   };
 
