@@ -1,0 +1,62 @@
+@use '@styles/theme';
+
+.ErrorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 18px;
+  background-color: theme.$grey01;
+  border-radius: 4px;
+
+  .ErrorContent {
+    max-width: 500px;
+    text-align: center;
+
+    .ErrorTitle {
+      margin: 0 0 12px;
+      color: theme.$primary03;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .ErrorMessage {
+      margin: 0 0 12px;
+      color: theme.$grey08;
+      line-height: 1.6;
+    }
+
+    .ErrorDetails {
+      margin-top: 12px;
+      text-align: left;
+      background-color: theme.$grey00;
+      border: 1px solid theme.$grey03;
+      border-radius: 4px;
+      padding: 12px;
+
+      summary {
+        cursor: pointer;
+        color: theme.$grey08;
+        font-weight: 500;
+        user-select: none;
+
+        &:hover {
+          color: theme.$grey10;
+        }
+      }
+
+      .ErrorStack {
+        margin: 12px 0 0;
+        padding: 12px;
+        background-color: theme.$grey01;
+        border-radius: 3px;
+        color: theme.$error;
+        font-family: monospace;
+        font-size: 12px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+      }
+    }
+  }
+}
