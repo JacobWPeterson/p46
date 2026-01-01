@@ -60,6 +60,10 @@ npm run start:dev   # dev server + TypeScript watch
 - **Pre-commit hooks**: Husky + lint-staged automatically run ESLint, Prettier, and Stylelint on staged files before each commit.
 - **Comprehensive linting**: ESLint (TypeScript, React, a11y, deprecation checks), Prettier (formatting), Stylelint (SCSS).
 
+## License
+
+This project is licensed under the GNU General Public License v3.0 or later. See [LICENSE.md](LICENSE.md) for full terms.
+
 ## Contributing
 
 Issues and PRs are welcome!

@@ -36,7 +36,7 @@
     "url": "git+https://github.com/JacobWPeterson/p46"
   },
   "author": "Jacob W. Peterson",
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/JacobWPeterson/p46/issues"
   },
