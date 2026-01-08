@@ -4,6 +4,11 @@
   "type": "module",
   "description": "A website to learn to read manuscripts",
   "main": "index.tsx",
+  "author": "Jacob W. Peterson",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/JacobWPeterson/p46/issues"
+  },
   "scripts": {
     "start": "vite",
     "start:dev": "npm-run-all --parallel -r start types:watch",
@@ -34,11 +39,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JacobWPeterson/p46"
-  },
-  "author": "Jacob W. Peterson",
-  "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/JacobWPeterson/p46/issues"
   },
   "homepage": "https://github.com/JacobWPeterson/p46#readme",
   "dependencies": {
