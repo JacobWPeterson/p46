@@ -1,18 +1,14 @@
 # P46 Papyrus Transcription Viewer
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Node CI](https://github.com/JacobWPeterson/p46/actions/workflows/node.js.yml/badge.svg)](https://github.com/JacobWPeterson/p46/actions/workflows/node.js.yml)
+[![React](https://img.shields.io/badge/React-19-blue?logo=react)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-7-purple?logo=vite)](https://vitejs.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)](https://www.typescriptlang.org)
 
 An open, education-focused viewer for the P46 papyrus that pairs IIIF manuscript images displayed in a [ProjectMirador](https://github.com/ProjectMirador) viewer with multiple published transcriptions. Built with React + TypeScript + Vite.
 
 ## Features
-
-- **Side-by-side viewing**: Mix and match IIIF images with PDF transcriptions (Peterson thesis, Kenyon plates, Kenyon text).
-- **Mirador v4 IIIF viewer**: Image tools (zoom, rotate, brightness) with loading states and error boundaries for resilient manifest handling.
-- **PDF viewer**: Zoom controls and multi-page support for Kenyon text ranges.
-- **Manifest-driven data**: Single source of truth for folio metadata and page mappings.
-- **Error boundaries**: Graceful degradation when viewers fail to load—no more full app crashes.
-- **Accessible UI**: Modal/portal pattern with keyboard navigation (Escape to close).
-- **Code quality enforcement**: Pre-commit hooks automatically lint and format code before commits.
 
 ## Quick start
 
