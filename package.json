@@ -68,7 +68,7 @@
     "@vitest/ui": "4.1.6",
     "baseline-browser-mapping": "^2.10.29",
     "classnames": "2.5.1",
-    "eslint": "^9.39.2",
+    "eslint": "^10.4.0",
     "eslint-plugin-compat": "^7.0.2",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
