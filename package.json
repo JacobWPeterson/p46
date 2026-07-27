@@ -45,10 +45,10 @@
     "@emailjs/browser": "^4.4.1",
     "mirador": "^4.1.0",
     "mirador-image-tools": "^1.0.0",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "react-feather": "^2.0.10",
-    "react-hook-form": "^7.82.0",
+    "react-hook-form": "^7.83.0",
     "react-pdf": "^10.4.1",
     "react-router": "^8.3.0",
     "react-select": "^5.10.2"
