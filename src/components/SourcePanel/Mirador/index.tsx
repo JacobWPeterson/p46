@@ -1,20 +1,41 @@
-import { type ReactElement, useEffect } from 'react';
-import { viewer } from 'mirador';
-import { miradorImageToolsPlugin } from 'mirador-image-tools';
+import { type ReactElement, useEffect } from "react";
+import classNames from "classnames";
+import { viewer } from "mirador";
+import { miradorImageToolsPlugin } from "mirador-image-tools";
 
-import config from './config';
+import config from "./config";
 
 interface MiradorProps {
   canvasIndex: number;
+  isPortrait: boolean;
   manifest: string;
 }
 
-export const Mirador = ({ canvasIndex, manifest }: MiradorProps): ReactElement => {
+export const Mirador = ({
+  canvasIndex,
+  isPortrait,
+  manifest,
+}: MiradorProps): ReactElement => {
   useEffect(() => {
-    config.windows[0] = { manifestId: manifest, canvasIndex, view: 'single' };
+    const viewerConfig = {
+      ...config,
+      window: {
+        ...config.window,
+        allowWindowSideBar: !isPortrait,
+        hideWindowTitle: isPortrait,
+        imageToolsEnabled: !isPortrait,
+      },
+      windows: [{ manifestId: manifest, canvasIndex, view: "single" }],
+      workspace: { ...config.workspace, showZoomControls: !isPortrait },
+    };
 
-    viewer(config, miradorImageToolsPlugin);
-  }, [canvasIndex, manifest]);
+    viewer(viewerConfig, miradorImageToolsPlugin);
+  }, [canvasIndex, isPortrait, manifest]);
 
-  return <div id={config.id} />;
+  return (
+    <div
+      id={config.id}
+      className={classNames({ PortraitViewer: isPortrait })}
+    />
+  );
 };

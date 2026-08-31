@@ -1,4 +1,4 @@
-import { useState, type ReactElement } from "react";
+import { useEffect, useState, type ReactElement } from "react";
 import { useNavigate, useParams } from "react-router";
 import Select, { type SingleValue } from "react-select";
 import classNames from "classnames";
@@ -50,7 +50,26 @@ export const Workspace = (): ReactElement => {
   const [numberOfViewers, setNumberOfViewers] = useState<number>(2);
   const [selectedSourcePanels, setSelectedSourcePanels] =
     useState<SelectedSourcesState>([Sources.Mirador, Sources.Peterson]);
+  const [portraitSource, setPortraitSource] = useState<Sources>(
+    Sources.Mirador,
+  );
+  const [isPortrait, setIsPortrait] = useState<boolean>(false);
   const [showGuideModal, setShowGuideModal] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!window.matchMedia) {
+      return undefined;
+    }
+
+    const mediaQuery = window.matchMedia("(orientation: portrait)");
+    const updateOrientation = (): void => setIsPortrait(mediaQuery.matches);
+
+    updateOrientation();
+    mediaQuery.addEventListener("change", updateOrientation);
+
+    return (): void =>
+      mediaQuery.removeEventListener("change", updateOrientation);
+  }, []);
 
   // Navigate to canonical route when selection changes
   const handleSelectFolio = (newIndex: number): void => {
@@ -111,81 +130,88 @@ export const Workspace = (): ReactElement => {
     setShowGuideModal((prev) => !prev);
   };
 
+  const sourcePanels = isPortrait ? [portraitSource] : selectedSourcePanels;
+
   return (
     <div className={styles.WorkspacePageWrapper}>
-      <div className={styles.Rotate}>
-        <img
-          src="/images/rotate.svg"
-          alt="Rotate device to landscape"
-          className={styles.Image}
-        />
-        <h2>Rotate your device to landscape</h2>
-      </div>
       <div className={styles.ContentWrapper}>
-        <div className={styles.Header} style={{ right: window.innerWidth / 2 }}>
-          <button
-            aria-label="previous"
-            disabled={manifestIndex === 0}
-            className={classNames(styles.Button, {
-              [styles.Disabled]: manifestIndex === 0,
-            })}
-            onClick={() => handleSelectFolio(manifestIndex - 1)}
-          >
-            Prev
-          </button>
-          <Select
-            aria-label="Choose folio"
-            classNames={{
-              control: () => styles.Control,
-              menu: () => styles.Menu,
-              option: () => styles.Option,
-            }}
-            theme={(theme) => ({
-              ...theme,
-              colors: {
-                ...theme.colors,
-                primary: "#00333d",
-                primary25: "#dbf5fb",
-                primary50: "#00667a",
-              },
-            })}
-            value={manifestsToOptionsMap[manifestIndex]}
-            onChange={handleChange}
-            captureMenuScroll
-            menuShouldBlockScroll
-            options={manifestsToOptionsMap}
-            isSearchable
-          />
-          <button
-            aria-label="next"
-            disabled={manifests.length <= manifestIndex + 1}
-            className={classNames(styles.Button, {
-              [styles.Disabled]: manifests.length <= manifestIndex + 1,
-            })}
-            onClick={() => handleSelectFolio(manifestIndex + 1)}
-          >
-            Next
-          </button>
-          <button
-            aria-label="add viewer"
-            disabled={numberOfViewers >= Object.keys(Sources).length}
-            className={classNames(styles.Button, styles.Add, {
-              [styles.Disabled]: numberOfViewers >= Object.keys(Sources).length,
-            })}
-            onClick={addViewer}
-          >
-            Add viewer
-          </button>
-        </div>
+        {!isPortrait && (
+          <div className={styles.Header}>
+            <button
+              aria-label="previous"
+              disabled={manifestIndex === 0}
+              className={classNames(styles.Button, {
+                [styles.Disabled]: manifestIndex === 0,
+              })}
+              onClick={() => handleSelectFolio(manifestIndex - 1)}
+            >
+              Prev
+            </button>
+            <Select
+              aria-label="Choose folio"
+              classNames={{
+                control: () => styles.Control,
+                menu: () => styles.Menu,
+                option: () => styles.Option,
+              }}
+              theme={(theme) => ({
+                ...theme,
+                colors: {
+                  ...theme.colors,
+                  primary: "#00333d",
+                  primary25: "#dbf5fb",
+                  primary50: "#00667a",
+                },
+              })}
+              value={manifestsToOptionsMap[manifestIndex]}
+              onChange={handleChange}
+              captureMenuScroll
+              menuShouldBlockScroll
+              options={manifestsToOptionsMap}
+              isSearchable
+            />
+            <button
+              aria-label="next"
+              disabled={manifests.length <= manifestIndex + 1}
+              className={classNames(styles.Button, {
+                [styles.Disabled]: manifests.length <= manifestIndex + 1,
+              })}
+              onClick={() => handleSelectFolio(manifestIndex + 1)}
+            >
+              Next
+            </button>
+            <button
+              aria-label="add viewer"
+              disabled={numberOfViewers >= Object.keys(Sources).length}
+              className={classNames(styles.Button, styles.Add, {
+                [styles.Disabled]:
+                  numberOfViewers >= Object.keys(Sources).length,
+              })}
+              onClick={addViewer}
+            >
+              Add viewer
+            </button>
+          </div>
+        )}
         <div className={styles.DisplayWrapper}>
-          {selectedSourcePanels.map((sourcePanel, index) => (
+          {sourcePanels.map((sourcePanel, index) => (
             <SourcePanel
               key={`sourcepanel-${index}`}
               manifestIndex={manifestIndex}
               source={sourcePanel}
-              selectedSourcePanels={selectedSourcePanels}
-              onChange={(newSource) => updateSourcePanels(newSource, index)}
+              selectedSourcePanels={sourcePanels}
+              onChange={(newSource) => {
+                if (isPortrait) {
+                  setPortraitSource(newSource);
+                  return;
+                }
+
+                updateSourcePanels(newSource, index);
+              }}
               closeViewer={() => removeViewer(index)}
+              currentFolioIndex={manifestIndex}
+              isPortrait={isPortrait}
+              onSelectFolio={handleSelectFolio}
               toggleGuideModal={toggleGuideModal}
             />
           ))}
