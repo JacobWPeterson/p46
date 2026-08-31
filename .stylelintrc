@@ -6,6 +6,7 @@
     "length-zero-no-unit": true,
     "property-no-vendor-prefix": null,
     "selector-class-pattern": null,
+    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global"] }],
     "selector-type-no-unknown": true
   }
 }
