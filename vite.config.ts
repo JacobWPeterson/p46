@@ -12,12 +12,12 @@ const require = createRequire(import.meta.url);
 
 const pdfjsDistPath = path.dirname(require.resolve("pdfjs-dist/package.json"));
 const cMapsDir = normalizePath(path.join(pdfjsDistPath, "cmaps"));
-const wasmDir = normalizePath(path.join(pdfjsDistPath, "wasm"));
+const wasmFiles = normalizePath(path.join(pdfjsDistPath, "wasm", "*"));
 const standardFontsDir = normalizePath(
   path.join(
     path.dirname(require.resolve("pdfjs-dist/package.json")),
-    "standard_fonts"
-  )
+    "standard_fonts",
+  ),
 );
 
 // https://vitejs.dev/config/
@@ -47,7 +47,7 @@ export default defineConfig(({ mode }) => {
         targets: [
           { src: standardFontsDir, dest: "" },
           { src: cMapsDir, dest: "" },
-          { src: wasmDir, dest: "" },
+          { src: wasmFiles, dest: "wasm", rename: { stripBase: true } },
         ],
       }),
     ],

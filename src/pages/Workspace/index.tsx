@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactElement } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate, useParams, useSearchParams } from "react-router";
 import Select, { type SingleValue } from "react-select";
 import classNames from "classnames";
 
@@ -20,6 +20,23 @@ interface SourcePanelState {
 }
 
 type SelectedSourcesState = SourcePanelState[];
+
+const defaultSources = [Sources.Mirador, Sources.Peterson];
+
+const getSharedSources = (sourceParam: string | null): Sources[] => {
+  if (!sourceParam) {
+    return defaultSources;
+  }
+
+  const sources = sourceParam.split(",") as Sources[];
+  const isValid =
+    sources.length > 0 &&
+    sources.length <= Object.values(Sources).length &&
+    new Set(sources).size === sources.length &&
+    sources.every((source) => Object.values(Sources).includes(source));
+
+  return isValid ? sources : defaultSources;
+};
 
 const manifestsToOptionsMap: Option[] = manifests.map((manifest, index) => {
   return {
@@ -43,6 +60,8 @@ const paramToFolioLabel = (param: string): string =>
 export const Workspace = (): ReactElement => {
   const navigate = useNavigate();
   const { folio } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sharedSources = getSharedSources(searchParams.get("sources"));
 
   // Derive the current folio label from route param or default to first folio
   const currentFolioLabel = folio
@@ -53,16 +72,28 @@ export const Workspace = (): ReactElement => {
   const manifestIndex = manifests.indexOf(currentManifest);
 
   const [selectedSourcePanels, setSelectedSourcePanels] =
-    useState<SelectedSourcesState>([
-      { id: 0, source: Sources.Mirador },
-      { id: 1, source: Sources.Peterson },
-    ]);
-  const nextPanelId = useRef<number>(2);
-  const [portraitSource, setPortraitSource] = useState<Sources>(
-    Sources.Mirador,
-  );
+    useState<SelectedSourcesState>(() =>
+      sharedSources.map((source, id) => ({ id, source })),
+    );
+  const nextPanelId = useRef<number>(sharedSources.length);
   const [isPortrait, setIsPortrait] = useState<boolean>(false);
   const [showGuideModal, setShowGuideModal] = useState<boolean>(false);
+
+  useEffect(() => {
+    const sources = selectedSourcePanels
+      .map((panel) => panel.source)
+      .filter((source): source is Sources => source !== null);
+    const sourceParam = sources.join(",");
+
+    if (searchParams.get("sources") === sourceParam) {
+      return;
+    }
+
+    // eslint-disable-next-line compat/compat
+    const nextSearchParams = new URLSearchParams(searchParams);
+    nextSearchParams.set("sources", sourceParam);
+    setSearchParams(nextSearchParams, { replace: true });
+  }, [searchParams, selectedSourcePanels, setSearchParams]);
 
   useEffect(() => {
     if (!window.matchMedia) {
@@ -82,7 +113,10 @@ export const Workspace = (): ReactElement => {
   // Navigate to canonical route when selection changes
   const handleSelectFolio = (newIndex: number): void => {
     const folioParam = folioToParam(manifests[newIndex].folio);
-    navigate(`/folio/${folioParam}`);
+    navigate({
+      pathname: `/folio/${folioParam}`,
+      search: searchParams.toString(),
+    });
   };
 
   if (!manifests[manifestIndex]) {
@@ -130,7 +164,7 @@ export const Workspace = (): ReactElement => {
   };
 
   const sourcePanels = isPortrait
-    ? [{ id: -1, source: portraitSource }]
+    ? [selectedSourcePanels[0]]
     : selectedSourcePanels;
   const selectedSources = sourcePanels.map((panel) => panel.source);
 
@@ -204,14 +238,9 @@ export const Workspace = (): ReactElement => {
               manifestIndex={manifestIndex}
               source={sourcePanel.source}
               selectedSourcePanels={selectedSources}
-              onChange={(newSource) => {
-                if (isPortrait) {
-                  setPortraitSource(newSource);
-                  return;
-                }
-
-                updateSourcePanels(newSource, sourcePanel.id);
-              }}
+              onChange={(newSource) =>
+                updateSourcePanels(newSource, sourcePanel.id)
+              }
               closeViewer={() => removeViewer(sourcePanel.id)}
               currentFolioIndex={manifestIndex}
               isPortrait={isPortrait}
