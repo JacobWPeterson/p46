@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Routes, Route } from "react-router";
 import { vi } from "vitest";
 
@@ -91,5 +92,31 @@ describe("Workspace", () => {
 
     const prevButton = screen.getByRole("button", { name: "previous" });
     expect(prevButton).toBeDisabled();
+  });
+
+  it("should add and remove a viewer panel", async () => {
+    const user = userEvent.setup();
+
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Routes>
+          <Route path="/" element={<Workspace />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    await user.click(screen.getByRole("button", { name: "add viewer" }));
+
+    expect(
+      screen.getAllByRole("combobox", { name: "Choose viewer source" }),
+    ).toHaveLength(3);
+
+    await user.click(
+      screen.getAllByRole("button", { name: "Close viewer" })[1],
+    );
+
+    expect(
+      screen.getAllByRole("combobox", { name: "Choose viewer source" }),
+    ).toHaveLength(2);
   });
 });

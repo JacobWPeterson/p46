@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactElement } from "react";
+import { useEffect, useRef, useState, type ReactElement } from "react";
 import { useNavigate, useParams } from "react-router";
 import Select, { type SingleValue } from "react-select";
 import classNames from "classnames";
@@ -14,7 +14,12 @@ import styles from "./index.module.scss";
 
 type Option = { label: ReactElement; value: number };
 
-type SelectedSourcesState = Array<Sources | null>;
+interface SourcePanelState {
+  id: number;
+  source: Sources | null;
+}
+
+type SelectedSourcesState = SourcePanelState[];
 
 const manifestsToOptionsMap: Option[] = manifests.map((manifest, index) => {
   return {
@@ -47,9 +52,12 @@ export const Workspace = (): ReactElement => {
     manifests.find((m) => m.folio === currentFolioLabel) || manifests[0];
   const manifestIndex = manifests.indexOf(currentManifest);
 
-  const [numberOfViewers, setNumberOfViewers] = useState<number>(2);
   const [selectedSourcePanels, setSelectedSourcePanels] =
-    useState<SelectedSourcesState>([Sources.Mirador, Sources.Peterson]);
+    useState<SelectedSourcesState>([
+      { id: 0, source: Sources.Mirador },
+      { id: 1, source: Sources.Peterson },
+    ]);
+  const nextPanelId = useRef<number>(2);
   const [portraitSource, setPortraitSource] = useState<Sources>(
     Sources.Mirador,
   );
@@ -82,39 +90,30 @@ export const Workspace = (): ReactElement => {
   }
 
   const addViewer = (): void => {
-    setNumberOfViewers((prev) => prev + 1);
-    if (numberOfViewers === Object.values(Sources).length - 1) {
-      const remaining = Object.values(Sources).filter(
-        (source) => !selectedSourcePanels.includes(source),
+    setSelectedSourcePanels((prevState) => {
+      const selectedSources = prevState.map((panel) => panel.source);
+      const remainingSource = Object.values(Sources).find(
+        (source) => !selectedSources.includes(source),
       );
-      setSelectedSourcePanels((prevState) => {
-        const prevSourcesToUpdate = [...prevState];
-        prevSourcesToUpdate.push(remaining[0]);
-        return prevSourcesToUpdate;
-      });
-      return;
-    }
-    setSelectedSourcePanels((prevState) => {
-      const prevSourcesToUpdate = [...prevState];
-      prevSourcesToUpdate.push(null);
-      return prevSourcesToUpdate;
+
+      return [
+        ...prevState,
+        { id: nextPanelId.current++, source: remainingSource ?? null },
+      ];
     });
   };
 
-  const removeViewer = (index: number): void => {
-    setNumberOfViewers((prev) => prev - 1);
+  const removeViewer = (panelId: number): void => {
     setSelectedSourcePanels((prevState) => {
-      const prevSourcesToUpdate = [...prevState];
-      prevSourcesToUpdate.splice(index, 1);
-      return prevSourcesToUpdate;
+      return prevState.filter((panel) => panel.id !== panelId);
     });
   };
 
-  const updateSourcePanels = (newSource: Sources, index: number): void => {
+  const updateSourcePanels = (newSource: Sources, panelId: number): void => {
     setSelectedSourcePanels((prevState) => {
-      const prevSourcesToUpdate = [...prevState];
-      prevSourcesToUpdate[index] = newSource;
-      return prevSourcesToUpdate;
+      return prevState.map((panel) =>
+        panel.id === panelId ? { ...panel, source: newSource } : panel,
+      );
     });
   };
 
@@ -130,7 +129,10 @@ export const Workspace = (): ReactElement => {
     setShowGuideModal((prev) => !prev);
   };
 
-  const sourcePanels = isPortrait ? [portraitSource] : selectedSourcePanels;
+  const sourcePanels = isPortrait
+    ? [{ id: -1, source: portraitSource }]
+    : selectedSourcePanels;
+  const selectedSources = sourcePanels.map((panel) => panel.source);
 
   return (
     <div className={styles.WorkspacePageWrapper}>
@@ -182,10 +184,12 @@ export const Workspace = (): ReactElement => {
             </button>
             <button
               aria-label="add viewer"
-              disabled={numberOfViewers >= Object.keys(Sources).length}
+              disabled={
+                selectedSourcePanels.length >= Object.keys(Sources).length
+              }
               className={classNames(styles.Button, styles.Add, {
                 [styles.Disabled]:
-                  numberOfViewers >= Object.keys(Sources).length,
+                  selectedSourcePanels.length >= Object.keys(Sources).length,
               })}
               onClick={addViewer}
             >
@@ -194,21 +198,21 @@ export const Workspace = (): ReactElement => {
           </div>
         )}
         <div className={styles.DisplayWrapper}>
-          {sourcePanels.map((sourcePanel, index) => (
+          {sourcePanels.map((sourcePanel) => (
             <SourcePanel
-              key={`sourcepanel-${index}`}
+              key={sourcePanel.id}
               manifestIndex={manifestIndex}
-              source={sourcePanel}
-              selectedSourcePanels={sourcePanels}
+              source={sourcePanel.source}
+              selectedSourcePanels={selectedSources}
               onChange={(newSource) => {
                 if (isPortrait) {
                   setPortraitSource(newSource);
                   return;
                 }
 
-                updateSourcePanels(newSource, index);
+                updateSourcePanels(newSource, sourcePanel.id);
               }}
-              closeViewer={() => removeViewer(index)}
+              closeViewer={() => removeViewer(sourcePanel.id)}
               currentFolioIndex={manifestIndex}
               isPortrait={isPortrait}
               onSelectFolio={handleSelectFolio}
