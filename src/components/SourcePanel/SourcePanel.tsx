@@ -1,4 +1,4 @@
-import { useState, type ReactElement } from "react";
+import { lazy, Suspense, useState, type ReactElement } from "react";
 import Select from "react-select";
 import type { SingleValue } from "react-select";
 import { Info, Sliders, X } from "react-feather";
@@ -6,10 +6,18 @@ import { Info, Sliders, X } from "react-feather";
 import manifests from "../../static/files/manifests";
 import { ErrorBoundary } from "../ErrorBoundary/ErrorBoundary";
 
-import { Mirador } from "./Mirador";
-import { PDFViewer } from "./PDFViewer/PDFViewer";
 import { Sources } from "./sources.enum";
 import styles from "./SourcePanel.module.scss";
+
+const Mirador = lazy(async () => {
+  const module = await import("./Mirador");
+  return { default: module.Mirador };
+});
+
+const PDFViewer = lazy(async () => {
+  const module = await import("./PDFViewer/PDFViewer");
+  return { default: module.PDFViewer };
+});
 
 const sourceOptions: Option[] = [
   { label: "CBL and UM images", value: Sources.Mirador },
@@ -74,19 +82,23 @@ export const SourcePanel = ({
     }
     return (
       <ErrorBoundary>
-        {source === Sources.Mirador ? (
-          <Mirador
-            canvasIndex={manifests[manifestIndex].canvasIndex}
-            manifest={manifests[manifestIndex].url}
-            isPortrait={isPortrait}
-          />
-        ) : (
-          <PDFViewer
-            isPortrait={isPortrait}
-            source={source}
-            pageNumber={manifests[manifestIndex][`${source}Page`]}
-          />
-        )}
+        <Suspense
+          fallback={<div className={styles.Loading}>Loading viewer...</div>}
+        >
+          {source === Sources.Mirador ? (
+            <Mirador
+              canvasIndex={manifests[manifestIndex].canvasIndex}
+              manifest={manifests[manifestIndex].url}
+              isPortrait={isPortrait}
+            />
+          ) : (
+            <PDFViewer
+              isPortrait={isPortrait}
+              source={source}
+              pageNumber={manifests[manifestIndex][`${source}Page`]}
+            />
+          )}
+        </Suspense>
       </ErrorBoundary>
     );
   };
