@@ -25,6 +25,13 @@ export const Modal = ({
   const contentRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const previouslyFocusedElement = useRef<HTMLElement | null>(null);
+  const handleCloseRef = useRef(handleClose);
+  const isCloseDisabledRef = useRef(isCloseDisabled);
+
+  useEffect(() => {
+    handleCloseRef.current = handleClose;
+    isCloseDisabledRef.current = isCloseDisabled;
+  }, [handleClose, isCloseDisabled]);
 
   useEffect(() => {
     if (!isOpen) {
@@ -37,15 +44,15 @@ export const Modal = ({
     closeButtonRef.current?.focus();
 
     const closeOnEscapeKey = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape' && !isCloseDisabled) {
-        handleClose();
+      if (e.key === 'Escape' && !isCloseDisabledRef.current) {
+        handleCloseRef.current();
       }
     };
     document.addEventListener('keydown', closeOnEscapeKey, true);
     return (): void => {
       document.removeEventListener('keydown', closeOnEscapeKey, true);
     };
-  }, [handleClose, isCloseDisabled, isOpen]);
+  }, [isOpen]);
 
   const trapFocus = (event: ReactKeyboardEvent<HTMLDivElement>): void => {
     if (event.key !== 'Tab' || !contentRef.current) {

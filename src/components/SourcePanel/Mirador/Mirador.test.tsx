@@ -3,12 +3,35 @@ import { vi } from 'vitest';
 
 import { Mirador } from './index';
 
-vi.mock('mirador');
+const { viewer, store } = vi.hoisted(() => {
+  const state: {
+    workspace: { windowIds: string[] };
+    viewers: Record<string, unknown>;
+  } = {
+    workspace: { windowIds: ['window-1'] },
+    viewers: {}
+  };
+  const subscriptions: Array<() => void> = [];
+  const mockedStore = {
+    getState: (): typeof state => state,
+    subscribe: (listener: () => void): (() => void) => {
+      subscriptions.push(listener);
+      return () => subscriptions.splice(subscriptions.indexOf(listener), 1);
+    },
+    notify: (): void => subscriptions.forEach(listener => listener())
+  };
+
+  return { viewer: vi.fn(() => ({ store: mockedStore })), store: mockedStore };
+});
+
+vi.mock('mirador', () => ({ viewer }));
 vi.mock('mirador-image-tools');
 
 describe('Mirador', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    sessionStorage.clear();
+    store.getState().viewers = {};
   });
 
   it('should render the mirador container div', () => {
@@ -48,5 +71,27 @@ describe('Mirador', () => {
 
     // Element should still exist
     expect(container.querySelector('div')).toBeInTheDocument();
+  });
+
+  it('should save and restore a viewport for a folio canvas', () => {
+    const manifest = 'https://example.com/manifest1';
+    const viewport = { x: 12, y: 24, zoom: 1.8, rotation: 0, flip: false };
+
+    render(<Mirador manifest={manifest} canvasIndex={0} />);
+    store.getState().viewers['window-1'] = viewport;
+    store.notify();
+
+    expect(sessionStorage.getItem(`p46:mirador-viewport:${manifest}:0`)).toBe(
+      JSON.stringify(viewport)
+    );
+
+    render(<Mirador manifest={manifest} canvasIndex={0} />);
+
+    expect(viewer).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        windows: [expect.objectContaining({ initialViewerConfig: viewport })]
+      }),
+      expect.anything()
+    );
   });
 });

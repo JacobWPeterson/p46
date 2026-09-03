@@ -16,7 +16,7 @@ const About = lazy(async () => {
 
 const lazyPage = (page: ReactElement): ReactElement => <Suspense fallback={null}>{page}</Suspense>;
 
-const router = createBrowserRouter(
+export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route index element={<Workspace />} />

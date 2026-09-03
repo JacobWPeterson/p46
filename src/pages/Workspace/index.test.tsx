@@ -113,4 +113,53 @@ describe('Workspace', () => {
 
     expect(screen.getAllByRole('combobox', { name: 'Choose viewer source' })).toHaveLength(2);
   });
+
+  it('should restore ordered sources from the share link', () => {
+    render(
+      <MemoryRouter initialEntries={['/?sources=peterson,kenyonText']}>
+        <Routes>
+          <Route path="/" element={<Workspace />} />
+        </Routes>
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText('Peterson transcription')).toBeInTheDocument();
+    expect(screen.getByText('Kenyon transcription')).toBeInTheDocument();
+  });
+
+  it('should fall back to default sources for invalid share links', () => {
+    render(
+      <MemoryRouter initialEntries={['/?sources=peterson,peterson']}>
+        <Routes>
+          <Route path="/" element={<Workspace />} />
+        </Routes>
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText('CBL and UM images')).toBeInTheDocument();
+    expect(screen.getByText('Peterson transcription')).toBeInTheDocument();
+  });
+
+  it('should offer hidden landscape sources in portrait mode', async () => {
+    const user = userEvent.setup();
+    vi.stubGlobal('matchMedia', () => ({
+      matches: true,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn()
+    }));
+
+    render(
+      <MemoryRouter initialEntries={['/?sources=mirador,peterson,kenyonText']}>
+        <Routes>
+          <Route path="/" element={<Workspace />} />
+        </Routes>
+      </MemoryRouter>
+    );
+
+    expect(screen.getAllByRole('combobox', { name: 'Choose viewer source' })).toHaveLength(1);
+    expect(screen.getByText('CBL and UM images')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('combobox', { name: 'Choose viewer source' }));
+    expect(screen.getByText('Kenyon transcription')).toBeInTheDocument();
+  });
 });

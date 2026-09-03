@@ -25,7 +25,7 @@ describe('Modal', () => {
 
     it('should clean up event listener on unmount', async () => {
       const handleClose = vi.fn();
-      const removeEventListenerSpy = vi.spyOn(document.body, 'removeEventListener');
+      const removeEventListenerSpy = vi.spyOn(document, 'removeEventListener');
 
       const { unmount } = render(
         <Modal isOpen handleClose={handleClose}>
@@ -35,7 +35,7 @@ describe('Modal', () => {
 
       unmount();
 
-      expect(removeEventListenerSpy).toHaveBeenCalledWith('keydown', expect.any(Function));
+      expect(removeEventListenerSpy).toHaveBeenCalledWith('keydown', expect.any(Function), true);
       removeEventListenerSpy.mockRestore();
     });
 
@@ -64,6 +64,70 @@ describe('Modal', () => {
   });
 
   describe('modal content interaction', () => {
+    it('should focus the close button when opened', () => {
+      render(
+        <Modal isOpen handleClose={vi.fn()}>
+          Modal content
+        </Modal>
+      );
+
+      expect(screen.getByRole('button', { name: 'close', hidden: true })).toHaveFocus();
+    });
+
+    it('should wrap focus within the modal', async () => {
+      const user = userEvent.setup();
+
+      render(
+        <Modal isOpen handleClose={vi.fn()}>
+          <button type="button">Second action</button>
+        </Modal>
+      );
+
+      const closeButton = screen.getByRole('button', { name: 'close', hidden: true });
+      const secondAction = screen.getByRole('button', { name: 'Second action' });
+
+      secondAction.focus();
+      await user.tab();
+      expect(closeButton).toHaveFocus();
+
+      await user.tab({ shift: true });
+      expect(secondAction).toHaveFocus();
+    });
+
+    it('should restore focus after closing', async () => {
+      const handleClose = vi.fn();
+      const { rerender } = render(
+        <>
+          <button type="button">Open modal</button>
+          <Modal isOpen={false} handleClose={handleClose}>
+            Modal content
+          </Modal>
+        </>
+      );
+
+      const trigger = screen.getByRole('button', { name: 'Open modal' });
+      trigger.focus();
+      rerender(
+        <>
+          <button type="button">Open modal</button>
+          <Modal isOpen handleClose={handleClose}>
+            Modal content
+          </Modal>
+        </>
+      );
+      rerender(
+        <>
+          <button type="button">Open modal</button>
+          <Modal isOpen={false} handleClose={handleClose}>
+            Modal content
+          </Modal>
+        </>
+      );
+
+      expect(trigger).toHaveFocus();
+      expect(handleClose).not.toHaveBeenCalled();
+    });
+
     it('should close modal when backdrop is clicked', async () => {
       const user = userEvent.setup();
       const handleClose = vi.fn();
