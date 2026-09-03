@@ -22,6 +22,9 @@ const config: any = {
   },
   windows: [],
   workspace: { type: 'mosaic', showZoomControls: true },
+  osdConfig: {
+    crossOriginPolicy: 'anonymous'
+  },
   workspaceControlPanel: {
     enabled: false // Remove extra workspace settings
   },
