@@ -43,6 +43,28 @@ const getSavedPosition = (
   }
 };
 
+const savePositionToStorage = (
+  source: Sources,
+  pageNumber: number | KenyonTextPageType,
+  position: PdfPosition
+): void => {
+  try {
+    window.sessionStorage.setItem(positionKey(source, pageNumber), JSON.stringify(position));
+  } catch {
+    // Session storage can be unavailable in private browsing.
+  }
+};
+
+const getScrollContainer = (container: HTMLElement): HTMLElement => {
+  const candidates = [container, ...Array.from(container.querySelectorAll<HTMLElement>('*'))];
+  return (
+    candidates.find(
+      element =>
+        element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth
+    ) || container
+  );
+};
+
 const getTouchDistance = (touches: TouchList): number => {
   const [firstTouch, secondTouch] = [touches[0], touches[1]];
   return Math.hypot(
@@ -72,6 +94,13 @@ export const PDFViewer = ({
   const pinchStartDistance = useRef<number | null>(null);
   const pinchStartScale = useRef<number>(1);
   const scaleRef = useRef<number>(scale);
+  const hasLoadedPosition = useRef<boolean>(false);
+  const scrollContainerRef = useRef<HTMLElement | null>(null);
+  const currentPosition = useRef<PdfPosition>({
+    scale,
+    scrollLeft: 0,
+    scrollTop: 0
+  });
 
   const isMinZoom = scale <= MIN_SCALE;
   const isMaxZoom = scale >= MAX_SCALE;
@@ -109,14 +138,41 @@ export const PDFViewer = ({
 
   useEffect(() => {
     scaleRef.current = scale;
+    currentPosition.current.scale = scale;
   }, [scale]);
 
   useEffect(() => {
     const nextPosition = getSavedPosition(source, pageNumber);
+    hasLoadedPosition.current = false;
     setSavedPosition(nextPosition);
     setScale(nextPosition?.scale ?? 1);
-    containerRef.current?.scrollTo(nextPosition?.scrollLeft ?? 0, nextPosition?.scrollTop ?? 0);
+    scrollContainerRef.current = null;
   }, [pageNumber, source]);
+
+  useEffect(() => {
+    if (!hasLoadedPosition.current) {
+      hasLoadedPosition.current = true;
+      return;
+    }
+
+    const container = containerRef.current;
+    if (!container) {
+      return;
+    }
+
+    try {
+      window.sessionStorage.setItem(
+        positionKey(source, pageNumber),
+        JSON.stringify({
+          scale,
+          scrollLeft: container.scrollLeft,
+          scrollTop: container.scrollTop
+        })
+      );
+    } catch {
+      // Session storage can be unavailable in private browsing.
+    }
+  }, [pageNumber, scale, source]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -217,7 +273,14 @@ export const PDFViewer = ({
       return;
     }
 
-    container.scrollTo(savedPosition.scrollLeft, savedPosition.scrollTop);
+    const restorePosition = (): void => {
+      const scrollContainer = getScrollContainer(container);
+      scrollContainerRef.current = scrollContainer;
+      scrollContainer.scrollTo(savedPosition.scrollLeft, savedPosition.scrollTop);
+    };
+
+    // eslint-disable-next-line compat/compat
+    requestAnimationFrame(restorePosition);
   }, [isLoading, savedPosition]);
 
   useEffect(() => {
@@ -226,23 +289,55 @@ export const PDFViewer = ({
       return undefined;
     }
 
-    const savePosition = (): void => {
-      try {
-        window.sessionStorage.setItem(
-          positionKey(source, pageNumber),
-          JSON.stringify({
-            scale: scaleRef.current,
-            scrollLeft: container.scrollLeft,
-            scrollTop: container.scrollTop
-          })
-        );
-      } catch {
-        // Session storage can be unavailable in private browsing.
-      }
+    const savePosition = (event?: Event): void => {
+      const eventTarget = event?.target;
+      const scrollContainer =
+        eventTarget instanceof HTMLElement && container.contains(eventTarget)
+          ? eventTarget
+          : scrollContainerRef.current || getScrollContainer(container);
+      scrollContainerRef.current = scrollContainer;
+      currentPosition.current = {
+        scale: scaleRef.current,
+        scrollLeft: scrollContainer.scrollLeft,
+        scrollTop: scrollContainer.scrollTop
+      };
+
+      savePositionToStorage(source, pageNumber, currentPosition.current);
     };
 
-    container.addEventListener('scroll', savePosition, { passive: true });
-    return (): void => container.removeEventListener('scroll', savePosition);
+    let saveFrame: number | undefined;
+    const savePositionAfterScroll = (event: Event): void => {
+      const eventTarget = event.target;
+      const scrollContainer =
+        eventTarget instanceof HTMLElement && container.contains(eventTarget)
+          ? eventTarget
+          : scrollContainerRef.current || getScrollContainer(container);
+      scrollContainerRef.current = scrollContainer;
+      currentPosition.current = {
+        scale: scaleRef.current,
+        scrollLeft: scrollContainer.scrollLeft,
+        scrollTop: scrollContainer.scrollTop
+      };
+      savePositionToStorage(source, pageNumber, currentPosition.current);
+
+      if (saveFrame !== undefined) {
+        cancelAnimationFrame(saveFrame);
+      }
+
+      // eslint-disable-next-line compat/compat
+      saveFrame = requestAnimationFrame(() => savePosition(event));
+    };
+
+    container.addEventListener('scroll', savePositionAfterScroll, { capture: true, passive: true });
+    window.addEventListener('pagehide', savePosition);
+    return (): void => {
+      if (saveFrame !== undefined) {
+        cancelAnimationFrame(saveFrame);
+      }
+      savePositionToStorage(source, pageNumber, currentPosition.current);
+      window.removeEventListener('pagehide', savePosition);
+      container.removeEventListener('scroll', savePositionAfterScroll, true);
+    };
   }, [pageNumber, source]);
 
   return (
