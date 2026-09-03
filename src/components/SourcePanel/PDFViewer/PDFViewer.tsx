@@ -19,8 +19,29 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 const options = { wasmUrl: '/wasm/' };
 
 type KenyonTextPageType = Record<'start' | 'range', number>;
+interface PdfPosition {
+  scale: number;
+  scrollTop: number;
+  scrollLeft: number;
+}
+
 const MIN_SCALE = 0.8;
 const MAX_SCALE = 3;
+
+const positionKey = (source: Sources, pageNumber: number | KenyonTextPageType): string =>
+  `p46:pdf-position:${source}:${JSON.stringify(pageNumber)}`;
+
+const getSavedPosition = (
+  source: Sources,
+  pageNumber: number | KenyonTextPageType
+): PdfPosition | undefined => {
+  try {
+    const savedPosition = window.sessionStorage.getItem(positionKey(source, pageNumber));
+    return savedPosition ? (JSON.parse(savedPosition) as PdfPosition) : undefined;
+  } catch {
+    return undefined;
+  }
+};
 
 const getTouchDistance = (touches: TouchList): number => {
   const [firstTouch, secondTouch] = [touches[0], touches[1]];
@@ -39,8 +60,11 @@ export const PDFViewer = ({
   pageNumber: number | KenyonTextPageType;
   source: Sources;
 }): ReactElement => {
+  const [savedPosition, setSavedPosition] = useState<PdfPosition | undefined>(() =>
+    getSavedPosition(source, pageNumber)
+  );
   const [containerWidth, setContainerWidth] = useState<number>();
-  const [scale, setScale] = useState<number>(1);
+  const [scale, setScale] = useState<number>(savedPosition?.scale ?? 1);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const pinchStartDistance = useRef<number | null>(null);
@@ -84,6 +108,13 @@ export const PDFViewer = ({
   useEffect(() => {
     scaleRef.current = scale;
   }, [scale]);
+
+  useEffect(() => {
+    const nextPosition = getSavedPosition(source, pageNumber);
+    setSavedPosition(nextPosition);
+    setScale(nextPosition?.scale ?? 1);
+    containerRef.current?.scrollTo(nextPosition?.scrollLeft ?? 0, nextPosition?.scrollTop ?? 0);
+  }, [pageNumber, source]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -166,6 +197,40 @@ export const PDFViewer = ({
     setIsLoading(false);
   };
 
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container || isLoading || !savedPosition) {
+      return;
+    }
+
+    container.scrollTo(savedPosition.scrollLeft, savedPosition.scrollTop);
+  }, [isLoading, savedPosition]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) {
+      return undefined;
+    }
+
+    const savePosition = (): void => {
+      try {
+        window.sessionStorage.setItem(
+          positionKey(source, pageNumber),
+          JSON.stringify({
+            scale: scaleRef.current,
+            scrollLeft: container.scrollLeft,
+            scrollTop: container.scrollTop
+          })
+        );
+      } catch {
+        // Session storage can be unavailable in private browsing.
+      }
+    };
+
+    container.addEventListener('scroll', savePosition, { passive: true });
+    return (): void => container.removeEventListener('scroll', savePosition);
+  }, [pageNumber, source]);
+
   return (
     <div ref={containerRef} className={styles.Container}>
       {isLoading && <div className={styles.Loading}>Loading...</div>}
@@ -191,7 +256,7 @@ export const PDFViewer = ({
             Array.from(
               { length: (pageNumber as KenyonTextPageType).range },
               (_, index) => (pageNumber as KenyonTextPageType).start + index
-            ).map(pageNumber => <Page key={pageNumber} pageNumber={pageNumber} />)
+            ).map(pageNumber => <Page key={pageNumber} pageNumber={pageNumber} scale={scale} />)
           ) : (
             <Page pageNumber={pageNumber as number} scale={scale} />
           )}
