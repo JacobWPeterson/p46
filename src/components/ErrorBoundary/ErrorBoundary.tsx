@@ -1,7 +1,7 @@
-import type { ErrorInfo, ReactElement, ReactNode } from "react";
-import { Component } from "react";
+import type { ErrorInfo, ReactElement, ReactNode } from 'react';
+import { Component } from 'react';
 
-import styles from "./ErrorBoundary.module.scss";
+import styles from './ErrorBoundary.module.scss';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -13,10 +13,7 @@ interface ErrorBoundaryState {
   error: Error | null;
 }
 
-export class ErrorBoundary extends Component<
-  ErrorBoundaryProps,
-  ErrorBoundaryState
-> {
+export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false, error: null };
@@ -29,7 +26,7 @@ export class ErrorBoundary extends Component<
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
     // Log error for debugging purposes
 
-    console.error("ErrorBoundary caught an error:", error, errorInfo);
+    console.error('ErrorBoundary caught an error:', error, errorInfo);
   }
 
   render(): ReactNode {
@@ -43,15 +40,13 @@ export class ErrorBoundary extends Component<
           <div className={styles.ErrorContent}>
             <h3 className={styles.ErrorTitle}>Failed to load viewer</h3>
             <p className={styles.ErrorMessage}>
-              There was an error loading this content. Please try selecting a
-              different source or refreshing the page.
+              There was an error loading this content. Please try selecting a different source or
+              refreshing the page.
             </p>
             {this.state.error && (
               <details className={styles.ErrorDetails}>
                 <summary>Error details</summary>
-                <pre className={styles.ErrorStack}>
-                  {this.state.error.toString()}
-                </pre>
+                <pre className={styles.ErrorStack}>{this.state.error.toString()}</pre>
               </details>
             )}
           </div>

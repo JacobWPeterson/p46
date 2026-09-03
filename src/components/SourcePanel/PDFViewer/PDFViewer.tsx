@@ -1,24 +1,24 @@
 /* eslint-disable import/no-unassigned-import */
-import type { ReactElement } from "react";
-import { useEffect, useRef, useState } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
-import { MinusCircle, PlusCircle } from "react-feather";
+import type { ReactElement } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
+import { MinusCircle, PlusCircle } from 'react-feather';
 
-import { Sources } from "../sources.enum";
+import { Sources } from '../sources.enum';
 
-import styles from "./PDFViewer.module.scss";
+import styles from './PDFViewer.module.scss';
 
 // eslint-disable-next-line compat/compat
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url,
+  'pdfjs-dist/build/pdf.worker.min.mjs',
+  import.meta.url
 ).toString();
 
-const options = { wasmUrl: "/wasm/" };
+const options = { wasmUrl: '/wasm/' };
 
-type KenyonTextPageType = Record<"start" | "range", number>;
+type KenyonTextPageType = Record<'start' | 'range', number>;
 const MIN_SCALE = 0.8;
 const MAX_SCALE = 3;
 
@@ -26,14 +26,14 @@ const getTouchDistance = (touches: TouchList): number => {
   const [firstTouch, secondTouch] = [touches[0], touches[1]];
   return Math.hypot(
     firstTouch.clientX - secondTouch.clientX,
-    firstTouch.clientY - secondTouch.clientY,
+    firstTouch.clientY - secondTouch.clientY
   );
 };
 
 export const PDFViewer = ({
   isPortrait = false,
   pageNumber,
-  source,
+  source
 }: {
   isPortrait?: boolean;
   pageNumber: number | KenyonTextPageType;
@@ -63,12 +63,12 @@ export const PDFViewer = ({
   };
 
   useEffect(() => {
-    if (!containerRef.current || !("ResizeObserver" in window)) {
+    if (!containerRef.current || !('ResizeObserver' in window)) {
       return undefined;
     }
 
     // eslint-disable-next-line compat/compat
-    const observer = new ResizeObserver((entries) => {
+    const observer = new ResizeObserver(entries => {
       for (const entry of entries) {
         setContainerWidth(entry.contentRect.width);
       }
@@ -106,14 +106,8 @@ export const PDFViewer = ({
       }
 
       event.preventDefault();
-      const pinchRatio =
-        getTouchDistance(event.touches) / pinchStartDistance.current;
-      setScale(
-        Math.min(
-          MAX_SCALE,
-          Math.max(MIN_SCALE, pinchStartScale.current * pinchRatio),
-        ),
-      );
+      const pinchRatio = getTouchDistance(event.touches) / pinchStartDistance.current;
+      setScale(Math.min(MAX_SCALE, Math.max(MIN_SCALE, pinchStartScale.current * pinchRatio)));
     };
 
     const handleTouchEnd = (): void => {
@@ -127,9 +121,7 @@ export const PDFViewer = ({
 
       event.preventDefault();
       const pinchRatio = Math.exp(-event.deltaY * 0.01);
-      setScale((currentScale) =>
-        Math.min(MAX_SCALE, Math.max(MIN_SCALE, currentScale * pinchRatio)),
-      );
+      setScale(currentScale => Math.min(MAX_SCALE, Math.max(MIN_SCALE, currentScale * pinchRatio)));
     };
 
     const preventViewportZoom = (event: Event): void => {
@@ -138,35 +130,35 @@ export const PDFViewer = ({
       }
     };
 
-    container.addEventListener("touchstart", handleTouchStart, {
-      passive: true,
+    container.addEventListener('touchstart', handleTouchStart, {
+      passive: true
     });
-    container.addEventListener("touchmove", handleTouchMove, {
-      passive: false,
+    container.addEventListener('touchmove', handleTouchMove, {
+      passive: false
     });
-    container.addEventListener("touchend", handleTouchEnd);
-    container.addEventListener("wheel", handleWheel, { passive: false });
-    document.addEventListener("gesturestart", preventViewportZoom, {
+    container.addEventListener('touchend', handleTouchEnd);
+    container.addEventListener('wheel', handleWheel, { passive: false });
+    document.addEventListener('gesturestart', preventViewportZoom, {
       capture: true,
-      passive: false,
+      passive: false
     });
-    document.addEventListener("gesturechange", preventViewportZoom, {
+    document.addEventListener('gesturechange', preventViewportZoom, {
       capture: true,
-      passive: false,
+      passive: false
     });
-    document.addEventListener("gestureend", preventViewportZoom, {
+    document.addEventListener('gestureend', preventViewportZoom, {
       capture: true,
-      passive: false,
+      passive: false
     });
 
     return (): void => {
-      container.removeEventListener("touchstart", handleTouchStart);
-      container.removeEventListener("touchmove", handleTouchMove);
-      container.removeEventListener("touchend", handleTouchEnd);
-      container.removeEventListener("wheel", handleWheel);
-      document.removeEventListener("gesturestart", preventViewportZoom, true);
-      document.removeEventListener("gesturechange", preventViewportZoom, true);
-      document.removeEventListener("gestureend", preventViewportZoom, true);
+      container.removeEventListener('touchstart', handleTouchStart);
+      container.removeEventListener('touchmove', handleTouchMove);
+      container.removeEventListener('touchend', handleTouchEnd);
+      container.removeEventListener('wheel', handleWheel);
+      document.removeEventListener('gesturestart', preventViewportZoom, true);
+      document.removeEventListener('gesturechange', preventViewportZoom, true);
+      document.removeEventListener('gestureend', preventViewportZoom, true);
     };
   }, [isPortrait]);
 
@@ -179,18 +171,12 @@ export const PDFViewer = ({
       {isLoading && <div className={styles.Loading}>Loading...</div>}
       {source === Sources.KenyonPlates ? (
         <Document
-          file={
-            (pageNumber as number) <= 83
-              ? `/files/${source}1.pdf`
-              : `/files/${source}2.pdf`
-          }
+          file={(pageNumber as number) <= 83 ? `/files/${source}1.pdf` : `/files/${source}2.pdf`}
           onLoadSuccess={onDocumentLoadSuccess}
         >
           <Page
             pageNumber={
-              (pageNumber as number) <= 83
-                ? (pageNumber as number)
-                : (pageNumber as number) - 83
+              (pageNumber as number) <= 83 ? (pageNumber as number) : (pageNumber as number) - 83
             }
             scale={scale}
           />
@@ -204,10 +190,8 @@ export const PDFViewer = ({
           {source === Sources.KenyonText ? (
             Array.from(
               { length: (pageNumber as KenyonTextPageType).range },
-              (_, index) => (pageNumber as KenyonTextPageType).start + index,
-            ).map((pageNumber) => (
-              <Page key={pageNumber} pageNumber={pageNumber} />
-            ))
+              (_, index) => (pageNumber as KenyonTextPageType).start + index
+            ).map(pageNumber => <Page key={pageNumber} pageNumber={pageNumber} />)
           ) : (
             <Page pageNumber={pageNumber as number} scale={scale} />
           )}

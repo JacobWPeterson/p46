@@ -54,7 +54,9 @@ export default defineConfig(({ mode }) => {
     server: { hmr: true, port: 3000, open: true },
     build: { outDir: "dist" },
     publicDir: "src/static",
-    resolve: { alias: { "@styles": path.resolve(__dirname, "src/styles") } },
+    resolve: {
+      alias: { "@styles": path.resolve(import.meta.dirname, "src/styles") },
+    },
     css: {
       modules: {
         generateScopedName: isProduction

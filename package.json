@@ -29,11 +29,11 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
+      "eslint . --fix --ext .ts,.tsx --cache --cache-strategy content",
+      "prettier --config ./prettierrc.js --write \"src/**/*.*\" --log-level error --cache"
     ],
     "*.scss": [
-      "stylelint --fix"
+      "npx stylelint \"**/*.scss\" --fix --cache --cache-strategy content"
     ]
   },
   "repository": {
