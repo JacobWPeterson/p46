@@ -4,6 +4,10 @@
 .Tooltip {
   position: relative;
   display: inline-block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: help;
 
   &:hover,
   &:focus-within {
@@ -72,8 +76,10 @@
   flex-direction: column;
   align-items: center;
   min-width: 0;
+  min-height: 0;
 
   .Header {
+    position: relative;
     width: 100%;
     display: flex;
     align-items: center;
@@ -81,6 +87,36 @@
     height: 50px;
     padding: 0 12px;
     box-sizing: border-box;
+
+    .FolioButton {
+      display: flex;
+      width: 70px;
+      height: 38px;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      border: 1px solid theme.$grey03;
+      border-radius: 6px;
+      background: theme.$grey00;
+      color: theme.$primary03;
+      cursor: pointer;
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+
+      &:focus-visible {
+        outline: 2px solid theme.$primary03;
+        outline-offset: 2px;
+      }
+    }
+
+    .FolioPicker {
+      position: absolute;
+      top: 44px;
+      left: 12px;
+      width: min(300px, calc(100vw - 24px));
+      z-index: 20;
+    }
 
     .EndButtons {
       display: flex;
@@ -154,14 +190,84 @@
         color: theme.$grey00;
       }
     }
+
+    @media (width < 600px) {
+      padding: 0 8px;
+      gap: 8px;
+
+      .Control {
+        width: auto;
+        min-width: 0;
+        flex: 1;
+      }
+
+      .EndButtons {
+        gap: 4px;
+      }
+
+      .FolioPicker {
+        left: 8px;
+      }
+    }
   }
 
   .Content {
-    height: calc(100% - 50px);
+    flex: 1;
+    min-height: 0;
     position: relative;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .Loading {
+    align-self: stretch;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    color: theme.$grey08;
+    font-style: italic;
+  }
+
+  .ErrorRecovery {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: theme.$grey08;
+
+    p {
+      margin: 0;
+    }
+
+    button {
+      border: 1px solid theme.$grey03;
+      border-radius: 6px;
+      padding: 6px 12px;
+      background: theme.$grey00;
+      color: theme.$grey10;
+      cursor: pointer;
+      font-family: Montserrat, sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+
+      &:hover,
+      &:focus-visible {
+        border-color: theme.$primary04;
+        background: theme.$primary04;
+        color: theme.$grey00;
+        outline: none;
+      }
+    }
+  }
+}
+
+:global(.PortraitViewer) {
+  :global(.mirador-canvas-nav) {
+    display: none;
   }
 }

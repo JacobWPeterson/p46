@@ -1,42 +1,65 @@
-import type { ReactElement } from "react";
-import Select from "react-select";
-import type { SingleValue } from "react-select";
-import { Info, X } from "react-feather";
+import { lazy, Suspense, useState, type ReactElement } from 'react';
+import Select from 'react-select';
+import type { SingleValue } from 'react-select';
+import { Info, Sliders, X } from 'react-feather';
 
-import manifests from "../../static/files/manifests";
-import { ErrorBoundary } from "../ErrorBoundary/ErrorBoundary";
+import manifests from '../../static/files/manifests';
+import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
 
-import { Mirador } from "./Mirador";
-import { PDFViewer } from "./PDFViewer/PDFViewer";
-import { Sources } from "./sources.enum";
-import styles from "./SourcePanel.module.scss";
+import { Sources } from './sources.enum';
+import styles from './SourcePanel.module.scss';
+
+const Mirador = lazy(async () => {
+  const module = await import('./Mirador');
+  return { default: module.Mirador };
+});
+
+const PDFViewer = lazy(async () => {
+  const module = await import('./PDFViewer/PDFViewer');
+  return { default: module.PDFViewer };
+});
 
 const sourceOptions: Option[] = [
-  { label: "CBL and UM images", value: Sources.Mirador },
-  { label: "Kenyon plates", value: Sources.KenyonPlates },
-  { label: "Peterson transcription", value: Sources.Peterson },
-  { label: "Kenyon transcription", value: Sources.KenyonText },
+  { label: 'CBL and UM images', value: Sources.Mirador },
+  { label: 'Kenyon plates', value: Sources.KenyonPlates },
+  { label: 'Peterson transcription', value: Sources.Peterson },
+  { label: 'Kenyon transcription', value: Sources.KenyonText }
 ];
 
 interface SourcePanelProps {
   closeViewer: () => void;
+  currentFolioIndex: number;
+  isPortrait?: boolean;
   manifestIndex: number;
   onChange: (_newSelection: Sources) => void;
+  onSelectFolio: (_newIndex: number) => void;
   selectedSourcePanels: Array<Sources | null>;
   source: Sources | null;
   toggleGuideModal: () => void;
 }
 
 type Option = { label: string; value: string };
+type FolioOption = { label: string; value: number };
+
+const folioOptions: FolioOption[] = manifests.map((manifest, index) => ({
+  label: `${manifest.folio} ${manifest.content}`,
+  value: index
+}));
 
 export const SourcePanel = ({
   closeViewer,
+  currentFolioIndex,
+  isPortrait = false,
   manifestIndex,
   onChange,
+  onSelectFolio,
   selectedSourcePanels,
   source,
-  toggleGuideModal,
+  toggleGuideModal
 }: SourcePanelProps): ReactElement => {
+  const [isFolioPickerOpen, setIsFolioPickerOpen] = useState<boolean>(false);
+  const [viewerRetryKey, setViewerRetryKey] = useState<number>(0);
+
   const handleSourceChange = (newSource: SingleValue<Option>): void => {
     if (!newSource) {
       return;
@@ -45,23 +68,46 @@ export const SourcePanel = ({
     onChange(newSource.value as Sources);
   };
 
+  const handleFolioChange = (newFolio: SingleValue<FolioOption>): void => {
+    if (!newFolio) {
+      return;
+    }
+
+    setIsFolioPickerOpen(false);
+    onSelectFolio(newFolio.value);
+  };
+
   const getContent = (): ReactElement | string => {
     if (!source) {
-      return "Select a source from the dropdown above";
+      return 'Select a source from the dropdown above';
     }
     return (
-      <ErrorBoundary>
-        {source === Sources.Mirador ? (
-          <Mirador
-            canvasIndex={manifests[manifestIndex].canvasIndex}
-            manifest={manifests[manifestIndex].url}
-          />
-        ) : (
-          <PDFViewer
-            source={source}
-            pageNumber={manifests[manifestIndex][`${source}Page`]}
-          />
-        )}
+      <ErrorBoundary
+        key={`${source}-${manifestIndex}-${viewerRetryKey}`}
+        fallback={
+          <div className={styles.ErrorRecovery} role="alert">
+            <p>Unable to load this image.</p>
+            <button type="button" onClick={() => setViewerRetryKey(key => key + 1)}>
+              Retry
+            </button>
+          </div>
+        }
+      >
+        <Suspense fallback={<div className={styles.Loading}>Loading viewer...</div>}>
+          {source === Sources.Mirador ? (
+            <Mirador
+              canvasIndex={manifests[manifestIndex].canvasIndex}
+              manifest={manifests[manifestIndex].url}
+              isPortrait={isPortrait}
+            />
+          ) : (
+            <PDFViewer
+              isPortrait={isPortrait}
+              source={source}
+              pageNumber={manifests[manifestIndex][`${source}Page`]}
+            />
+          )}
+        </Suspense>
       </ErrorBoundary>
     );
   };
@@ -70,9 +116,8 @@ export const SourcePanel = ({
     if (source === Sources.Peterson) {
       return (
         <p className={styles.Item}>
-          Peterson, Jacob W. &quot;GA 1739: A Monk, His Manuscript, and the Text
-          of Paul&apos;s Letters.&quot; PhD Thesis, University of Edinburgh,
-          2020. (
+          Peterson, Jacob W. &quot;GA 1739: A Monk, His Manuscript, and the Text of Paul&apos;s
+          Letters.&quot; PhD Thesis, University of Edinburgh, 2020. (
           <a
             href="http://dx.doi.org/10.7488/era/528"
             target="_blank"
@@ -87,31 +132,29 @@ export const SourcePanel = ({
     } else if (source === Sources.KenyonText) {
       return (
         <p className={styles.Item}>
-          Kenyon, Frederic G., ed.{" "}
+          Kenyon, Frederic G., ed.{' '}
           <i>
-            The Chester Beatty Biblical Papyri, Fasciculus III, Supplement:
-            Pauline Epistles, Text.
-          </i>{" "}
+            The Chester Beatty Biblical Papyri, Fasciculus III, Supplement: Pauline Epistles, Text.
+          </i>{' '}
           London: Emery Walker, 1936.
         </p>
       );
     } else if (source === Sources.KenyonPlates) {
       return (
         <p className={styles.Item}>
-          Kenyon, Frederic G., ed.{" "}
+          Kenyon, Frederic G., ed.{' '}
           <i>
-            The Chester Beatty Biblical Papyri, Fasciculus III, Supplement:
-            Pauline Epistles, Plates.
-          </i>{" "}
+            The Chester Beatty Biblical Papyri, Fasciculus III, Supplement: Pauline Epistles,
+            Plates.
+          </i>{' '}
           London: Emery Walker, 1937.
         </p>
       );
     } else {
       return (
         <p className={styles.Item}>
-          Images from both the Chester Beatty Library and University of Michigan
-          Library are provided under a Creative Commons license. For more
-          information, see{" "}
+          Images from both the Chester Beatty Library and University of Michigan Library are
+          provided under a Creative Commons license. For more information, see{' '}
           <a
             href="https://chesterbeatty.ie/about/copyright-2/"
             target="_blank"
@@ -119,8 +162,8 @@ export const SourcePanel = ({
             className={styles.Link}
           >
             Chester Beatty Library
-          </a>{" "}
-          and{" "}
+          </a>{' '}
+          and{' '}
           <a
             href="https://quod.lib.umich.edu/a/apis/x-3553/6238_30.TIF?lasttype=boolean;lastview=reslist;resnum=1;size=50;sort=apis_inv;start=1;subview=detail;view=entry;rgn1=apis_inv;select1=phrase;q1=P.Mich.inv.+6238#rights-permissions"
             target="_blank"
@@ -137,28 +180,59 @@ export const SourcePanel = ({
   return (
     <div className={styles.Container}>
       <div className={styles.Header}>
+        {isPortrait && (
+          <>
+            <button
+              aria-expanded={isFolioPickerOpen}
+              aria-label="Choose folio"
+              className={styles.FolioButton}
+              onClick={() => setIsFolioPickerOpen(true)}
+            >
+              <Sliders aria-hidden="true" size={18} />
+              Folio
+            </button>
+            {isFolioPickerOpen && (
+              <div className={styles.FolioPicker}>
+                <Select
+                  aria-label="Choose folio"
+                  autoFocus
+                  classNames={{
+                    control: () => styles.Control,
+                    menu: () => styles.Menu,
+                    option: () => styles.Option
+                  }}
+                  menuIsOpen
+                  onChange={handleFolioChange}
+                  onMenuClose={() => setIsFolioPickerOpen(false)}
+                  options={folioOptions}
+                  value={folioOptions[currentFolioIndex]}
+                />
+              </div>
+            )}
+          </>
+        )}
         <Select
           aria-label="Choose viewer source"
           classNames={{
             control: () => styles.Control,
             menu: () => styles.Menu,
-            option: () => styles.Option,
+            option: () => styles.Option
           }}
-          theme={(theme) => ({
+          theme={theme => ({
             ...theme,
             colors: {
               ...theme.colors,
-              primary: "#00333d",
-              primary25: "#dbf5fb",
-              primary50: "#00667a",
-            },
+              primary: '#00333d',
+              primary25: '#dbf5fb',
+              primary50: '#00667a'
+            }
           })}
           value={sourceOptions.find(({ value }) => value === source) || null}
           onChange={handleSourceChange}
           captureMenuScroll
           menuShouldBlockScroll
           options={sourceOptions.filter(
-            (option) => !selectedSourcePanels.includes(option.value as Sources),
+            option => !selectedSourcePanels.includes(option.value as Sources)
           )}
           isSearchable
         />
@@ -172,23 +246,20 @@ export const SourcePanel = ({
               Help
             </button>
           )}
-          <div
-            aria-label="info tooltip"
-            className={styles.Tooltip}
-            tabIndex={0}
-            role="button"
-          >
+          <button type="button" aria-label="info tooltip" className={styles.Tooltip}>
             <Info size={18} />
             <span className={styles.TooltipText}>{getHelpText()}</span>
-          </div>
-          <button
-            aria-label="Close viewer"
-            onClick={closeViewer}
-            className={styles.IconButton}
-            disabled={selectedSourcePanels.length < 2}
-          >
-            <X />
           </button>
+          {!isPortrait && (
+            <button
+              aria-label="Close viewer"
+              onClick={closeViewer}
+              className={styles.IconButton}
+              disabled={selectedSourcePanels.length < 2}
+            >
+              <X />
+            </button>
+          )}
         </div>
       </div>
       <div className={styles.Content}>{getContent()}</div>

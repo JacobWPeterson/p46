@@ -10,32 +10,11 @@
   box-sizing: border-box;
   overflow-y: hidden;
 
-  .Rotate {
-    display: none;
-    color: theme.$primary03;
-    text-align: center;
-
-    @media (orientation: portrait) {
-      display: flex;
-      margin: auto;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .Image {
-      margin: auto;
-      width: 70%;
-    }
-  }
-
   .ContentWrapper {
     display: flex;
     flex-direction: column;
     height: 100%;
-
-    @media (orientation: portrait) {
-      display: none;
-    }
+    min-height: 0;
 
     .Header {
       position: absolute;
@@ -150,10 +129,17 @@
     .DisplayWrapper {
       border-top: 1px solid theme.$grey03;
       display: flex;
-      height: 100%;
+      flex: 1;
+      min-height: 0;
       width: 100%;
       z-index: 1;
       gap: 4px;
+    }
+
+    @media (orientation: portrait) {
+      .DisplayWrapper {
+        flex-direction: column;
+      }
     }
   }
 }
