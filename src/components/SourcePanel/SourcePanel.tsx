@@ -58,6 +58,7 @@ export const SourcePanel = ({
   toggleGuideModal
 }: SourcePanelProps): ReactElement => {
   const [isFolioPickerOpen, setIsFolioPickerOpen] = useState<boolean>(false);
+  const [viewerRetryKey, setViewerRetryKey] = useState<number>(0);
 
   const handleSourceChange = (newSource: SingleValue<Option>): void => {
     if (!newSource) {
@@ -81,7 +82,17 @@ export const SourcePanel = ({
       return 'Select a source from the dropdown above';
     }
     return (
-      <ErrorBoundary>
+      <ErrorBoundary
+        key={`${source}-${manifestIndex}-${viewerRetryKey}`}
+        fallback={
+          <div className={styles.ErrorRecovery} role="alert">
+            <p>Unable to load this image.</p>
+            <button type="button" onClick={() => setViewerRetryKey(key => key + 1)}>
+              Retry
+            </button>
+          </div>
+        }
+      >
         <Suspense fallback={<div className={styles.Loading}>Loading viewer...</div>}>
           {source === Sources.Mirador ? (
             <Mirador

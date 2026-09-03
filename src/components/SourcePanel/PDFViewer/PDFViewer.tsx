@@ -66,6 +66,8 @@ export const PDFViewer = ({
   const [containerWidth, setContainerWidth] = useState<number>();
   const [scale, setScale] = useState<number>(savedPosition?.scale ?? 1);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [loadError, setLoadError] = useState<boolean>(false);
+  const [documentKey, setDocumentKey] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const pinchStartDistance = useRef<number | null>(null);
   const pinchStartScale = useRef<number>(1);
@@ -195,6 +197,18 @@ export const PDFViewer = ({
 
   const onDocumentLoadSuccess = (): void => {
     setIsLoading(false);
+    setLoadError(false);
+  };
+
+  const onDocumentLoadError = (): void => {
+    setIsLoading(false);
+    setLoadError(true);
+  };
+
+  const retryDocument = (): void => {
+    setLoadError(false);
+    setIsLoading(true);
+    setDocumentKey(previousKey => previousKey + 1);
   };
 
   useEffect(() => {
@@ -233,35 +247,48 @@ export const PDFViewer = ({
 
   return (
     <div ref={containerRef} className={styles.Container}>
-      {isLoading && <div className={styles.Loading}>Loading...</div>}
-      {source === Sources.KenyonPlates ? (
-        <Document
-          file={(pageNumber as number) <= 83 ? `/files/${source}1.pdf` : `/files/${source}2.pdf`}
-          onLoadSuccess={onDocumentLoadSuccess}
-        >
-          <Page
-            pageNumber={
-              (pageNumber as number) <= 83 ? (pageNumber as number) : (pageNumber as number) - 83
-            }
-            scale={scale}
-          />
-        </Document>
-      ) : (
-        <Document
-          file={`/files/${source}.pdf`}
-          onLoadSuccess={onDocumentLoadSuccess}
-          options={options}
-        >
-          {source === Sources.KenyonText ? (
-            Array.from(
-              { length: (pageNumber as KenyonTextPageType).range },
-              (_, index) => (pageNumber as KenyonTextPageType).start + index
-            ).map(pageNumber => <Page key={pageNumber} pageNumber={pageNumber} scale={scale} />)
-          ) : (
-            <Page pageNumber={pageNumber as number} scale={scale} />
-          )}
-        </Document>
+      {isLoading && !loadError && <div className={styles.Loading}>Loading...</div>}
+      {loadError && (
+        <div className={styles.Error} role="alert">
+          <p>Unable to load this file.</p>
+          <button type="button" onClick={retryDocument}>
+            Retry
+          </button>
+        </div>
       )}
+      {!loadError &&
+        (source === Sources.KenyonPlates ? (
+          <Document
+            key={documentKey}
+            file={(pageNumber as number) <= 83 ? `/files/${source}1.pdf` : `/files/${source}2.pdf`}
+            onLoadSuccess={onDocumentLoadSuccess}
+            onLoadError={onDocumentLoadError}
+          >
+            <Page
+              pageNumber={
+                (pageNumber as number) <= 83 ? (pageNumber as number) : (pageNumber as number) - 83
+              }
+              scale={scale}
+            />
+          </Document>
+        ) : (
+          <Document
+            key={documentKey}
+            file={`/files/${source}.pdf`}
+            onLoadSuccess={onDocumentLoadSuccess}
+            onLoadError={onDocumentLoadError}
+            options={options}
+          >
+            {source === Sources.KenyonText ? (
+              Array.from(
+                { length: (pageNumber as KenyonTextPageType).range },
+                (_, index) => (pageNumber as KenyonTextPageType).start + index
+              ).map(pageNumber => <Page key={pageNumber} pageNumber={pageNumber} scale={scale} />)
+            ) : (
+              <Page pageNumber={pageNumber as number} scale={scale} />
+            )}
+          </Document>
+        ))}
       {!isPortrait && (
         <div className={styles.Controls} style={{ width: containerWidth }}>
           <button

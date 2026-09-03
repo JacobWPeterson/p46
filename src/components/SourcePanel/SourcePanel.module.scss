@@ -230,6 +230,40 @@
     color: theme.$grey08;
     font-style: italic;
   }
+
+  .ErrorRecovery {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: theme.$grey08;
+
+    p {
+      margin: 0;
+    }
+
+    button {
+      border: 1px solid theme.$grey03;
+      border-radius: 6px;
+      padding: 6px 12px;
+      background: theme.$grey00;
+      color: theme.$grey10;
+      cursor: pointer;
+      font-family: Montserrat, sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+
+      &:hover,
+      &:focus-visible {
+        border-color: theme.$primary04;
+        background: theme.$primary04;
+        color: theme.$grey00;
+        outline: none;
+      }
+    }
+  }
 }
 
 :global(.PortraitViewer) {
