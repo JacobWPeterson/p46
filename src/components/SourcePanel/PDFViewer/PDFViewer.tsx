@@ -43,6 +43,17 @@ const getSavedPosition = (
   }
 };
 
+const savePositionToStorage = (
+  source: Sources,
+  pageNumber: number | KenyonTextPageType,
+  position: PdfPosition
+): void => {
+  try {
+    window.sessionStorage.setItem(positionKey(source, pageNumber), JSON.stringify(position));
+  } catch {
+    // Session storage can be unavailable in private browsing.
+  }
+};
 const getScrollContainer = (container: HTMLElement): HTMLElement => {
   const candidates = [container, ...Array.from(container.querySelectorAll<HTMLElement>('*'))];
   return (
@@ -290,20 +301,7 @@ export const PDFViewer = ({
         scrollTop: scrollContainer.scrollTop
       };
 
-      persistPosition();
-    };
-
-    const persistPosition = (): void => {
-      try {
-        window.sessionStorage.setItem(
-          positionKey(source, pageNumber),
-          JSON.stringify({
-            ...currentPosition.current
-          })
-        );
-      } catch {
-        // Session storage can be unavailable in private browsing.
-      }
+      savePositionToStorage(source, pageNumber, currentPosition.current);
     };
 
     let saveFrame: number | undefined;
@@ -319,6 +317,7 @@ export const PDFViewer = ({
         scrollLeft: scrollContainer.scrollLeft,
         scrollTop: scrollContainer.scrollTop
       };
+      savePositionToStorage(source, pageNumber, currentPosition.current);
 
       if (saveFrame !== undefined) {
         cancelAnimationFrame(saveFrame);
@@ -334,7 +333,7 @@ export const PDFViewer = ({
       if (saveFrame !== undefined) {
         cancelAnimationFrame(saveFrame);
       }
-      persistPosition();
+      savePositionToStorage(source, pageNumber, currentPosition.current);
       window.removeEventListener('pagehide', savePosition);
       container.removeEventListener('scroll', savePositionAfterScroll, true);
     };

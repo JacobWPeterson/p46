@@ -62,22 +62,20 @@ describe('PDFViewer', () => {
     await waitFor(() => expect(Document).toHaveBeenCalledTimes(2));
   });
 
-  it('should save and restore scroll position', () => {
+  it('should restore saved scroll position', async () => {
     const scrollTo = vi
       .spyOn(HTMLElement.prototype, 'scrollTo')
       .mockImplementation(() => undefined);
-    const { container, unmount } = render(<PDFViewer source={Sources.Peterson} pageNumber={1} />);
-    const viewer = container.firstElementChild as HTMLElement;
-    Object.defineProperties(viewer, {
-      scrollLeft: { configurable: true, value: 12 },
-      scrollTop: { configurable: true, value: 34 }
-    });
-    fireEvent.scroll(viewer);
-    unmount();
+    sessionStorage.setItem(
+      'p46:pdf-position:peterson:1',
+      JSON.stringify({ scale: 1, scrollLeft: 12, scrollTop: 34 })
+    );
 
     render(<PDFViewer source={Sources.Peterson} pageNumber={1} />);
+    const onLoadSuccess = Document.mock.calls[0][0].onLoadSuccess as () => void;
+    onLoadSuccess();
 
-    expect(scrollTo).toHaveBeenCalledWith(12, 34);
+    await waitFor(() => expect(scrollTo).toHaveBeenCalledWith(12, 34));
     scrollTo.mockRestore();
   });
 
