@@ -65,7 +65,7 @@
     "@typescript-eslint/eslint-plugin": "^8.69.0",
     "@typescript-eslint/parser": "^8.69.0",
     "@vitejs/plugin-react-swc": "^4.3.3",
-    "@vitest/ui": "4.1.11",
+    "@vitest/ui": "5.0.0",
     "baseline-browser-mapping": "^2.11.21",
     "classnames": "2.5.1",
     "eslint": "^9.39.2",
